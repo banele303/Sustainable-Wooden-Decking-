@@ -36,7 +36,7 @@ const articles = [
     id: 2,
     title: 'SANS 10082 Compliance: Building Regulations for Raised Decks in South Africa',
     excerpt: 'Before building an elevated deck, understand South Africa\'s safety codes. A guide to foundations, handrails, and engineers sign-offs.',
-    image: '/images/navigation_layout.png',
+    image: '/images/raised_deck_blueprint.png',
     date: 'June 29, 2026',
     author: 'Structural Engineering Board',
     readTime: '5 min read',
