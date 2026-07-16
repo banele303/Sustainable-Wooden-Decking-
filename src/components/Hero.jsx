@@ -1,280 +1,355 @@
 import React, { useState, useEffect } from 'react';
 
-const HERO_TABS = [
-  {
-    id: 'bamboo-decking',
-    label: 'Moso Bamboo Decking',
-    headline: 'Carbon-Negative MOSO® Bamboo Decking',
-    image: '/images/tanda_tula_walkway.jpg',
-    price: 'From R1,850 / m²',
-    specs: 'MOSO® Bamboo X-treme® · Class 1 Durability · 25-Year Warranty'
-  },
-  {
-    id: 'bamboo-flooring',
-    label: 'Moso Bamboo Flooring',
-    headline: 'High-Density Sustainable Bamboo Flooring',
-    image: '/images/hero_sofa_deck.jpg',
-    price: 'From R1,200 / m²',
-    specs: 'Class-Leading Janka Hardness · Eco-Friendly · Scratch Resistant'
-  },
-  {
-    id: 'hardwood-decking',
-    label: 'Hardwood Decking',
-    headline: 'Premium Responsibly-Sourced Wood Decking',
-    image: '/images/timber_decking.png',
-    price: 'From R1,800 / m²',
-    specs: 'Garapa, Balau & Teak · SANS Structural Compliant · Natural UV Oil'
-  },
-  {
-    id: 'engineered-flooring',
-    label: 'Engineered Wood Flooring',
-    headline: 'Luxury Natural Wood Flooring for Interiors',
-    image: '/images/project_modern_house.png',
-    price: 'From R1,350 / m²',
-    specs: 'French Oak & Walnut Textures · Stable Core · Premium Finishes'
-  }
+const BG_IMAGES = [
+  '/images/tanda_tula_walkway.jpg',
+  '/images/timber_decking.png',
+  '/images/hero_sofa_deck.jpg',
+  '/images/project_modern_house.png',
+];
+
+const STATS = [
+  { value: '250+', label: 'Projects Done' },
+  { value: '25yr', label: 'MOSO® Warranty' },
+  { value: '100%', label: 'Eco-Friendly' },
+  { value: '5★', label: 'Client Rating' },
 ];
 
 export default function Hero({ setView }) {
-  const [activeTabIdx, setActiveTabIdx] = useState(0);
+  const [bgIdx, setBgIdx] = useState(0);
   const [promptInput, setPromptInput] = useState('');
   const [isInputFocused, setIsInputFocused] = useState(false);
 
-  const currentTab = HERO_TABS[activeTabIdx];
-
-  // Auto rotate tabs every 8 seconds, unless user clicks
+  // Auto-rotate background every 6s
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveTabIdx((prev) => (prev + 1) % HERO_TABS.length);
-    }, 8000);
+      setBgIdx(prev => (prev + 1) % BG_IMAGES.length);
+    }, 6000);
     return () => clearInterval(interval);
   }, []);
 
   const handlePromptSubmit = (e) => {
     e.preventDefault();
     if (!promptInput.trim()) return;
-    // Save to localStorage so Visualizer.jsx can pick it up on mount
-    localStorage.setItem('top3k_hero_prompt', promptInput);
+    localStorage.setItem('swdf_hero_prompt', promptInput);
     setView('visualizer');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <section className="hero-section" style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', padding: '160px 0 80px' }}>
-      
-      {/* Immersive Background Images (Crossfading with lower opacity for text contrast) */}
-      {HERO_TABS.map((tab, idx) => (
+    <section style={{
+      position: 'relative',
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      overflow: 'hidden',
+      padding: '120px 0 80px',
+    }}>
+
+      {/* ── Crossfading background images ── */}
+      {BG_IMAGES.map((src, idx) => (
         <div
-          key={tab.id}
+          key={src}
           style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundImage: `url('${tab.image}')`,
+            position: 'absolute', inset: 0,
+            backgroundImage: `url('${src}')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            opacity: idx === activeTabIdx ? 0.28 : 0,
-            filter: 'brightness(0.9)',
-            transition: 'opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1)',
-            zIndex: 1
+            opacity: idx === bgIdx ? 0.22 : 0,
+            transition: 'opacity 1.6s cubic-bezier(0.16,1,0.3,1)',
+            zIndex: 1,
           }}
         />
       ))}
 
-      {/* Dark Radial Vignette for Typography Readability */}
+      {/* ── Layered gradient overlay ── */}
       <div style={{
-        position: 'absolute',
-        inset: 0,
-        background: 'radial-gradient(circle at center, rgba(5, 5, 5, 0.1) 0%, rgba(5, 5, 5, 0.65) 75%, rgba(5, 5, 5, 0.85) 100%), linear-gradient(to bottom, rgba(5, 5, 5, 0.25) 0%, rgba(5, 5, 5, 0.8) 100%)',
-        zIndex: 2
-      }}></div>
+        position: 'absolute', inset: 0, zIndex: 2,
+        background: `
+          radial-gradient(ellipse at 60% 40%, rgba(60,168,70,0.09) 0%, transparent 55%),
+          radial-gradient(ellipse at 20% 80%, rgba(197,126,59,0.08) 0%, transparent 50%),
+          linear-gradient(to bottom, rgba(5,5,5,0.55) 0%, rgba(5,5,5,0.85) 100%)
+        `,
+      }} />
 
-      {/* Content Container */}
+      {/* ── Animated grain texture ── */}
+      <div style={{
+        position: 'absolute', inset: 0, zIndex: 3,
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E")`,
+        opacity: 0.6,
+        pointerEvents: 'none',
+      }} />
+
+      {/* ── Content ── */}
       <div className="container" style={{ position: 'relative', zIndex: 10, width: '100%' }}>
-        
-        {/* Interactive Navigation Tabs */}
         <div style={{
           display: 'flex',
-          justifyContent: 'center',
-          gap: '12px',
-          flexWrap: 'wrap',
-          marginBottom: '40px'
+          flexDirection: 'column',
+          alignItems: 'center',
+          textAlign: 'center',
+          gap: '0',
         }}>
-          {HERO_TABS.map((tab, idx) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTabIdx(idx)}
-              className={`hero-tab-btn ${idx === activeTabIdx ? 'active' : ''}`}
-              style={{ textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}
-            >
-              {tab.label}
-              {idx === activeTabIdx && <span key={idx} className="hero-tab-progress" />}
-            </button>
-          ))}
-        </div>
 
-        {/* Main Hero Split Grid */}
-        <div className="hero-grid-container">
-          
-          {/* Left Column: Typography Stack & Search */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            
-            {/* Glowing animated badge */}
-            <div style={{ display: 'inline-flex', alignSelf: 'flex-start' }}>
-              <span 
-                key={`specs-${activeTabIdx}`} 
-                className="badge hero-badge-animate" 
-                style={{ 
-                  color: 'var(--accent-secondary)', 
-                  background: 'rgba(229, 169, 59, 0.08)',
-                  border: '1px solid rgba(229, 169, 59, 0.2)',
-                  padding: '6px 16px',
-                  borderRadius: '100px',
-                  fontSize: '0.82rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.05em',
-                  textTransform: 'uppercase',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.5)'
-                }}
-              >
-                ✨ {currentTab.specs}
-              </span>
-            </div>
-            
-            {/* Headline */}
-            <h1 
-              key={`title-${activeTabIdx}`}
-              className="hero-headline-animate" 
-              style={{
-                fontSize: 'clamp(2.4rem, 4.5vw, 3.6rem)',
-                fontWeight: 900,
-                lineHeight: 1.15,
-                textTransform: 'uppercase',
-                margin: 0,
-                background: 'linear-gradient(135deg, #ffffff 40%, var(--accent-primary) 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                letterSpacing: '-0.02em',
-                filter: 'drop-shadow(0 4px 10px rgba(0, 0, 0, 0.8))'
-              }}
-            >
-              {currentTab.headline}
-            </h1>
+          {/* Eco badge */}
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: '8px',
+            padding: '6px 18px',
+            borderRadius: '100px',
+            background: 'rgba(60,168,70,0.1)',
+            border: '1px solid rgba(60,168,70,0.3)',
+            backdropFilter: 'blur(12px)',
+            marginBottom: '32px',
+            animation: 'heroTextFadeIn 0.6s ease forwards',
+          }}>
+            <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#22c55e', display: 'inline-block', boxShadow: '0 0 8px #22c55e' }} />
+            <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--accent-eco)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+              Johannesburg's Eco-Decking Specialists
+            </span>
+          </div>
 
-            {/* Subtitle / Paragraph */}
-            <p style={{
-              color: 'var(--text-secondary)',
-              fontSize: '1.05rem',
-              lineHeight: 1.6,
-              margin: 0,
-              maxWidth: '540px',
-              textShadow: '0 2px 4px rgba(0,0,0,0.5)'
-            }}>
-              Sustainable Wooden Decking and Flooring SA (Pty) Ltd — Johannesburg's premier supplier and installer of eco-friendly Moso Bamboo and premium hardwood decking & flooring solutions.
-            </p>
+          {/* Main headline */}
+          <h1 style={{
+            fontSize: 'clamp(2.6rem, 6vw, 5rem)',
+            fontWeight: 900,
+            lineHeight: 1.08,
+            letterSpacing: '-0.03em',
+            margin: '0 0 8px 0',
+            fontFamily: 'var(--font-heading)',
+            background: 'linear-gradient(135deg, #ffffff 0%, #e8d5b0 50%, var(--accent-eco) 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            filter: 'drop-shadow(0 4px 24px rgba(0,0,0,0.6))',
+            animation: 'heroTextFadeIn 0.7s 0.1s ease both',
+            maxWidth: '900px',
+          }}>
+            Sustainable Wooden<br />Decking & Flooring
+          </h1>
 
-            {/* AI Prompt Box */}
-            <form onSubmit={handlePromptSubmit} className="hero-search-form" style={{
+          {/* Company name badge */}
+          <p style={{
+            fontSize: 'clamp(0.85rem, 1.5vw, 1rem)',
+            fontWeight: 600,
+            color: 'var(--accent-secondary)',
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+            margin: '0 0 28px 0',
+            animation: 'heroTextFadeIn 0.7s 0.2s ease both',
+          }}>
+            SA (Pty) Ltd · 36 Sarie Street, Ridgeway, Johannesburg
+          </p>
+
+          {/* Description */}
+          <p style={{
+            fontSize: 'clamp(1rem, 1.8vw, 1.15rem)',
+            color: 'rgba(255,255,255,0.7)',
+            lineHeight: 1.7,
+            maxWidth: '620px',
+            margin: '0 0 40px 0',
+            animation: 'heroTextFadeIn 0.7s 0.3s ease both',
+          }}>
+            We supply and install premium MOSO® Bamboo and hardwood decking & flooring.
+            Carbon-negative, built to last, and beautifully crafted for South African homes.
+          </p>
+
+          {/* AI Search bar */}
+          <form
+            onSubmit={handlePromptSubmit}
+            style={{
               width: '100%',
-              maxWidth: '580px',
+              maxWidth: '600px',
               position: 'relative',
-              background: 'rgba(20, 20, 25, 0.65)',
+              background: 'rgba(15,15,20,0.7)',
               border: '1px solid',
-              borderColor: isInputFocused ? 'var(--accent-primary)' : 'var(--border-glass)',
+              borderColor: isInputFocused ? 'var(--accent-eco)' : 'rgba(255,255,255,0.1)',
               borderRadius: '100px',
-              padding: '8px',
-              backdropFilter: 'var(--glass-blur)',
-              boxShadow: isInputFocused 
-                ? '0 0 30px rgba(197, 126, 59, 0.25), 0 20px 50px rgba(0,0,0,0.6)' 
-                : '0 20px 50px rgba(0,0,0,0.5)',
+              padding: '6px 6px 6px 24px',
+              backdropFilter: 'blur(24px)',
+              boxShadow: isInputFocused
+                ? '0 0 0 3px rgba(60,168,70,0.15), 0 24px 60px rgba(0,0,0,0.5)'
+                : '0 24px 60px rgba(0,0,0,0.4)',
               display: 'flex',
               alignItems: 'center',
-              transition: 'var(--transition)',
-              marginTop: '10px'
-            }}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" strokeWidth="2.5" style={{ marginLeft: '20px', flexShrink: 0 }}><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-              <input
+              gap: '12px',
+              transition: 'all 0.3s cubic-bezier(0.16,1,0.3,1)',
+              marginBottom: '32px',
+              animation: 'heroTextFadeIn 0.7s 0.4s ease both',
+            }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2.5" style={{ flexShrink: 0 }}>
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input
               type="text"
-              placeholder="Ask our AI estimator about bamboo decking or custom wood flooring..."
+              placeholder="Ask about bamboo decking prices, installations..."
               value={promptInput}
-              onChange={(e) => setPromptInput(e.target.value)}
+              onChange={e => setPromptInput(e.target.value)}
               onFocus={() => setIsInputFocused(true)}
               onBlur={() => setIsInputFocused(false)}
               style={{
-                flexGrow: 1,
-                background: 'none',
-                border: 'none',
-                color: '#fff',
-                padding: '12px 16px',
-                fontSize: '1rem',
-                outline: 'none'
+                flexGrow: 1, background: 'none', border: 'none',
+                color: '#fff', fontSize: '0.95rem', outline: 'none',
+                padding: '10px 0',
               }}
             />
-            <button type="submit" className="btn btn-primary" style={{
-              padding: '12px 28px',
-              fontSize: '0.9rem',
-              borderRadius: '100px',
-              whiteSpace: 'nowrap'
-            }}>
-              Consult AI
+            <button
+              type="submit"
+              style={{
+                padding: '12px 26px',
+                borderRadius: '100px',
+                background: 'linear-gradient(135deg, var(--accent-eco) 0%, #2d8f3a 100%)',
+                border: 'none', color: '#fff',
+                fontSize: '0.88rem', fontWeight: 700,
+                cursor: 'pointer', whiteSpace: 'nowrap',
+                transition: 'all 0.3s ease',
+                boxShadow: '0 4px 16px rgba(60,168,70,0.4)',
+              }}
+              onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.04)'}
+              onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+            >
+              Ask AI ✦
             </button>
-            </form>
+          </form>
 
-            {/* Action Buttons */}
-            <div className="hero-ctas" style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '10px' }}>
-              <button onClick={() => setView('calculator')} className="btn btn-primary" style={{ padding: '16px 32px', minWidth: '180px' }}>
-                🛠️ Cost Estimator
-              </button>
-              <button onClick={() => setView('projects')} className="btn btn-secondary" style={{ padding: '16px 32px', minWidth: '180px' }}>
-                📐 View Portfolio
-              </button>
-            </div>
-
+          {/* CTA Buttons */}
+          <div style={{
+            display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center',
+            marginBottom: '64px',
+            animation: 'heroTextFadeIn 0.7s 0.5s ease both',
+          }}>
+            <button
+              onClick={() => setView('quote')}
+              style={{
+                padding: '15px 36px',
+                borderRadius: '100px',
+                background: 'linear-gradient(135deg, var(--accent-primary) 0%, #a3622a 100%)',
+                border: 'none', color: '#fff',
+                fontSize: '1rem', fontWeight: 700,
+                cursor: 'pointer',
+                boxShadow: '0 8px 32px rgba(197,126,59,0.35)',
+                transition: 'all 0.3s ease',
+                letterSpacing: '0.02em',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 14px 40px rgba(197,126,59,0.45)'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(197,126,59,0.35)'; }}
+            >
+              Get Free Quote
+            </button>
+            <button
+              onClick={() => setView('calculator')}
+              style={{
+                padding: '15px 36px',
+                borderRadius: '100px',
+                background: 'rgba(255,255,255,0.06)',
+                border: '1px solid rgba(255,255,255,0.18)',
+                color: '#fff',
+                fontSize: '1rem', fontWeight: 600,
+                cursor: 'pointer', backdropFilter: 'blur(12px)',
+                transition: 'all 0.3s ease',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)'; }}
+            >
+              🛠 Cost Estimator
+            </button>
+            <button
+              onClick={() => setView('projects')}
+              style={{
+                padding: '15px 36px',
+                borderRadius: '100px',
+                background: 'rgba(60,168,70,0.08)',
+                border: '1px solid rgba(60,168,70,0.25)',
+                color: 'var(--accent-eco)',
+                fontSize: '1rem', fontWeight: 600,
+                cursor: 'pointer', backdropFilter: 'blur(12px)',
+                transition: 'all 0.3s ease',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(60,168,70,0.15)'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(60,168,70,0.08)'; }}
+            >
+              View Portfolio
+            </button>
           </div>
 
-          {/* Right Column: Visual Showcase Deck Frame */}
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div className="hero-showcase-frame floating-element">
-              
-              {/* Showcase Image */}
-              <img 
-                src={currentTab.image} 
-                alt={currentTab.label} 
-                className="hero-showcase-img"
-                key={`showcase-img-${activeTabIdx}`}
-                style={{
-                  animation: 'heroTextFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards'
-                }}
-              />
-              
-              {/* Interactive details overlay inside frame */}
-              <div className="hero-showcase-overlay" key={`overlay-${activeTabIdx}`} style={{
-                animation: 'heroTextFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards'
-              }}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--accent-secondary)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                      {currentTab.label} SPEC
-                    </span>
-                    <span style={{ fontSize: '0.72rem', color: '#22c55e', background: 'rgba(34,197,94,0.1)', padding: '2px 8px', borderRadius: '4px', fontWeight: 700 }}>
-                      ACTIVE
-                    </span>
-                  </div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fff', margin: 0 }}>
-                    {currentTab.headline}
-                  </h3>
-                  <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', marginTop: '8px', paddingTop: '8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Budget Projection:</span>
-                    <span style={{ fontSize: '1.05rem', color: 'var(--accent-primary)', fontWeight: 800 }}>{currentTab.price}</span>
-                  </div>
+          {/* ── Stats row ── */}
+          <div style={{
+            display: 'flex',
+            gap: '12px',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            animation: 'heroTextFadeIn 0.7s 0.6s ease both',
+          }}>
+            {STATS.map((stat, i) => (
+              <div key={i} style={{
+                padding: '16px 28px',
+                borderRadius: '16px',
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                backdropFilter: 'blur(16px)',
+                textAlign: 'center',
+                minWidth: '110px',
+                transition: 'all 0.3s ease',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(60,168,70,0.08)'; e.currentTarget.style.borderColor = 'rgba(60,168,70,0.25)'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; }}
+              >
+                <div style={{
+                  fontSize: 'clamp(1.4rem, 3vw, 2rem)',
+                  fontWeight: 900,
+                  fontFamily: 'var(--font-heading)',
+                  background: 'linear-gradient(135deg, var(--accent-eco), var(--accent-secondary))',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  lineHeight: 1.1,
+                }}>
+                  {stat.value}
+                </div>
+                <div style={{
+                  fontSize: '0.75rem',
+                  color: 'rgba(255,255,255,0.5)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  marginTop: '4px',
+                  fontWeight: 600,
+                }}>
+                  {stat.label}
                 </div>
               </div>
+            ))}
+          </div>
 
+          {/* Scroll cue */}
+          <div style={{
+            marginTop: '56px',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px',
+            opacity: 0.4,
+            animation: 'heroTextFadeIn 1s 1s ease both',
+          }}>
+            <span style={{ fontSize: '0.72rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#fff' }}>Scroll to explore</span>
+            <div style={{
+              width: '24px', height: '38px', borderRadius: '12px',
+              border: '1.5px solid rgba(255,255,255,0.3)',
+              display: 'flex', alignItems: 'flex-start', justifyContent: 'center',
+              padding: '5px',
+            }}>
+              <div style={{
+                width: '4px', height: '8px', borderRadius: '2px',
+                background: '#fff',
+                animation: 'scrollCue 1.8s infinite',
+              }} />
             </div>
           </div>
 
         </div>
       </div>
-      
+
+      {/* Scroll cue keyframe */}
+      <style>{`
+        @keyframes scrollCue {
+          0%   { opacity: 1; transform: translateY(0); }
+          80%  { opacity: 0; transform: translateY(14px); }
+          100% { opacity: 0; transform: translateY(14px); }
+        }
+      `}</style>
     </section>
   );
 }
