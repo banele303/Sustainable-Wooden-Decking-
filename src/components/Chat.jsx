@@ -1,14 +1,14 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 
 /* ─── Magalela AI Knowledge Base ─────────────────────────────────────────── */
-const SYSTEM_PERSONA = `You are Magalela Assistent, the AI project consultant for Magalela Trading & Projects, a premium construction company based in Midrand, South Africa. You are professional, knowledgeable, and precise. You specialize in:
+const SYSTEM_PERSONA = `You are top3k AI Assistant, the AI project consultant for top3k Decking, a premium construction company based in Midrand, South Africa. You are professional, knowledgeable, and precise. You specialize in:
 - Composite Decking (Eva-Last, MoistureShield, Innofibe, R1,650/m² average installed)
 - Timber Decking (Garapa, Balau, and treated structural Pine)
 - Swimming Pool Construction (custom concrete/marbelite and fibreglass pool shells)
 - Custom Pergolas and Patio Gazebos (freestanding, wall-mounted, oiled timbers)
 - General Building Construction & Renovations (NHBRC registered, double-story extensions)
 - SANS 10400 Building Compliance (raised decks safety, handrail specs, structural posts)
-Office Address: Block G, 3rd Floor, Hertford Office Park, 90 Bekker Rd, Vorna Valley, Midrand, 1686. Hours: Mon-Fri 8AM-5PM, Sat 9AM-1PM. Phone: +27 87 510 1772. Email: info@magalelatrading.co.za.
+Office Address: Block G, 3rd Floor, Hertford Office Park, 90 Bekker Rd, Vorna Valley, Midrand, 1686. Hours: Mon-Fri 8AM-5PM, Sat 9AM-1PM. Phone: +27 87 510 1772. Email: info@top3kdecking.co.za.
 Always keep responses concise, bulleted, and localized to South Africa (ZAR).`;
 
 /* ─── Local fallback matching engine ─────────────────────────────────────── */
@@ -18,23 +18,23 @@ const buildFallbackResponse = (userMessages) => {
   if (lastMsg.match(/composite|eva-last|moistureshield|innofibe|plastic deck/)) {
     return `**Premium Composite Decking** is our most requested outdoor solution:\n\n• **Zero Maintenance:** No sanding, oiling, or sealing required. Simple soap-and-water cleaning.\n• **High Durability:** 15 to 25-year manufacturer warranties against warping, rotting, fading, and termites.\n• **Neat Installation:** Installed using a hidden clip system for a clean, screw-free finish.\n• **Top Brands:** We install Eva-Last, MoistureShield, and Innofibe composite ranges.\n• **Cost:** Starts from **R1,650 per m²** installed (includes structural subframe and labor).`;
   } else if (lastMsg.match(/timber|wood|balau|garapa|pine|hardwood|softwood/)) {
-    return `**Natural Wood Decking Options at Magalela:**\n\n• **Garapa (Hardwood):** Highly durable, rot-resistant hardwood with a beautiful golden hue. Highly recommended. From R1,800/m².\n• **Balau (Hardwood):** Dense, classic reddish-brown hardwood. Excellent lifespan but requires oiling. From R1,900/m².\n• **Treated Pine (Softwood):** Cost-effective structural timber pressure-treated to H3/H4 standard to resist wood rot and termites. From R1,100/m².\n• **Maintenance:** Timber decks must be sanded and sealed with a penetrating timber oil (like Woodoc or Cutek) once or twice a year to preserve color and prevent splintering.`;
+    return `**Natural Wood Decking Options at top3k Decking:**\n\n• **Garapa (Hardwood):** Highly durable, rot-resistant hardwood with a beautiful golden hue. Highly recommended. From R1,800/m².\n• **Balau (Hardwood):** Dense, classic reddish-brown hardwood. Excellent lifespan but requires oiling. From R1,900/m².\n• **Treated Pine (Softwood):** Cost-effective structural timber pressure-treated to H3/H4 standard to resist wood rot and termites. From R1,100/m².\n• **Maintenance:** Timber decks must be sanded and sealed with a penetrating timber oil (like Woodoc or Cutek) once or twice a year to preserve color and prevent splintering.`;
   } else if (lastMsg.match(/pool|swimming pool|marbelite|fibreglass|fiberglass/)) {
-    return `**Swimming Pool Construction at Magalela:**\n\n• **Concrete Marbelite Pools:** Fully customized shapes, shotcrete concrete shells, hand-plastered white/blue marbelite finish, and granite coping surrounds. From R85,000.\n• **Fibreglass Shell Pools:** Fast installation, pre-formed shells from leading South African manufacturers, smooth non-porous surface. From R70,000.\n• **Filtration:** We supply premium sand filters, energy-efficient pumps, LED lighting, and automated salt chlorinators.\n• **Compliance:** Excavations are SANS compliant, with soil tests and engineering sign-offs for complex slopes.`;
+    return `**Swimming Pool Construction at top3k Decking:**\n\n• **Concrete Marbelite Pools:** Fully customized shapes, shotcrete concrete shells, hand-plastered white/blue marbelite finish, and granite coping surrounds. From R85,000.\n• **Fibreglass Shell Pools:** Fast installation, pre-formed shells from leading South African manufacturers, smooth non-porous surface. From R70,000.\n• **Filtration:** We supply premium sand filters, energy-efficient pumps, LED lighting, and automated salt chlorinators.\n• **Compliance:** Excavations are SANS compliant, with soil tests and engineering sign-offs for complex slopes.`;
   } else if (lastMsg.match(/pergola|gazebo|shading|roof/)) {
     return `**Custom Pergolas & Shading Structures:**\n\n• **Timber Framing:** Built from structural grade structural Pine, Balau, or Garapa wood.\n• **Designs:** Custom slatted rafters for architectural shading or solid-roof integrations with polycarbonate sheeting and gutters.\n• **Anchoring:** Posts are securely bolted to concrete structural footings or heavy deck frames.\n• **Pricing:** Custom designs start from **R12,000** depending on sizing, wood species, and wall-mounting options.`;
   } else if (lastMsg.match(/sans|regulation|code|law|safety|height|engineer|council|municipal/)) {
     return `**Raised Deck & Pool Regulations (SANS 10400 South Africa):**\n\n• **Elevation Limit:** Any deck raised more than 300mm above ground level requires council-approved architectural drawings.\n• **Structural Engineer:** Decks higher than 1.5 meters require structural engineer certification and signed structural details.\n• **Safety Handrails:** Must be at least 1.0 meter high, with vertical balustrade slats spaced no more than 100mm apart (so children cannot slide through).\n• **Pool Fencing:** Pools must be secured with safety fences at least 1.2m high with self-closing gates to comply with SANS regulations.`;
   } else if (lastMsg.match(/price|cost|how much|rate|estimate|rands|zar/)) {
-    return `**Magalela Trading & Projects Price Guide (Estimated ZAR):**\n\n• **Composite Decking:** R1,650 – R2,400 / m² installed.\n• **Garapa Hardwood Deck:** R1,800 – R2,300 / m² installed.\n• **Treated Pine Deck:** R1,100 – R1,400 / m² installed.\n• **Swimming Pools:** R75,000 – R150,000 (standard sizes).\n• **Timber Pergolas:** R12,000 – R35,000.\n• **Architectural Plans:** R8,000 – R18,000 for standard submissions.\n\nUse our interactive **Cost Calculator** on the navbar for a detailed breakdown, or book a site visit!`;
+    return `**top3k Decking Price Guide (Estimated ZAR):**\n\n• **Composite Decking:** R1,650 – R2,400 / m² installed.\n• **Garapa Hardwood Deck:** R1,800 – R2,300 / m² installed.\n• **Treated Pine Deck:** R1,100 – R1,400 / m² installed.\n• **Swimming Pools:** R75,000 – R150,000 (standard sizes).\n• **Timber Pergolas:** R12,000 – R35,000.\n• **Architectural Plans:** R8,000 – R18,000 for standard submissions.\n\nUse our interactive **Cost Calculator** on the navbar for a detailed breakdown, or book a site visit!`;
   } else if (lastMsg.match(/building|construction|renovat|extension|brickwork|nhbrc/)) {
     return `**Building Construction & Alterations:**\n\n• **NHBRC Registered:** We are fully registered with the National Home Builders Registration Council, ensuring all brickwork and concrete structures are certified.\n• **Home Extensions:** We build ground-floor extensions, double-story additions, concrete slabs, boundary walls, and modern paving.\n• **Project Management:** All sites have dedicated, qualified project supervisors to ensure SANS code compliance.\n• **Consultations:** Request a consultation, and we will quote based on your architect\'s municipal drawings.`;
   } else if (lastMsg.match(/hour|open|close|time|when|schedule|location|address|where|midrand|johannesburg|gauteng/)) {
-    return `**Magalela Trading & Projects - Office Details:**\n\n• 📍 **Head Office:** Block G, 3rd Floor, Hertford Office Park, 90 Bekker Rd, Vorna Valley, Midrand, 1686\n• 🕐 **Hours:** Monday – Friday: 08:00 AM – 05:00 PM | Saturday: 09:00 AM – 01:00 PM\n• 📞 **Phone:** +27 87 510 1772 / +27 71 854 6609\n• 📧 **Email:** info@magalelatrading.co.za\n\nWe service the entire Gauteng province (Midrand, Sandton, Pretoria, East Rand, West Rand) and have satellite teams in Cape Town and Durban.`;
+    return `**top3k Decking - Office Details:**\n\n• 📍 **Head Office:** Block G, 3rd Floor, Hertford Office Park, 90 Bekker Rd, Vorna Valley, Midrand, 1686\n• 🕐 **Hours:** Monday – Friday: 08:00 AM – 05:00 PM | Saturday: 09:00 AM – 01:00 PM\n• 📞 **Phone:** +27 87 510 1772 / +27 71 854 6609\n• 📧 **Email:** info@top3kdecking.co.za\n\nWe service the entire Gauteng province (Midrand, Sandton, Pretoria, East Rand, West Rand) and have satellite teams in Cape Town and Durban.`;
   } else if (lastMsg.match(/hello|hi|hey|good|start|help/)) {
-    return `Welcome to **Magalela AI Construction Consult** 👋\n\nI'm Magalela Assistent, your virtual construction assistant. How can I help you build today?\n\n• 🪵 **Composite vs Timber** - material specs & pricing\n• 🏊 **Swimming Pools** - marbelite vs fibreglass installs\n• 🏡 **Pergolas & Extensions** - shade structures & NHBRC building\n• 📏 **SANS 10400 Regulations** - safety guidelines for raised decks\n• 📍 **Office details, location, and site consultations**`;
+    return `Welcome to **top3k Decking AI Consult** 👋\n\nI'm top3k AI Assistant, your virtual construction assistant. How can I help you build today?\n\n• 🪵 **Composite vs Timber** - material specs & pricing\n• 🏊 **Swimming Pools** - marbelite vs fibreglass installs\n• 🏡 **Pergolas & Extensions** - shade structures & NHBRC building\n• 📏 **SANS 10400 Regulations** - safety guidelines for raised decks\n• 📍 **Office details, location, and site consultations**`;
   }
-  return `Thank you for your question. As Magalela\'s AI project consultant, I can help you with:\n\n• **Decking Options:** Composite board brands, Balau or Garapa hardwood installations.\n• **Pool Builds:** Marbelite plastering, fibreglass shells, pool decking wraps.\n• **Structures:** Timber pergolas, home extensions, brick paving.\n• **SANS Compliance:** Safety codes for raised structures.\n• **Pricing (ZAR) & Location:** Midrand office details and site visits.\n\nCould you please rephrase your question around these construction services?`;
+  return `Thank you for your question. As top3k Decking's AI consultant, I can help you with:\n\n• **Decking Options:** Composite board brands, Balau or Garapa hardwood installations.\n• **Pool Builds:** Marbelite plastering, fibreglass shells, pool decking wraps.\n• **Structures:** Timber pergolas, home extensions, brick paving.\n• **SANS Compliance:** Safety codes for raised structures.\n• **Pricing (ZAR) & Location:** Midrand office details and site visits.\n\nCould you please rephrase your question around these construction services?`;
 };
 
 /* ─── Diagnostic Gauge Component ─────────────────────────────────────────── */
@@ -71,7 +71,7 @@ export default function Chat() {
     {
       id: 'init',
       role: 'assistant',
-      content: "Welcome to **Magalela AI Construction Consult** 👋\n\nI'm Magalela Assistent, your structural project assistant. I can assist you with composite or timber decking specs, swimming pool concrete/fibreglass installations, pergolas, SANS building regulations, or Midrand contact details.\n\nWhat outdoor project can I help you plan today?"
+      content: "Welcome to **top3k Decking AI Consult** 👋\n\nI'm top3k AI Assistant, your structural project assistant. I can assist you with composite or timber decking specs, swimming pool concrete/fibreglass installations, pergolas, SANS building regulations, or Midrand contact details.\n\nWhat outdoor project can I help you plan today?"
     }
   ]);
 
@@ -244,11 +244,11 @@ export default function Chat() {
             {/* Header */}
             <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--color-border)', display: 'flex', alignItems: 'center', gap: '12px' }}>
               <div style={{ position: 'relative' }}>
-                <img src="/images/magalela_logo.png" alt="Magalela Assistent" style={{ width: '40px', height: '40px', objectFit: 'contain', background: '#fff', borderRadius: '50%', padding: '3px' }} />
+                <img src="/images/top3k_logo.jpg" alt="top3k AI Assistant" style={{ width: '40px', height: '40px', objectFit: 'contain', background: '#fff', borderRadius: '50%', padding: '3px' }} />
                 <span style={{ position: 'absolute', bottom: '-2px', right: '-2px', width: '10px', height: '10px', borderRadius: '50%', background: '#22c55e', border: '2px solid var(--color-bg-card)' }}></span>
               </div>
               <div style={{ textAlign: 'left' }}>
-                <div style={{ fontWeight: 700, color: '#fff', fontSize: '0.98rem' }}>Magalela Assistent <span className="chat-ai-badge" style={{ fontSize: '0.62rem', background: 'var(--color-gold-base)', color: 'var(--color-bg-deep)', padding: '2px 5px', borderRadius: '4px', marginLeft: '6px', fontWeight: 800 }}>AI</span></div>
+                <div style={{ fontWeight: 700, color: '#fff', fontSize: '0.98rem' }}>top3k AI Assistant <span className="chat-ai-badge" style={{ fontSize: '0.62rem', background: 'var(--color-gold-base)', color: 'var(--color-bg-deep)', padding: '2px 5px', borderRadius: '4px', marginLeft: '6px', fontWeight: 800 }}>AI</span></div>
                 <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>Online · Structural Engineering Assistant</div>
               </div>
             </div>
@@ -258,7 +258,7 @@ export default function Chat() {
               {messages.map((m) => (
                 <div key={m.id} style={{ display: 'flex', gap: '12px', justifyContent: m.role === 'user' ? 'flex-end' : 'flex-start' }}>
                   {m.role !== 'user' && (
-                    <img src="/images/magalela_logo.png" alt="" style={{ width: '32px', height: '32px', objectFit: 'contain', background: '#fff', borderRadius: '50%', padding: '2px', alignSelf: 'flex-start' }} />
+                    <img src="/images/top3k_logo.jpg" alt="" style={{ width: '32px', height: '32px', objectFit: 'contain', background: '#fff', borderRadius: '50%', padding: '2px', alignSelf: 'flex-start' }} />
                   )}
                   <div 
                     className={`chat-bubble ${m.role}`}
@@ -280,7 +280,7 @@ export default function Chat() {
 
               {isLoading && (
                 <div style={{ display: 'flex', gap: '12px' }}>
-                  <img src="/images/magalela_logo.png" alt="Magalela" style={{ width: '32px', height: '32px', objectFit: 'contain', background: '#fff', borderRadius: '50%', padding: '2px', alignSelf: 'flex-start' }} />
+                  <img src="/images/top3k_logo.jpg" alt="top3k AI Assistant" style={{ width: '32px', height: '32px', objectFit: 'contain', background: '#fff', borderRadius: '50%', padding: '2px', alignSelf: 'flex-start' }} />
                   <div style={{ padding: '14px 18px', borderRadius: '12px', background: 'var(--color-bg-sec)', border: '1px solid var(--color-border)' }}>
                     <div className="typing-indicator-v2" style={{ display: 'flex', gap: '4px' }}>
                       <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--color-text-muted)', display: 'inline-block', animation: 'typingBounce 1.4s infinite ease-in-out' }}></span>
@@ -312,7 +312,7 @@ export default function Chat() {
                 </button>
               </form>
               <p style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', margin: '8px 0 0 0', textAlign: 'left' }}>
-                Magalela Assistent provides estimations. All builds require detailed structural engineering drawings and site evaluations.
+                top3k AI Assistant provides estimations. All builds require detailed structural engineering drawings and site evaluations.
               </p>
             </div>
 

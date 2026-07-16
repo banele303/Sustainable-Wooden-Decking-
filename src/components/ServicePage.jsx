@@ -10,7 +10,7 @@ const serviceDetails = {
       { src: '/images/timber_decking.png', caption: 'Classic rectangular pool with timber copings' },
       { src: '/images/before_after_deck.png', caption: 'Full backyard renovation with pool integration' }
     ],
-    description: 'At Magalela Trading & Projects, we build swimming pools that are structural masterpieces. From custom-shaped marbelite pools to quick-install premium fibreglass shells, we handle excavation, structural steel reinforcement, concrete pouring, marbelite plastering, filtration installation, and final tiling.',
+    description: 'At top3k Decking, we build swimming pools that are structural masterpieces. From custom-shaped marbelite pools to quick-install premium fibreglass shells, we handle excavation, structural steel reinforcement, concrete pouring, marbelite plastering, filtration installation, and final tiling.',
     specsTitle: 'Pool Options Comparison',
     specsHeaders: ['Features', 'Marbelite Concrete', 'Fibreglass Shell'],
     specsRows: [
@@ -39,7 +39,7 @@ const serviceDetails = {
       timeline: '5 Weeks',
       budget: 'R145,000',
       description: 'The client requested an infinity-edge pool built on a sloping clay embankment. We engineered reinforced concrete columns to support the deck and pool shell, securing SANS certification and providing a spectacular view over the estate.',
-      clientQuote: '"Magalela turned our sloping backyard into a high-end resort. Extremely professional and fully compliant with estate rules." - Sarah K.'
+      clientQuote: '"top3k Decking turned our sloping backyard into a high-end resort. Extremely professional and fully compliant with estate rules." - Sarah K.'
     },
     faqs: [
       { q: 'How long does a concrete pool take to build?', a: 'Typically 4 to 6 weeks depending on weather, soil conditions, and excavation accessibility.' },
@@ -197,7 +197,7 @@ const serviceDetails = {
       { src: '/images/project_modern_house.png', caption: 'Modern double-story residential home construction' },
       { src: '/images/navigation_layout.png', caption: 'Concrete slab footing and foundation works' }
     ],
-    description: 'Magalela Trading & Projects is a NHBRC-registered building contractor. We construct new residential developments, complete home extensions, add double-story alterations, and perform commercial office updates with a focus on structural perfection and timely delivery.',
+    description: 'top3k Decking is a NHBRC-registered building contractor. We construct new residential developments, complete home extensions, add double-story alterations, and perform commercial office updates with a focus on structural perfection and timely delivery.',
     specsTitle: 'Residential Building Options',
     specsHeaders: ['Component', 'Double Brick Cavity', 'Lightweight Steel Frame'],
     specsRows: [
@@ -455,7 +455,7 @@ export default function ServicePage({ serviceId, setView }) {
                   onClick={() => setCalcSubframe('standard')}
                   style={{
                     padding: '16px',
-                    background: calcSubframe === 'standard' ? 'rgba(255, 94, 0, 0.1)' : 'rgba(0,0,0,0.3)',
+                    background: calcSubframe === 'standard' ? 'rgba(0, 82, 255, 0.1)' : 'rgba(0,0,0,0.3)',
                     border: calcSubframe === 'standard' ? '2px solid var(--accent-primary)' : '1px solid var(--border-glass)',
                     borderRadius: '12px',
                     cursor: 'pointer',
@@ -494,7 +494,7 @@ export default function ServicePage({ serviceId, setView }) {
               </div>
               <button 
                 onClick={() => {
-                  localStorage.setItem('magalela_hero_prompt', `Build a ${calcInput} size ${detail.title} with a ${calcSubframe} structural base`);
+                  localStorage.setItem('top3k_hero_prompt', `Build a ${calcInput} size ${detail.title} with a ${calcSubframe} structural base`);
                   setView('calculator');
                 }} 
                 className="btn btn-primary"
@@ -509,7 +509,7 @@ export default function ServicePage({ serviceId, setView }) {
       </section>
 
       {/* 6. SANS 10400 Building Compliance Section */}
-      <section className="section-padding" style={{ background: 'rgba(255, 94, 0, 0.02)' }}>
+      <section className="section-padding" style={{ background: 'rgba(0, 82, 255, 0.02)' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '0.8fr 1.2fr', gap: '50px', alignItems: 'center' }}>
             <div>
@@ -570,7 +570,7 @@ export default function ServicePage({ serviceId, setView }) {
 
             <div style={{ display: 'flex', gap: '16px', background: 'rgba(255, 255, 255, 0.02)', padding: '16px 24px', borderRadius: '12px', border: '1px solid var(--border-glass)', fontSize: '0.9rem' }}>
               <div>💰 <strong>Project Budget:</strong> {detail.caseStudy.budget}</div>
-              <div>🏗️ <strong>Contractor:</strong> Magalela Trading (Turnkey)</div>
+              <div>🏗️ <strong>Contractor:</strong> top3k Decking (Turnkey)</div>
             </div>
           </div>
         </div>

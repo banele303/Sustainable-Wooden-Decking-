@@ -27,7 +27,7 @@ export default function Navbar({ setView, currentView, setServiceId }) {
         
         {/* Logo */}
         <button className="logo" onClick={() => handleLinkClick('landing')} style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
-          <img src="/images/magalela_logo.png" alt="Magalela" style={{ height: '54px', background: '#fff', borderRadius: '6px', padding: '2px' }} />
+          <img src="/images/top3k_logo.jpg" alt="top3k Decking" style={{ height: '54px', borderRadius: '6px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }} />
         </button>
         
         {/* Nav Menu */}
@@ -35,7 +35,7 @@ export default function Navbar({ setView, currentView, setServiceId }) {
           
           {/* Mobile Menu Header */}
           <div className="mobile-menu-header" style={{ display: 'none' }}>
-            <img src="/images/magalela_logo.png" alt="Magalela" style={{ height: '44px', background: '#fff', borderRadius: '4px', padding: '2px' }} />
+            <img src="/images/top3k_logo.jpg" alt="top3k Decking" style={{ height: '44px', borderRadius: '4px' }} />
             <button className="mobile-menu-close" onClick={() => setIsMobileOpen(false)} aria-label="Close menu">✕</button>
           </div>
 

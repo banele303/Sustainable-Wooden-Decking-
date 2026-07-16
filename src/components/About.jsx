@@ -8,7 +8,7 @@ export default function About({ setView }) {
           <span className="badge">Who We Are</span>
           <h2 className="section-title">Design-Led Outdoor Development</h2>
           <p className="section-desc">
-            Magalela Trading & Projects is a premier construction firm based in Midrand. We design and construct premium outdoor environments that seamlessly integrate swimming pools, timber framing, composite decking, and compliant layouts.
+            top3k Decking is a premier design-led construction firm based in Midrand. We design and construct premium outdoor environments that seamlessly integrate swimming pools, timber framing, composite decking, and compliant layouts.
           </p>
         </div>
         

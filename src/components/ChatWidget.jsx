@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-const systemPrompt = `You are Magalela Assistent, an expert structural project assistant for Magalela Trading & Projects located in Midrand, South Africa. You specialize in answering questions about:
+const systemPrompt = `You are top3k AI Assistant, an expert structural project assistant for top3k Decking located in Midrand, South Africa. You specialize in answering questions about:
 - Composite Decking (Eva-Last, MoistureShield) starting at R1,650/m2
 - Timber Decking (Garapa, Balau, Pine) starting at R1,800/m2
 - Swimming Pools (Concrete Marbelite, Fibreglass) starting at R85,000
 - Custom Timber Pergolas starting at R12,000
 - SANS 10400 building regulations and safety compliances.
-Contact: +27 87 510 1772, info@magalelatrading.co.za
+Contact: +27 87 510 1772, info@top3kdecking.co.za
 Keep answers concise, extremely helpful, and format with markdown/bullet points where necessary. Never mention that you are an AI.`;
 
 const buildFallbackResponse = (userMessages) => {
@@ -15,9 +15,9 @@ const buildFallbackResponse = (userMessages) => {
   if (lastMsg.match(/composite|eva-last|moistureshield|innofibe|plastic deck/)) {
     return `**Premium Composite Decking** is our most requested outdoor solution:\n\n• **Zero Maintenance:** No sanding, oiling, or sealing required.\n• **High Durability:** 15 to 25-year manufacturer warranties against warping and rotting.\n• **Neat Installation:** Hidden clip system for a clean, screw-free finish.\n• **Cost:** Starts from **R1,650 per m²** installed (includes subframe and labor).`;
   } else if (lastMsg.match(/timber|wood|balau|garapa|pine|hardwood|softwood/)) {
-    return `**Natural Wood Decking Options at Magalela:**\n\n• **Garapa (Hardwood):** Highly durable golden timber. From R1,800/m².\n• **Balau (Hardwood):** Classic reddish-brown hardwood. Requires annual oiling. From R1,900/m².\n• **Treated Pine (Softwood):** Cost-effective structural timber treated to H3/H4 specifications. From R1,100/m².`;
+    return `**Natural Wood Decking Options at top3k Decking:**\n\n• **Garapa (Hardwood):** Highly durable golden timber. From R1,800/m².\n• **Balau (Hardwood):** Classic reddish-brown hardwood. Requires annual oiling. From R1,900/m².\n• **Treated Pine (Softwood):** Cost-effective structural timber treated to H3/H4 specifications. From R1,100/m².`;
   } else if (lastMsg.match(/pool|swimming pool|marbelite|fibreglass|fiberglass/)) {
-    return `**Swimming Pool Construction at Magalela:**\n\n• **Concrete Marbelite Pools:** Custom shapes, concrete shells, marbelite plaster finishes. From R85,000.\n• **Fibreglass Pools:** Pre-formed shells, fast 1-2 week installation. From R70,000.\n• **SANS Compliance:** We manage structural engineer sign-offs and soil tests.`;
+    return `**Swimming Pool Construction at top3k Decking:**\n\n• **Concrete Marbelite Pools:** Custom shapes, concrete shells, marbelite plaster finishes. From R85,000.\n• **Fibreglass Pools:** Pre-formed shells, fast 1-2 week installation. From R70,000.\n• **SANS Compliance:** We manage structural engineer sign-offs and soil tests.`;
   } else if (lastMsg.match(/pergola|gazebo|shading|roof/)) {
     return `**Custom Pergolas & Shading:**\n\n• **Framing:** Treated structural Pine, Balau, or Garapa hardwood.\n• **Options:** Angled slatted timber for shade, or clear polycarbonate roofing for waterproofing.\n• **Pricing:** Custom builds starting from **R12,000**.`;
   } else if (lastMsg.match(/sans|regulation|code|law|safety|height|engineer|council|municipal/)) {
@@ -25,11 +25,11 @@ const buildFallbackResponse = (userMessages) => {
   } else if (lastMsg.match(/price|cost|how much|rate|estimate/)) {
     return `**Quick Price Guide (ZAR):**\n\n• Composite Decking: R1,650 – R2,400 / m².\n• Hardwood Decking: R1,800 – R2,300 / m².\n• Pools: From R85,000.\n• Pergolas: From R12,000.\n\nUse our interactive **Cost Calculator** on the navbar for a detailed breakdown!`;
   } else if (lastMsg.match(/location|address|hours|where|office|midrand|gauteng/)) {
-    return `📍 **Office Address:** Block G, 3rd Floor, Hertford Office Park, 90 Bekker Rd, Vorna Valley, Midrand, 1686\n• **Hours:** Mon-Fri 8AM-5PM, Sat 9AM-1PM\n• **Phone:** +27 87 510 1772\n• **Email:** info@magalelatrading.co.za`;
+    return `📍 **Office Address:** Block G, 3rd Floor, Hertford Office Park, 90 Bekker Rd, Vorna Valley, Midrand, 1686\n• **Hours:** Mon-Fri 8AM-5PM, Sat 9AM-1PM\n• **Phone:** +27 87 510 1772\n• **Email:** info@top3kdecking.co.za`;
   } else if (lastMsg.match(/hello|hi|hey|good/)) {
-    return `Welcome to **Magalela AI Construction Consult** 👋\n\nHow can I help you plan your outdoor space today?\n\n• 🪵 Composite vs Timber decking specs\n• 🏊 Swimming Pools concrete/fibreglass\n• 🏡 Pergolas & building extensions\n• 📏 SANS 10400 Safety Codes`;
+    return `Welcome to **top3k Decking AI Consult** 👋\n\nHow can I help you plan your outdoor space today?\n\n• 🪵 Composite vs Timber decking specs\n• 🏊 Swimming Pools concrete/fibreglass\n• 🏡 Pergolas & building extensions\n• 📏 SANS 10400 Safety Codes`;
   }
-  return `Thank you for your question. As Magalela's project assistant, I can help you with composite/timber decking, custom pools, timber pergolas, and SANS compliance. Could you please specify which service you'd like details on?`;
+  return `Thank you for your question. As top3k Decking's project assistant, I can help you with composite/timber decking, custom pools, timber pergolas, and SANS compliance. Could you please specify which service you'd like details on?`;
 };
 
 const renderText = (text) =>
@@ -47,7 +47,7 @@ export default function ChatWidget() {
     {
       id: 'w-init',
       role: 'assistant',
-      content: "Hi! I'm Magalela Assistent 👋 I'm your AI structural project assistant. Ask me about composite/timber decking, swimming pools, pergolas, safety regulations, or our Midrand office!"
+      content: "Hi! I'm top3k AI Assistant 👋 I'm your AI structural project assistant. Ask me about composite/timber decking, swimming pools, pergolas, safety regulations, or our Midrand office!"
     }
   ]);
 
@@ -125,11 +125,11 @@ export default function ChatWidget() {
           style={{ padding: '6px', background: '#fff', border: '2px solid var(--accent-primary)', overflow: 'hidden' }}
         >
           <img 
-            src="/images/magalela_logo.png" 
-            alt="Magalela Chat" 
+            src="/images/top3k_logo.jpg" 
+            alt="top3k Decking Chat" 
             style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '50%' }} 
           />
-          {unread > 0 && <span style={{ position: 'absolute', top: '-5px', right: '-5px', background: 'var(--accent-secondary)', color: '#000', width: '22px', height: '22px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', fontWeight: 'bold' }}>{unread}</span>}
+          {unread > 0 && <span style={{ position: 'absolute', top: '-5px', right: '-5px', background: 'var(--accent-secondary)', color: '#ffffff', width: '22px', height: '22px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', fontWeight: 'bold' }}>{unread}</span>}
         </button>
       )}
 
@@ -139,13 +139,13 @@ export default function ChatWidget() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <div style={{ position: 'relative' }}>
                 <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#fff', border: '1px solid var(--accent-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', padding: '2px' }}>
-                  <img src="/images/magalela_logo.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '50%' }} />
+                  <img src="/images/top3k_logo.jpg" alt="" style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '50%' }} />
                 </div>
-                <span style={{ position: 'absolute', bottom: 0, right: 0, width: '10px', height: '10px', background: '#00E5FF', borderRadius: '50%', border: '2px solid var(--color-border)' }}></span>
+                <span style={{ position: 'absolute', bottom: 0, right: 0, width: '10px', height: '10px', background: '#E5A93B', borderRadius: '50%', border: '2px solid var(--color-border)' }}></span>
               </div>
               <div>
-                <div style={{ fontWeight: 'bold', fontSize: '1rem' }}>Magalela Assistent <span style={{ fontSize: '0.65rem', background: 'var(--accent-primary)', color: '#000', padding: '2px 6px', borderRadius: '4px', marginLeft: '4px' }}>AI</span></div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{isLoading ? 'Puter AI Thinking...' : 'Online · Midrand Office'}</div>
+                <div style={{ fontWeight: 'bold', fontSize: '1rem' }}>top3k AI Assistant <span style={{ fontSize: '0.65rem', background: 'var(--accent-primary)', color: '#ffffff', padding: '2px 6px', borderRadius: '4px', marginLeft: '4px' }}>AI</span></div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{isLoading ? 'top3k AI Thinking...' : 'Online · Midrand Office'}</div>
               </div>
             </div>
             <button onClick={() => setOpen(false)} style={{ cursor: 'pointer', background: 'none', border: 'none', color: '#fff' }}>

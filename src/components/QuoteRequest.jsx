@@ -125,7 +125,7 @@ export default function QuoteRequest({ quoteData, setQuoteData }) {
               </div>
               <div>
                 <h5 style={{ margin: 0, color: '#fff', fontSize: '1rem' }}>Email Project Office</h5>
-                <p style={{ margin: '4px 0 0 0', color: 'var(--color-text-sec)', fontSize: '0.9rem' }}>info@magalelatrading.co.za</p>
+                <p style={{ margin: '4px 0 0 0', color: 'var(--color-text-sec)', fontSize: '0.9rem' }}>info@top3kdecking.co.za</p>
               </div>
             </div>
 
@@ -148,7 +148,7 @@ export default function QuoteRequest({ quoteData, setQuoteData }) {
               <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.3)', display: 'flex', alignItems: 'center', justifySelf: 'center', justifyContent: 'center', color: '#22c55e', fontSize: '2rem', marginBottom: '24px' }}>✓</div>
               <h3>Consultation Request Submitted</h3>
               <p style={{ color: 'var(--color-text-sec)', margin: '16px 0 24px 0', lineHeight: 1.6 }}>
-                Thank you for choosing Magalela Trading & Projects. Your request has been logged. A project manager will contact you at {formData.phone} or {formData.email} to confirm details and coordinate a site inspection.
+                Thank you for choosing top3k Decking. Your request has been logged. A project manager will contact you at {formData.phone} or {formData.email} to confirm details and coordinate a site inspection.
               </p>
               <button onClick={handleReset} className="btn btn-primary" style={{ cursor: 'pointer' }}>
                 Submit Another Request

@@ -156,7 +156,7 @@ export default function Calculator({ setView, setQuoteData }) {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             
             {/* Cost Breakdown Card */}
-            <div className="tool-panel" style={{ borderColor: 'var(--accent-primary)', boxShadow: '0 12px 30px rgba(255, 94, 0, 0.1)' }}>
+            <div className="tool-panel" style={{ borderColor: 'var(--accent-primary)', boxShadow: '0 12px 30px rgba(0, 82, 255, 0.1)' }}>
               <h3 style={{ fontSize: '1.4rem', color: 'var(--accent-primary)', marginBottom: '20px' }}>Estimated Cost Breakdown</h3>
               
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', borderBottom: '1px solid var(--border-glass)', paddingBottom: '16px', marginBottom: '16px' }}>

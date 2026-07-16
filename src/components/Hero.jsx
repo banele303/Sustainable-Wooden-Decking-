@@ -54,7 +54,7 @@ export default function Hero({ setView }) {
     e.preventDefault();
     if (!promptInput.trim()) return;
     // Save to localStorage so Visualizer.jsx can pick it up on mount
-    localStorage.setItem('magalela_hero_prompt', promptInput);
+    localStorage.setItem('top3k_hero_prompt', promptInput);
     setView('visualizer');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -175,7 +175,7 @@ export default function Hero({ setView }) {
             padding: '8px',
             backdropFilter: 'var(--glass-blur)',
             boxShadow: isInputFocused 
-              ? '0 0 30px rgba(255, 94, 0, 0.25), 0 20px 50px rgba(0,0,0,0.6)' 
+              ? '0 0 30px rgba(0, 82, 255, 0.25), 0 20px 50px rgba(0,0,0,0.6)' 
               : '0 20px 50px rgba(0,0,0,0.5)',
             display: 'flex',
             alignItems: 'center',
