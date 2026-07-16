@@ -65,18 +65,7 @@ export default function ChatWidget() {
     setMessages(prev => [...prev, userMsg]);
     setIsLoading(true);
     const conversationHistory = [...messages, userMsg];
-    let reply = '';
-    let fetched = false;
-
-    if (typeof window !== 'undefined' && window.puter?.ai) {
-      try {
-        const msgs = [{ role: 'system', content: systemPrompt }, ...conversationHistory.map(m => ({ role: m.role, content: m.content }))];
-        const response = await window.puter.ai.chat(msgs);
-        reply = typeof response === 'string' ? response : (response?.message?.content || JSON.stringify(response));
-        fetched = true;
-      } catch (err) { /* fallback */ }
-    }
-    if (!fetched) reply = buildFallbackResponse(conversationHistory);
+    const reply = buildFallbackResponse(conversationHistory);
 
     const assistantMsgId = Math.random().toString();
     setMessages(prev => [...prev, { id: assistantMsgId, role: 'assistant', content: '' }]);
