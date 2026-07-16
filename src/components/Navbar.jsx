@@ -27,7 +27,7 @@ export default function Navbar({ setView, currentView, setServiceId }) {
         
         {/* Logo */}
         <button className="logo" onClick={() => handleLinkClick('landing')} style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
-          <img src="/images/top3k_logo.jpg" alt="top3k Decking" style={{ height: '54px', borderRadius: '6px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }} />
+          <img src="/images/logo.png" alt="SWDF SA" style={{ height: '68px', borderRadius: '6px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)', objectFit: 'contain' }} />
         </button>
         
         {/* Nav Menu */}
@@ -35,7 +35,7 @@ export default function Navbar({ setView, currentView, setServiceId }) {
           
           {/* Mobile Menu Header */}
           <div className="mobile-menu-header" style={{ display: 'none' }}>
-            <img src="/images/top3k_logo.jpg" alt="top3k Decking" style={{ height: '44px', borderRadius: '4px' }} />
+            <img src="/images/logo.png" alt="SWDF SA" style={{ height: '58px', borderRadius: '4px', objectFit: 'contain' }} />
             <button className="mobile-menu-close" onClick={() => setIsMobileOpen(false)} aria-label="Close menu">✕</button>
           </div>
 
@@ -74,12 +74,12 @@ export default function Navbar({ setView, currentView, setServiceId }) {
               </svg>
             </button>
             <ul className={`dropdown-menu ${isServicesOpen ? 'mobile-show' : ''}`}>
-              <li><button onClick={() => handleLinkClick('service-detail', 'swimming-pool')}>Swimming Pools</button></li>
-              <li><button onClick={() => handleLinkClick('service-detail', 'outdoor-development')}>Outdoor Development</button></li>
-              <li><button onClick={() => handleLinkClick('service-detail', 'pergolas')}>Timber Pergolas</button></li>
-              <li><button onClick={() => handleLinkClick('service-detail', 'building-construction')}>Building Construction</button></li>
-              <li><button onClick={() => handleLinkClick('service-detail', 'architectural-design')}>Architectural Plans</button></li>
-              <li><button onClick={() => handleLinkClick('service-detail', 'composite-decking')}>Composite Decking</button></li>
+              <li><button onClick={() => handleLinkClick('service-detail', 'bamboo-decking')}>Moso Bamboo Decking</button></li>
+              <li><button onClick={() => handleLinkClick('service-detail', 'bamboo-flooring')}>Moso Bamboo Flooring</button></li>
+              <li><button onClick={() => handleLinkClick('service-detail', 'hardwood-decking')}>Hardwood Decking</button></li>
+              <li><button onClick={() => handleLinkClick('service-detail', 'engineered-flooring')}>Engineered Flooring</button></li>
+              <li><button onClick={() => handleLinkClick('service-detail', 'pergolas-cladding')}>Pergolas & Cladding</button></li>
+              <li><button onClick={() => handleLinkClick('service-detail', 'restoration-maintenance')}>Restoration & Maintenance</button></li>
             </ul>
           </div>
 

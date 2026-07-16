@@ -2,36 +2,36 @@ import React, { useState, useEffect } from 'react';
 
 const HERO_TABS = [
   {
-    id: 'decking',
-    label: 'Composite Decking',
-    headline: 'Maintenance-Free Luxury Composite Decking',
-    image: '/images/project_pool_deck.png',
-    price: 'From R1,650 / m²',
-    specs: '25-Year Warranty · UV Resistant · Barefoot Safe'
+    id: 'bamboo-decking',
+    label: 'Moso Bamboo Decking',
+    headline: 'Carbon-Negative MOSO® Bamboo Decking',
+    image: '/images/tanda_tula_walkway.jpg',
+    price: 'From R1,850 / m²',
+    specs: 'MOSO® Bamboo X-treme® · Class 1 Durability · 25-Year Warranty'
   },
   {
-    id: 'pools',
-    label: 'Swimming Pools',
-    headline: 'Custom Engineered Marbelite & Fibreglass Pools',
+    id: 'bamboo-flooring',
+    label: 'Moso Bamboo Flooring',
+    headline: 'High-Density Sustainable Bamboo Flooring',
+    image: '/images/hero_sofa_deck.jpg',
+    price: 'From R1,200 / m²',
+    specs: 'Class-Leading Janka Hardness · Eco-Friendly · Scratch Resistant'
+  },
+  {
+    id: 'hardwood-decking',
+    label: 'Hardwood Decking',
+    headline: 'Premium Responsibly-Sourced Wood Decking',
     image: '/images/timber_decking.png',
-    price: 'From R85,000 Complete',
-    specs: 'SANS Compliant · Concrete Shells · Full Filtration'
+    price: 'From R1,800 / m²',
+    specs: 'Garapa, Balau & Teak · SANS Structural Compliant · Natural UV Oil'
   },
   {
-    id: 'pergolas',
-    label: 'Timber Pergolas',
-    headline: 'Architectural Timber Pergolas & Shading',
-    image: '/images/project_patio_gazebo.png',
-    price: 'From R12,000 Installed',
-    specs: 'Garapa & Balau Hardwoods · UV Oiled · Solid Anchoring'
-  },
-  {
-    id: 'building',
-    label: 'Structural Building',
-    headline: 'NHBRC Registered General Construction',
+    id: 'engineered-flooring',
+    label: 'Engineered Wood Flooring',
+    headline: 'Luxury Natural Wood Flooring for Interiors',
     image: '/images/project_modern_house.png',
-    price: 'On Design Specification',
-    specs: 'Extensions · Boundary Walls · Turnkey Renovations'
+    price: 'From R1,350 / m²',
+    specs: 'French Oak & Walnut Textures · Stable Core · Premium Finishes'
   }
 ];
 
@@ -169,7 +169,7 @@ export default function Hero({ setView }) {
               maxWidth: '540px',
               textShadow: '0 2px 4px rgba(0,0,0,0.5)'
             }}>
-              top3k Decking builds structural masterpieces. From custom marbelite pools to maintenance-free composite decks, we transform your yard into a luxury living environment.
+              Sustainable Wooden Decking and Flooring SA (Pty) Ltd — Johannesburg's premier supplier and installer of eco-friendly Moso Bamboo and premium hardwood decking & flooring solutions.
             </p>
 
             {/* AI Prompt Box */}
@@ -193,30 +193,30 @@ export default function Hero({ setView }) {
             }}>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" strokeWidth="2.5" style={{ marginLeft: '20px', flexShrink: 0 }}><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
               <input
-                type="text"
-                placeholder="Describe what you want to build in your yard..."
-                value={promptInput}
-                onChange={(e) => setPromptInput(e.target.value)}
-                onFocus={() => setIsInputFocused(true)}
-                onBlur={() => setIsInputFocused(false)}
-                style={{
-                  flexGrow: 1,
-                  background: 'none',
-                  border: 'none',
-                  color: '#fff',
-                  padding: '12px 16px',
-                  fontSize: '1.02rem',
-                  outline: 'none'
-                }}
-              />
-              <button type="submit" className="btn btn-primary" style={{
-                padding: '12px 28px',
-                fontSize: '0.9rem',
-                borderRadius: '100px',
-                whiteSpace: 'nowrap'
-              }}>
-                Design with AI
-              </button>
+              type="text"
+              placeholder="Ask our AI estimator about bamboo decking or custom wood flooring..."
+              value={promptInput}
+              onChange={(e) => setPromptInput(e.target.value)}
+              onFocus={() => setIsInputFocused(true)}
+              onBlur={() => setIsInputFocused(false)}
+              style={{
+                flexGrow: 1,
+                background: 'none',
+                border: 'none',
+                color: '#fff',
+                padding: '12px 16px',
+                fontSize: '1rem',
+                outline: 'none'
+              }}
+            />
+            <button type="submit" className="btn btn-primary" style={{
+              padding: '12px 28px',
+              fontSize: '0.9rem',
+              borderRadius: '100px',
+              whiteSpace: 'nowrap'
+            }}>
+              Consult AI
+            </button>
             </form>
 
             {/* Action Buttons */}

@@ -34,45 +34,23 @@ export default function Footer({ setView, setServiceId }) {
         <div className="footer-brand" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <button 
             onClick={() => handleLinkClick('landing')}
-            style={{ cursor: 'pointer', background: 'none', border: 'none', display: 'flex', alignItems: 'center', gap: '16px', padding: 0 }}
+            style={{ cursor: 'pointer', background: 'none', border: 'none', display: 'flex', alignItems: 'center', padding: 0 }}
           >
             <img 
-              src="/images/top3k_logo.jpg" 
-              alt="top3k Decking Logo" 
-              style={{ height: '64px', borderRadius: '8px', boxShadow: '0 8px 24px rgba(0,0,0,0.5)', border: '1px solid rgba(197, 126, 59, 0.25)' }} 
+              src="/images/logo.png" 
+              alt="Sustainable Wooden Decking and Flooring SA Logo" 
+              style={{ height: '80px', objectFit: 'contain', filter: 'drop-shadow(0 4px 16px rgba(0,0,0,0.5))' }} 
               className="floating-element"
             />
-            <div style={{ textAlign: 'left' }}>
-              <span style={{ 
-                fontWeight: 900, 
-                fontSize: '1.6rem', 
-                fontFamily: 'var(--font-heading)', 
-                background: 'linear-gradient(135deg, #ffffff 30%, #C57E3B 100%)', 
-                WebkitBackgroundClip: 'text', 
-                WebkitTextFillColor: 'transparent', 
-                display: 'block', 
-                lineHeight: 1,
-                letterSpacing: '0.05em' 
-              }}>TOP3K</span>
-              <span style={{ 
-                fontSize: '0.7rem', 
-                display: 'block', 
-                letterSpacing: '0.22em', 
-                fontWeight: 800, 
-                color: '#E5A93B', 
-                marginTop: '4px',
-                textTransform: 'uppercase' 
-              }}>DECKING</span>
-            </div>
           </button>
           
           <p className="footer-desc" style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
-            top3k Decking is a premier design-led carpentry and outdoor construction firm in South Africa. Specializing in engineered composite and hardwood decking, custom pools, pergolas, and NHBRC registered building projects.
+            Sustainable Wooden Decking and Flooring SA (Pty) Ltd is South Africa's premier supplier and installer of eco-friendly, carbon-negative outdoor decking and indoor flooring, emphasizing Moso Bamboo.
           </p>
           
           <div className="footer-address" style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Block G, Hertford Office Park, Bekker Rd, Midrand</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-eco)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>36 Sarie Street, Ridgeway, Johannesburg, 2091</span>
           </div>
           
           <div className="social-links" style={{ display: 'flex', gap: '12px' }}>
@@ -92,15 +70,15 @@ export default function Footer({ setView, setServiceId }) {
         <div className="footer-links">
           <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '24px', letterSpacing: '0.05em', position: 'relative', display: 'inline-block' }}>
             Services
-            <span style={{ position: 'absolute', bottom: '-6px', left: 0, width: '20px', height: '2px', background: 'var(--accent-primary)' }}></span>
+            <span style={{ position: 'absolute', bottom: '-6px', left: 0, width: '20px', height: '2px', background: 'var(--accent-eco)' }}></span>
           </h4>
           <ul style={{ padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <li><button onClick={() => handleLinkClick('service-detail', 'composite-decking')} className="footer-link-cool">Composite Decking</button></li>
-            <li><button onClick={() => handleLinkClick('service-detail', 'swimming-pool')} className="footer-link-cool">Pool Construction</button></li>
-            <li><button onClick={() => handleLinkClick('service-detail', 'outdoor-development')} className="footer-link-cool">Outdoor Development</button></li>
-            <li><button onClick={() => handleLinkClick('service-detail', 'pergolas')} className="footer-link-cool">Timber Pergolas</button></li>
-            <li><button onClick={() => handleLinkClick('service-detail', 'building-construction')} className="footer-link-cool">Building Construction</button></li>
-            <li><button onClick={() => handleLinkClick('service-detail', 'architectural-design')} className="footer-link-cool">Architectural Design</button></li>
+            <li><button onClick={() => handleLinkClick('service-detail', 'bamboo-decking')} className="footer-link-cool">Moso Bamboo Decking</button></li>
+            <li><button onClick={() => handleLinkClick('service-detail', 'bamboo-flooring')} className="footer-link-cool">Moso Bamboo Flooring</button></li>
+            <li><button onClick={() => handleLinkClick('service-detail', 'hardwood-decking')} className="footer-link-cool">Hardwood Decking</button></li>
+            <li><button onClick={() => handleLinkClick('service-detail', 'engineered-flooring')} className="footer-link-cool">Engineered Flooring</button></li>
+            <li><button onClick={() => handleLinkClick('service-detail', 'pergolas-cladding')} className="footer-link-cool">Pergolas & Cladding</button></li>
+            <li><button onClick={() => handleLinkClick('service-detail', 'restoration-maintenance')} className="footer-link-cool">Restoration & Care</button></li>
           </ul>
         </div>
 
@@ -108,7 +86,7 @@ export default function Footer({ setView, setServiceId }) {
         <div className="footer-links">
           <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '24px', letterSpacing: '0.05em', position: 'relative', display: 'inline-block' }}>
             Company
-            <span style={{ position: 'absolute', bottom: '-6px', left: 0, width: '20px', height: '2px', background: 'var(--accent-primary)' }}></span>
+            <span style={{ position: 'absolute', bottom: '-6px', left: 0, width: '20px', height: '2px', background: 'var(--accent-eco)' }}></span>
           </h4>
           <ul style={{ padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <li><button onClick={() => handleLinkClick('about')} className="footer-link-cool">About Us</button></li>
@@ -124,7 +102,7 @@ export default function Footer({ setView, setServiceId }) {
         <div className="footer-newsletter" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '8px', letterSpacing: '0.05em', position: 'relative', display: 'inline-block' }}>
             Newsletter
-            <span style={{ position: 'absolute', bottom: '-6px', left: 0, width: '20px', height: '2px', background: 'var(--accent-primary)' }}></span>
+            <span style={{ position: 'absolute', bottom: '-6px', left: 0, width: '20px', height: '2px', background: 'var(--accent-eco)' }}></span>
           </h4>
           <p style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>Subscribe for our seasonal project journals and decking advice in South Africa.</p>
           
@@ -174,12 +152,11 @@ export default function Footer({ setView, setServiceId }) {
               </svg>
             </button>
           </form>
-          <div className={`newsletter-success ${isSubscribed ? 'active' : ''}`} style={{ fontSize: '0.85rem', color: 'var(--accent-secondary)' }}>
-            Thank you for subscribing to top3k Decking news!
+          <div className={`newsletter-success ${isSubscribed ? 'active' : ''}`} style={{ fontSize: '0.85rem', color: 'var(--accent-eco)' }}>
+            Thank you for subscribing to SWDF SA news!
           </div>
           <div className="footer-contact" style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.9rem' }}>
-            <p style={{ margin: 0 }}>📞 <a href="tel:+27875101772" style={{ color: 'var(--text-primary)', textDecoration: 'none' }}>+27 87 510 1772</a></p>
-            <p style={{ margin: 0 }}>✉️ <a href="mailto:info@top3kdecking.co.za" style={{ color: 'var(--text-primary)', textDecoration: 'none' }}>info@top3kdecking.co.za</a></p>
+            <p style={{ margin: 0 }}>✉️ <a href="mailto:swdandflooringsa@gmail.com" style={{ color: 'var(--text-primary)', textDecoration: 'none' }}>swdandflooringsa@gmail.com</a></p>
           </div>
         </div>
       </div>
@@ -193,22 +170,22 @@ export default function Footer({ setView, setServiceId }) {
           <div className="trust-badge-row" style={{ marginTop: 0 }}>
             <div className="trust-badge-card">
               <span>🛡️</span>
-              <span><strong>NHBRC</strong> Registered Builder</span>
+              <span><strong>Class 1</strong> Durability Rated</span>
             </div>
             <div className="trust-badge-card">
               <span>📐</span>
-              <span><strong>SANS 10400</strong> Structural Compliant</span>
+              <span><strong>SANS Compliant</strong> Installations</span>
             </div>
             <div className="trust-badge-card">
-              <span>🪵</span>
-              <span>Premium Eco-Composites</span>
+              <span>🌱</span>
+              <span><strong>100% Eco-Friendly</strong> Materials</span>
             </div>
           </div>
         </div>
       </div>
 
       <div className="container footer-bottom" style={{ borderTop: '1px solid rgba(255,255,255,0.06)', marginTop: '30px', paddingTop: '24px', paddingBottom: '32px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
-        <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-muted)' }}>&copy; 2026 top3k Decking. All rights reserved. NHBRC Registered Builder.</p>
+        <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-muted)' }}>&copy; 2026 Sustainable Wooden Decking and Flooring SA (Pty) Ltd. All rights reserved.</p>
         <div className="bottom-links" style={{ display: 'flex', gap: '24px', fontSize: '0.85rem' }}>
           <a href="#" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 0.2s ease' }} onMouseEnter={(e) => e.target.style.color = '#fff'} onMouseLeave={(e) => e.target.style.color = 'var(--text-muted)'}>Privacy Policy</a>
           <a href="#" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 0.2s ease' }} onMouseEnter={(e) => e.target.style.color = '#fff'} onMouseLeave={(e) => e.target.style.color = 'var(--text-muted)'}>Terms of Service</a>

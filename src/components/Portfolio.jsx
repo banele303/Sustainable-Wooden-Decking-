@@ -3,47 +3,47 @@ import React, { useState } from 'react';
 const projects = [
   {
     id: 1,
-    title: 'Modern Composite Pool Deck',
-    location: 'Waterfall Estate, Midrand',
-    category: 'composite',
-    image: '/images/project_pool_deck.png',
-    desc: 'Installation of low-maintenance charcoal composite decking boards around a clean geometric swimming pool, creating a seamless transition from the indoor lounge to the poolside.',
-    cost: 'R115,000 - R135,000',
-    time: '5 Days Build',
-    materials: ['Eva-Last Vorna Charcoal Composite', 'Galvanized Steel Subframe', 'Hidden Decking Clips'],
-    compliance: 'SANS 10400 Part M Balustrade Safe'
+    title: 'Tanda Tula Safari Camp Curved Walkway',
+    location: 'Timbavati Private Nature Reserve',
+    category: 'bamboo-decking',
+    image: '/images/tanda_tula_walkway.jpg',
+    desc: 'Supply and installation of MOSO® Bamboo X-treme® Decking. A stunning curved elevated walkway connecting safari suites with the main lodge, blending naturally into the wild environment.',
+    cost: 'R380,000 - R450,000',
+    time: '14 Days Build',
+    materials: ['MOSO® Bamboo X-treme® Decking', 'Galvanized Structural Subframe', 'Stainless Steel Cobra Clips'],
+    compliance: 'SANS 10400 Certified Elevated Walkway'
   },
   {
     id: 2,
-    title: 'Luxury Covered Patio & Gazebo',
-    location: 'Steyn City, Johannesburg',
-    category: 'pergolas',
-    image: '/images/project_patio_gazebo.png',
-    desc: 'A complete outdoor entertainment area featuring a structural gazebo frame, grey composite floor decking, and cozy integrated sofa seating.',
-    cost: 'R180,000 - R210,000',
+    title: 'Luxury Rooftop Deck & Pool Surround',
+    location: 'Bantry Bay, Cape Town',
+    category: 'bamboo-decking',
+    image: '/images/hero_sofa_deck.jpg',
+    desc: 'High-end rooftop residential deck featuring MOSO® Bamboo X-treme® Decking. High-density, carbon-negative boards selected for extreme weather exposure and architectural aesthetics.',
+    cost: 'R210,000 - R245,000',
     time: '8 Days Build',
-    materials: ['S5 Graded Structural Pine beams', 'Eva-Last Composite Boards', 'Vented Polycarbonate Roof'],
-    compliance: 'Excavation & Post Foundations Certified'
+    materials: ['MOSO® Bamboo X-treme® 20mm boards', 'Galvanized Subframe', 'Hidden Fasteners'],
+    compliance: 'Wind-load SABS Certified Structural Decking'
   },
   {
     id: 3,
-    title: 'Contemporary Villa Slatted Screen & Balcony',
-    location: 'Sandhurst, Sandton',
-    category: 'construction',
-    image: '/images/project_modern_house.png',
-    desc: 'Custom wooden slatted privacy screen panels and matching balcony decking installed on a newly completed double-story modern architectural home.',
-    cost: 'R95,000 - R110,000',
-    time: '4 Days Build',
-    materials: ['Siberian Larch slats', 'Balau hardwood decking', 'Stainless Steel brackets'],
-    compliance: 'SANS 10400 Height & Post Compliant'
+    title: 'Moso Bamboo Board Collection',
+    location: 'Johannesburg Showroom',
+    category: 'bamboo-flooring',
+    image: '/images/moso_bamboo_colors.jpg',
+    desc: 'Showcase of our premium Moso Bamboo flooring and decking range: X-treme Ipe, N-durance Ipe, and N-durance Savanna. These boards display different shades and textures suitable for both interior floors and exterior decks.',
+    cost: 'Products Showcase',
+    time: 'Available in Stock',
+    materials: ['Moso Bamboo X-treme Ipe', 'Moso Bamboo N-durance Ipe', 'Moso Bamboo N-durance Savanna'],
+    compliance: 'FSC Certified & Carbon-Negative'
   },
   {
     id: 4,
-    title: 'Premium Garapa Wood Pool Surround',
+    title: 'Premium Garapa Wood Deck',
     location: 'Constantia, Cape Town',
-    category: 'timber',
+    category: 'hardwood',
     image: '/images/timber_decking.png',
-    desc: 'Rich, golden Garapa hardwood timber decking laid with hidden under-deck fasteners around a luxury infinity pool with sparkling blue water.',
+    desc: 'Golden Garapa hardwood timber decking laid with hidden under-deck fasteners around a luxury infinity pool surround.',
     cost: 'R145,000 - R165,000',
     time: '6 Days Build',
     materials: ['Imported Garapa Timber', 'Hardwood bearers', 'Spax Stainless steel screws'],
@@ -51,27 +51,27 @@ const projects = [
   },
   {
     id: 5,
-    title: 'Sleek Charcoal Composite Decking Boards',
-    location: 'Umhlanga Ridge, Durban',
-    category: 'composite',
-    image: '/images/composite_boards.png',
-    desc: 'High-density composite boards showing the deep wood-grain texture and neat invisible clips installed on a heavy-duty subframe.',
-    cost: 'R75,000 - R85,000',
-    time: '3 Days Build',
-    materials: ['Charcoal Composite Boards', 'Galvanized Post anchors', 'Hidden Clips'],
-    compliance: 'Wind Load Load-span Certified'
+    title: 'Luxury Architectural Pergola & Deck',
+    location: 'Steyn City, Johannesburg',
+    category: 'pergolas-cladding',
+    image: '/images/project_patio_gazebo.png',
+    desc: 'A complete outdoor entertainment area featuring a structural wood pergola frame, grey composite floor decking, and cozy integrated sofa seating.',
+    cost: 'R180,000 - R210,000',
+    time: '8 Days Build',
+    materials: ['S5 Graded Structural Pine beams', 'Eva-Last Composite Boards', 'Vented Polycarbonate Roof'],
+    compliance: 'Excavation & Post Foundations Certified'
   },
   {
     id: 6,
-    title: 'Before & After Deck Restoration',
-    location: 'Kyalami, Midrand',
-    category: 'timber',
-    image: '/images/before_after_deck.png',
-    desc: 'Full restoration showing a side-by-side comparison of weathered, grayed timber boards and our newly installed premium decking boards.',
-    cost: 'R45,000 - R55,000',
-    time: '3 Days Build',
-    materials: ['Acoustic rubber joist strip', 'S5 Treated structural Pine', 'Deck Oil sealant'],
-    compliance: 'Restoration Structural Certified'
+    title: 'Modern Villa Slatted Screen & Cladding',
+    location: 'Sandhurst, Sandton',
+    category: 'pergolas-cladding',
+    image: '/images/project_modern_house.png',
+    desc: 'Custom wooden slatted privacy screen panels and matching balcony decking installed on a newly completed double-story modern architectural home.',
+    cost: 'R95,000 - R110,000',
+    time: '4 Days Build',
+    materials: ['Siberian Larch slats', 'Balau hardwood decking', 'Stainless Steel brackets'],
+    compliance: 'SANS 10400 Height & Post Compliant'
   }
 ];
 
@@ -88,21 +88,27 @@ export default function Portfolio({ setView, setQuoteData }) {
       <div className="container">
         
         <div className="section-header text-center fade-in-up active">
-          <span className="badge">Our Portfolio</span>
+          <span className="badge" style={{ backgroundColor: 'rgba(60, 168, 70, 0.1)', color: 'var(--accent-eco)', border: '1px solid rgba(60, 168, 70, 0.2)' }}>Our Portfolio</span>
           <h2 className="section-title">Completed Build Projects</h2>
-          <p className="section-desc">Explore our recently completed outdoor installations across South Africa, from custom residential pool surrounds to large estate decking projects.</p>
+          <p className="section-desc">Explore our recently completed outdoor installations across South Africa, from custom residential pool surrounds to large estate decking and indoor bamboo flooring projects.</p>
         </div>
 
         {/* Filter Buttons */}
         <div className="portfolio-filters" style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginBottom: '48px', flexWrap: 'wrap' }}>
-          {['all', 'composite', 'timber', 'pergolas', 'construction'].map(cat => (
+          {[
+            { id: 'all', label: 'All Projects' },
+            { id: 'bamboo-decking', label: 'Moso Bamboo Decking' },
+            { id: 'bamboo-flooring', label: 'Moso Bamboo Flooring' },
+            { id: 'hardwood', label: 'Hardwood Decking' },
+            { id: 'pergolas-cladding', label: 'Pergolas & Cladding' }
+          ].map(cat => (
             <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`btn ${filter === cat ? 'btn-primary' : 'btn-secondary'}`}
+              key={cat.id}
+              onClick={() => setFilter(cat.id)}
+              className={`btn ${filter === cat.id ? 'btn-primary' : 'btn-secondary'}`}
               style={{ padding: '8px 20px', borderRadius: '30px', fontSize: '0.88rem', textTransform: 'capitalize', cursor: 'pointer' }}
             >
-              {cat === 'all' ? 'Show All' : cat === 'composite' ? 'Composite Decking' : cat === 'timber' ? 'Timber Decking' : cat === 'pergolas' ? 'Pergolas & Gazebos' : 'Building Construction'}
+              {cat.label}
             </button>
           ))}
         </div>

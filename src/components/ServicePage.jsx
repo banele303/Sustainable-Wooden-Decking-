@@ -1,284 +1,310 @@
 import React, { useState, useEffect } from 'react';
 
 const serviceDetails = {
-  'swimming-pool': {
-    title: 'Swimming Pool Construction',
-    subtitle: 'Custom Engineered Marbelite & Fibreglass Pools',
-    heroImage: '/images/project_pool_deck.png',
+  'bamboo-decking': {
+    title: 'Moso Bamboo Decking',
+    subtitle: 'Carbon-Negative Outdoor Decking Solutions',
+    heroImage: '/images/tanda_tula_walkway.jpg',
     gallery: [
-      { src: '/images/project_pool_deck.png', caption: 'Rim-flow concrete pool with composite deck surround' },
-      { src: '/images/timber_decking.png', caption: 'Classic rectangular pool with timber copings' },
-      { src: '/images/before_after_deck.png', caption: 'Full backyard renovation with pool integration' }
+      { src: '/images/tanda_tula_walkway.jpg', caption: 'MOSO® Bamboo X-treme® curved elevated walkway at safari camp' },
+      { src: '/images/hero_sofa_deck.jpg', caption: 'Rooftop pool deck installation in Bantry Bay' },
+      { src: '/images/moso_bamboo_colors.jpg', caption: 'Bamboo deck board collection: X-treme and N-durance ranges' }
     ],
-    description: 'At top3k Decking, we build swimming pools that are structural masterpieces. From custom-shaped marbelite pools to quick-install premium fibreglass shells, we handle excavation, structural steel reinforcement, concrete pouring, marbelite plastering, filtration installation, and final tiling.',
-    specsTitle: 'Pool Options Comparison',
-    specsHeaders: ['Features', 'Marbelite Concrete', 'Fibreglass Shell'],
+    description: 'MOSO® Bamboo X-treme® and N-durance® decking boards represent the peak of eco-friendly, carbon-negative outdoor living. Made from fast-growing Moso bamboo fibers thermo-treated at 200°C and compressed under high pressure, these boards achieve Class 1 durability (EN 350-1) and Class Bfl-s1 fire safety ratings. They are harder, more stable, and more durable than traditional hardwoods.',
+    specsTitle: 'Decking Spec Comparison',
+    specsHeaders: ['Features', 'MOSO® Bamboo X-treme®', 'Garapa Hardwood', 'Traditional Composite'],
     specsRows: [
-      ['Design Flexibility', '100% Custom Shapes & Depths', 'Pre-formed Shapes Only'],
-      ['Installation Time', '4 - 6 Weeks (Excavation to water)', '1 - 2 Weeks (Rapid drop-in)'],
-      ['Lifespan / Durability', '25+ Years (Structural Concrete)', '15 - 20 Years (Gelcoat surface)'],
-      ['Maintenance Cost', 'Medium (Acid wash/re-marbelite at 10-15 yrs)', 'Low (Smooth non-porous gelcoat)'],
-      ['Ideal For', 'Premium custom luxury homes & uneven terrain', 'Flat backyards looking for quick turnaround']
+      ['Sustainability', 'Carbon-negative life cycle', 'Slow growth, high footprint', 'Petroleum-based plastics'],
+      ['Janka Hardness', '9.5 kg/mm² (Extremely hard)', '8.2 kg/mm²', 'Variable (typically soft)'],
+      ['Durability Class', 'Class 1 (EN 350-1)', 'Class 2 (EN 350-1)', 'Class 1 - 2 (Synthetic)'],
+      ['Fire Resistance', 'Class Bfl-s1 (Flame retardant)', 'Class D', 'Class E - D'],
+      ['Maintenance', 'Periodic oiling to retain color', 'Sanding & oiling twice/yr', 'Cleaning only']
     ],
-    sansTitle: 'SANS 10400-D Swimming Pool Safety & Compliance',
+    sansTitle: 'SANS Timber & Bamboo Decking Compliance',
     sansRules: [
-      { rule: 'Fencing Regulations', desc: 'All private swimming pools must be protected by an NHBRC/SANS approved fence or wall at least 1.2m high, with a self-closing, self-latching gate.' },
-      { rule: 'Safety Nets & Covers', desc: 'If no fence is built, an approved safety net or solid pool cover must be fitted and secured. It must support the weight of a toddler.' },
-      { rule: 'Drain Safety', desc: 'Main drains must have anti-vortex covers to prevent suction entrapment hazards.' }
+      { rule: 'Elevated Post Anchors', desc: 'SANS 10400 Part M requires all structural columns elevated above 600mm to have hot-dip galvanized brackets anchored into concrete footings.' },
+      { rule: 'Subframe Load Bearing', desc: 'Structural post spacing must conform to design loads. Joists must be spaced at 350mm to 400mm centers to prevent board deflection.' },
+      { rule: 'Safety Balustrades', desc: 'Decks with a fall height greater than 600mm must have safety handrails at least 1.0m high, with balusters spaced no wider than 100mm.' }
     ],
     process: [
-      { step: '01', title: 'Site Inspection & Engineering Plans', desc: 'We assess soil stability (clay vs sand), check sewer lines, and draft structural engineering diagrams for council approval.' },
-      { step: '02', title: 'Excavation & Shuttering', desc: 'Heavy excavator earthworks followed by structural timber shuttering and structural steel grid reinforcement (REBAR).' },
-      { step: '03', title: 'Shotcrete & Marbelite Plaster', desc: 'Pneumatically spraying high-strength concrete to form the shell, followed by a hand-plastered white or charcoal marbelite coating.' },
-      { step: '04', title: 'Filtration, Copings & Handover', desc: 'Installing pump boxes, premium sand filters, LED lights, coping stones, and balancing chemical levels for immediate swimming.' }
+      { step: '01', title: 'Laser Alignment & Leveling', desc: 'Taking digital measurements of the garden layout and casting solid concrete column foundations.' },
+      { step: '02', title: 'Support Subframe Construction', desc: 'Assembling the structural subframe using H3 treated structural pine or galvanized steel joists.' },
+      { step: '03', title: 'Hidden Cobra Clip Layout', desc: 'Securing the grooved Moso Bamboo boards using stainless steel Cobra clips, leaving an invisible screwless surface.' },
+      { step: '04', title: 'Perimeter Fascia & Sealing', desc: 'Installing matching bamboo fascia boards, sanding joints, and applying a protective coat of Woca outdoor wood oil.' }
     ],
     caseStudy: {
-      title: 'The Midrand Infinity Pool Project',
-      location: 'Carlswald Estate, Midrand',
-      scope: '6x4m Concrete Rim-Flow Pool with Charcoal Marbelite Finish and 40m² Balau Hardwood Deck Surround',
-      timeline: '5 Weeks',
-      budget: 'R145,000',
-      description: 'The client requested an infinity-edge pool built on a sloping clay embankment. We engineered reinforced concrete columns to support the deck and pool shell, securing SANS certification and providing a spectacular view over the estate.',
-      clientQuote: '"top3k Decking turned our sloping backyard into a high-end resort. Extremely professional and fully compliant with estate rules." - Sarah K.'
+      title: 'Tanda Tula Safari Camp Curved Walkway',
+      location: 'Timbavati Nature Reserve',
+      scope: 'Supply and installation of 120m² MOSO® Bamboo X-treme® elevated curved walkway and deck.',
+      timeline: '14 Days',
+      budget: 'R420,000',
+      description: 'Constructed on raised steel columns over sandy bushveld soil. The curved design mirrors the river bed, offering guests a safe, durable, and highly sustainable walkway that blends into nature.',
+      clientQuote: '"The bamboo boards are incredibly tough and look beautiful in the wilderness. SWDF SA did a phenomenal job under tight conditions."'
     },
     faqs: [
-      { q: 'How long does a concrete pool take to build?', a: 'Typically 4 to 6 weeks depending on weather, soil conditions, and excavation accessibility.' },
-      { q: 'Do you provide plans and engineer sign-offs?', a: 'Yes. Every concrete pool we build is signed off by a certified structural engineer, complying with municipal regulations.' },
-      { q: 'What is the difference between marbelite and fibreglass?', a: 'Marbelite is applied to concrete, allowing custom shapes, shapes that fit pools perfectly. Fibreglass is a pre-formed shell. Fibreglass installs faster but offers limited sizing.' }
+      { q: 'Does Moso Bamboo decking turn gray over time?', a: 'Yes, like any natural wood, Moso Bamboo will turn gray under UV sunlight. Applying outdoor oil once a year will maintain its deep warm brown look.' },
+      { q: 'Is Moso Bamboo harder than local hardwoods?', a: 'Yes, with a Janka hardness rating of 9.5 kg/mm², Moso Bamboo is harder and more scratch-resistant than Balau, Garapa, and Teak.' },
+      { q: 'How long is the warranty on Bamboo X-treme?', a: 'MOSO® provides a 25-year manufacturer warranty against rot, decay, and structural failure of the boards.' }
     ],
-    pricing: 'Starting from R85,000',
-    calcLabel: 'Pool Volume Estimator (m³)',
-    calcRate: 3500 // R3500 per cubic meter average construction cost
-  },
-  'composite-decking': {
-    title: 'Premium Composite Decking',
-    subtitle: 'Ultra-Durable & Maintenance-Free Outdoor Decking',
-    heroImage: '/images/project_pool_deck.png',
-    gallery: [
-      { src: '/images/project_pool_deck.png', caption: 'Charcoal grey composite deck around swimming pool' },
-      { src: '/images/composite_boards.png', caption: 'Eco-friendly cap-stock composite board textures' },
-      { src: '/images/before_after_deck.png', caption: 'Before and After transformation of a weathered wood deck' }
-    ],
-    description: 'Enjoy outdoor living without the hassle of sanding and oiling. Our composite decking solutions use top-tier, eco-friendly composite boards (from leading brands like Eva-Last, MoistureShield, and Innofibe) installed on heavy-duty, rust-proof subframes.',
-    specsTitle: 'Decking Materials Comparison',
-    specsHeaders: ['Property', 'Premium Composite', 'Balau Hardwood', 'Treated Pine'],
-    specsRows: [
-      ['Maintenance Required', 'None (Soap & water wash)', 'High (Oil twice a year)', 'High (Seal/paint yearly)'],
-      ['Lifespan', '25+ Years', '15 - 20 Years', '7 - 10 Years'],
-      ['Warranty', '15 - 25 Years', 'None (Natural timber)', 'None (Subject to decay)'],
-      ['Resistance', 'Termite, Rot & Fade proof', 'Rot resistant, susceptible to fade', 'Susceptible to termites & moisture'],
-      ['Installation Cost', 'High upfront, R0 maintenance', 'Medium upfront, high upkeep', 'Low upfront, high maintenance']
-    ],
-    sansTitle: 'SANS 10400-M Timber & Composite Decking Compliance',
-    sansRules: [
-      { rule: 'Balustrades & Handrails', desc: 'Any deck with a drop height greater than 600mm must have handrails at least 1.0m high, with vertical balusters spaced no more than 100mm apart.' },
-      { rule: 'Subframe Load Bearing', desc: 'Structural post spacing must conform to design loads (typically 1.5m to 2.0m spans depending on joist sizes). Posts must be embedded in concrete footings.' },
-      { rule: 'Timber Treatment', desc: 'All structural timber subframes must be pre-treated to H3 (exterior above ground) or H4 (in-ground contact) specifications to prevent rot.' }
-    ],
-    process: [
-      { step: '01', title: 'Laser Alignment & Site Prep', desc: 'We take precise digital level measurements and set concrete footings for structural columns.' },
-      { step: '02', title: 'Framing & Joist Grid', desc: 'Assembling the structural subframe using H3 treated structural pine or galvanized steel profiles, spaced at 350mm centres.' },
-      { step: '03', title: 'Hidden Fastener Clip Layout', desc: 'Securing the composite decking boards using hidden plastic or metal clips, allowing natural thermal expansion without showing screws.' },
-      { step: '04', title: 'Fascia Board Trim & LEDs', desc: 'Finishing the perimeter with color-matched fascia boards, steps, and soft recessed step lighting.' }
-    ],
-    caseStudy: {
-      title: 'The Waterfall Estate Pool Deck',
-      location: 'Waterfall Country Estate, Midrand',
-      scope: '55m² Eva-Last Apex Charcoal Deck built over an existing swimming pool coping and sloped lawn',
-      timeline: '6 Days',
-      budget: 'R92,000',
-      description: 'We built a elevated composite deck surrounding an offset pool. The subframe was built from galvanized steel due to high soil moisture levels. The finished deck features step-downs, custom hatches for pool pumps, and integrated strip LEDs.',
-      clientQuote: '"The craftsmanship is impeccable. No screws visible, looks clean, and absolute peace of mind knowing we never have to oil it." - David M.'
-    },
-    faqs: [
-      { q: 'Does composite decking get hot in the sun?', a: 'Yes, composite boards absorb heat. However, modern cap-stock boards (like Eva-Last Apex) feature cellular cores that dissipate heat 30% faster than standard composites.' },
-      { q: 'Can you build over an existing tiled patio?', a: 'Yes. We use low-profile subframe joists to raise the deck slightly above the tiles, ensuring proper water drainage.' },
-      { q: 'Is a structural engineer required for elevated decks?', a: 'Under SANS 10400, any deck elevated more than 1.5m above ground requires a structural engineer to sign off on the design and post load calculations.' }
-    ],
-    pricing: 'Starting from R1,650 per m²',
+    pricing: 'Starting from R1,850 per m²',
     calcLabel: 'Decking Area Size (m²)',
-    calcRate: 1650
+    calcRate: 1850,
+    ctaText: 'Estimate Decking Cost'
   },
-  'outdoor-development': {
-    title: 'Outdoor Development',
-    subtitle: 'Integrated Living Spaces, Landscaping & Paving',
-    heroImage: '/images/project_patio_gazebo.png',
+  'bamboo-flooring': {
+    title: 'Moso Bamboo Flooring',
+    subtitle: 'Eco-Friendly High-Density Indoor Flooring',
+    heroImage: '/images/moso_bamboo_colors.jpg',
     gallery: [
-      { src: '/images/project_patio_gazebo.png', caption: 'Patio area with fire pit and concrete slab paving' },
-      { src: '/images/timber_decking.png', caption: 'Wooden decks integrated with paved walkways' },
-      { src: '/images/before_after_deck.png', caption: 'Backyard landscape and boma construction' }
+      { src: '/images/moso_bamboo_colors.jpg', caption: 'High-density indoor bamboo flooring range showing rich grain' },
+      { src: '/images/project_modern_house.png', caption: 'Modern villa installation of sustainable bamboo flooring' },
+      { src: '/images/hero_sofa_deck.jpg', caption: 'Indoor-to-outdoor seamless threshold transition' }
     ],
-    description: 'We specialize in transforming ordinary backyards into luxury living environments. Our outdoor development services integrate decking, landscaping, retaining walls, fire pits, custom seating, and lighting into a single, cohesive design.',
-    specsTitle: 'Outdoor Hardscaping Options',
-    specsHeaders: ['Option', 'Exposed Aggregate Concrete', 'Clay Paving Tiles', 'Composite Turf'],
+    description: 'Bring the warmth and luxury of natural wood into your home with carbon-negative interior bamboo flooring. Our solid and engineered Moso bamboo floors are crafted from high-density strand-woven fibers. This results in floorboards with a Janka hardness higher than oak or maple, outstanding scratch resistance, and excellent dimensional stability.',
+    specsTitle: 'Interior Flooring Comparison',
+    specsHeaders: ['Property', 'Moso Bamboo Flooring', 'Engineered Oak', 'Laminate Flooring'],
     specsRows: [
-      ['Durability', 'High', 'Medium-High', 'Medium'],
-      ['Water Permeability', 'Low', 'Medium (Sanded joints)', 'High'],
-      ['Maintenance', 'Seal every 3 years', 'Occasional weed control', 'None'],
-      ['Aesthetics', 'Modern minimalist, industrial', 'Rustic, warm tones', 'Green look all year']
+      ['Material Composition', 'Strand-woven bamboo fibers', 'Solid oak veneer on ply core', 'HDF core with printed picture'],
+      ['Scratch Resistance', 'Excellent (Strand-woven high density)', 'Good (Veneer susceptible)', 'High (Aluminium oxide coat)'],
+      ['Lifespan', '25 - 30 Years (Can be sanded)', '20 - 25 Years (Can be sanded)', '10 - 15 Years (Cannot sand)'],
+      ['Eco Friendliness', 'Carbon-negative, 5-yr growth cycle', 'High footprint, 50-yr harvest', 'Chemical binders, petroleum resin'],
+      ['Moisture Resistance', 'High dimensional stability', 'Moderate stability', 'Low stability (swells on edges)']
     ],
-    sansTitle: 'SANS 10400-K Retaining Walls & Site Drainage Compliance',
+    sansTitle: 'SANS Indoor Installation & Subfloor Compliance',
     sansRules: [
-      { rule: 'Retaining Wall Height', desc: 'Any retaining wall higher than 1.2m requires design and sign-off by a registered structural engineer under SANS regulations.' },
-      { rule: 'Subsoil Drainage', desc: 'We install agricultural drainpipes behind all retaining walls to prevent water pressure buildup and wall failure.' },
-      { rule: 'Stormwater Runoff', desc: 'Site drainage must guide rainwater away from the main building foundations into municipal channels.' }
+      { rule: 'Subfloor Moisture Test', desc: 'Concrete subfloors must be moisture-tested to ensure moisture content is below 3.0% before laying bamboo flooring.' },
+      { rule: 'Expansion Gaps', desc: 'An expansion gap of 8mm to 10mm must be left around all walls, door frames, and vertical fixtures to allow expansion.' },
+      { rule: 'Level Subfloor', desc: 'Concrete subfloors must be self-levelled to have a deviation of less than 3mm over a 3-meter straight edge.' }
     ],
     process: [
-      { step: '01', title: 'Topographical Analysis', desc: 'Analyzing the slope, soil compression, and stormwater channels.' },
-      { step: '02', title: 'Terracing & Soil Retention', desc: 'Excavation and building LOP block or reinforced brick retaining walls.' },
-      { step: '03', title: 'Hardscape Installation', desc: 'Pouring walkways, building structural fire bomas, and paving layouts.' },
-      { step: '04', title: 'Softscaping & Landscape Lighting', desc: 'Planting indigenous trees, laying grass, and setting up automated 12V garden spotlights.' }
+      { step: '01', title: 'Subfloor Prep & Levelling', desc: 'Checking subfloor moisture levels, sanding down high spots, and applying self-levelling screed.' },
+      { step: '02', title: 'Moisture Barrier Underlay', desc: 'Laying a high-density 2mm underlay with an integrated moisture barrier membrane to protect the wood.' },
+      { step: '03', title: 'Board Layout & Clicking', desc: 'Installing the tongue-and-groove or click-lock bamboo floorboards, sorting for natural color variations.' },
+      { step: '04', title: 'Skirting Boards & Profiles', desc: 'Fitting color-matched skirting boards and expansion profiles at door thresholds for a clean, professional finish.' }
     ],
     caseStudy: {
-      title: 'The Steyn City Sunken Boma',
-      location: 'Steyn City, Johannesburg',
-      scope: '30m² Sunken Fire pit with built-in stone benches, integrated concrete paving, and water feature',
-      timeline: '3 Weeks',
-      budget: 'R120,000',
-      description: 'The customer requested a modern outdoor entertainment area. We excavated a 1.2m deep circular pit, waterproofed the retaining brickwork, laid custom aggregate stone paving, and installed a central gas-fire pit with surround LED glows.',
-      clientQuote: '"It has completely changed our weekend gatherings. An amazing space to entertain guests." - Peter J.'
+      title: 'Modern Ridgeway Villa Renovation',
+      location: 'Ridgeway, Johannesburg',
+      scope: 'Installation of 85m² Solid Moso Bamboo Flooring in living areas and master bedrooms.',
+      timeline: '4 Days',
+      budget: 'R102,000',
+      description: 'The homeowner wanted a warm, durable floor to replace old carpets. We levelled the concrete screed, laid moisture barriers, and installed high-density strand-woven bamboo boards, creating a continuous layout without thresholds.',
+      clientQuote: '"The floors look spectacular and feel extremely solid. The natural grain has so much character, and it stands up perfectly to our pets." - Sipho M.'
     },
     faqs: [
-      { q: 'Do you manage both civil work and plants?', a: 'Yes. We are turnkey contractors, meaning we handle the heavy concrete foundations, paving, fire pits, as well as the soil, lawn, and landscaping.' }
+      { q: 'Can bamboo flooring be sanded and refinished?', a: 'Yes. Our high-density strand-woven bamboo flooring can be sanded down and refinished 2 to 3 times over its lifespan.' },
+      { q: 'Is bamboo flooring suitable for underfloor heating?', a: 'Yes. Because bamboo is highly stable, it handles underfloor heating systems exceptionally well compared to solid hardwood.' },
+      { q: 'How do you clean interior bamboo floors?', a: 'Clean with a soft broom or vacuum, and mop with a slightly damp microfiber mop using a pH-neutral wood floor cleaner. Avoid standing water.' }
     ],
-    pricing: 'Custom Quotations',
-    calcLabel: 'Hardscape Area Size (m²)',
-    calcRate: 1200
+    pricing: 'Starting from R1,200 per m²',
+    calcLabel: 'Flooring Area Size (m²)',
+    calcRate: 1200,
+    ctaText: 'Estimate Flooring Cost'
   },
-  'pergolas': {
-    title: 'Custom Pergolas & Gazebos',
-    subtitle: 'Architectural Timber Shading Structures',
-    heroImage: '/images/project_patio_gazebo.png',
+  'hardwood-decking': {
+    title: 'Hardwood Timber Decking',
+    subtitle: 'Classic Natural Hardwood Outdoor Decking',
+    heroImage: '/images/timber_decking.png',
     gallery: [
-      { src: '/images/project_patio_gazebo.png', caption: 'Custom slatted timber pergola over patio area' },
-      { src: '/images/timber_decking.png', caption: 'Garapa timber pergola integrated with pool deck' }
+      { src: '/images/timber_decking.png', caption: 'Golden-brown Garapa hardwood timber deck around pool' },
+      { src: '/images/project_pool_deck.png', caption: 'Balau timber pool deck surround' },
+      { src: '/images/before_after_deck.png', caption: 'Restoring a gray weathered hardwood deck' }
     ],
-    description: 'Add depth and shade to your outdoor deck with our premium custom pergolas. Built from treated pine, structural timber, or high-end hardwood, our pergolas are engineered to withstand the harsh South African sun while offering a sophisticated architectural outline.',
-    specsTitle: 'Pergola Timber Selection',
-    specsHeaders: ['Material', 'Garapa Hardwood', 'Balau Hardwood', 'Structural Pine'],
+    description: 'For clients seeking the timeless feel of natural timber, we supply and install premium, responsibly-sourced hardwood decking. Garapa and Balau are highly dense hardwoods imported from South America and South East Asia, offering natural rot-resistance and structural strength. Built on engineered subframes, our hardwood decks provide an elegant outdoor space.',
+    specsTitle: 'Hardwood Spec Comparison',
+    specsHeaders: ['Property', 'Garapa Hardwood', 'Balau Hardwood', 'Treated Pine'],
     specsRows: [
-      ['Color Tone', 'Golden Yellow/Light Brown', 'Deep Reddish Brown', 'Light Blonde (Paintable)'],
-      ['Density', 'Very High (Scratch resistant)', 'High', 'Medium (Softwood)'],
-      ['Sun Bleaching', 'Slowly silvers', 'Silvers without sealing', 'Fades and cracks without seal'],
-      ['Warranty/Lifespan', '20+ Years', '15 - 20 Years', '10 Years (Treated)']
+      ['Color Tone', 'Warm Golden-Honey', 'Reddish-Brown', 'Pale Yellow / Greenish'],
+      ['Wood Density', '850 kg/m³ (High)', '980 kg/m³ (Very High)', '550 kg/m³ (Medium-Low)'],
+      ['Durability Class', 'Class 2 (Highly Durable)', 'Class 2 (Highly Durable)', 'Class 4 (Subject to decay)'],
+      ['Life Expectancy', '15 - 20 Years', '15 - 20 Years', '7 - 10 Years'],
+      ['Screwing Spec', 'Pre-drilling required', 'Pre-drilling required', 'Direct screwing possible']
     ],
-    sansTitle: 'SANS 10400-L Structural Timbers & Gazebos Compliance',
+    sansTitle: 'SANS Structural Hardwood Decking Specifications',
     sansRules: [
-      { rule: 'Wind Load Engineering', desc: 'Pergolas must be anchored securely to concrete footings (minimum 400x400x400mm) to prevent wind lift.' },
-      { rule: 'Waterproof Roof Sheets', desc: 'If adding polycarbonate sheeting, it must have a minimum slope of 5 degrees to prevent water pooling and leaf buildup.' }
+      { rule: 'S5 Structural Graded Joists', desc: 'All structural framing members must be S5 strength-graded timber, treated to H3 specification for outdoor exposure.' },
+      { rule: 'Stainless Steel Fasteners', desc: 'Hardwood tannins corrode carbon steel. SANS requires grade 304 or 316 stainless steel screws and brackets to prevent black timber staining.' },
+      { rule: 'Joist Spans', desc: 'Standard 20m board thickness requires structural joist spans not exceeding 450mm centers to ensure zero bounce.' }
     ],
     process: [
-      { step: '01', title: 'Structural Briefing', desc: 'Determining the wind loads, sun orientation for slat spacing, and size.' },
-      { step: '02', title: 'Timber Oiling & Pre-cut', desc: 'We sand and treat the hardwood timbers in our workshop before site assembly to ensure coverage on joints.' },
-      { step: '03', title: 'Anchor Assembly', desc: 'Securing heavy-duty galvanized U-brackets into concrete foundations.' },
-      { step: '04', title: 'Beam Tying & Polycarb', desc: 'Tying primary rafters with structural coach screws and installing roofing.' }
+      { step: '01', title: 'Setting Concrete Piers', desc: 'Digging foundation holes and pouring structural concrete piers with galvanized anchors.' },
+      { step: '02', title: 'Timber Framing Build', desc: 'Constructing the treated pine or hardwood structural framing, wrapping joist tops with joist tape.' },
+      { step: '03', title: 'Board Pre-Drilling', desc: 'Pre-drilling and countersinking holes in the Garapa or Balau boards to prevent split ends.' },
+      { step: '04', title: 'Sanding & UV Oil Finish', desc: 'Sanding the deck flat and applying two coats of premium penetrating UV protection oil to preserve color.' }
     ],
     caseStudy: {
-      title: 'The Sandton Patio Shade Project',
-      location: 'Morningside, Sandton',
-      scope: '5x3m Wall-Mounted Garapa Timber Pergola with tinted polycarbonate waterproofing',
-      timeline: '3 Days',
-      budget: 'R38,000',
-      description: 'The client wanted a weather-proof extension of their lounge patio. We anchored a heavy Garapa ledger beam to the house brickwork, raised 3 structural timber posts, and fitted slatted rafters overlayed with UV-resistant roofing sheets.',
-      clientQuote: '"Now we can eat outside even during heavy summer afternoon storms. Outstanding timber finish." - Linda N.'
+      title: 'Steyn City Garapa Pool Surround',
+      location: 'Steyn City Estate, Johannesburg',
+      scope: '65m² Garapa hardwood deck built around a raised infinity pool.',
+      timeline: '7 Days',
+      budget: 'R125,000',
+      description: 'We built a golden Garapa hardwood timber surround around a geometric pool. The subframe was built from H3 structural pine, with double joists at board ends. The boards were secured with countersunk stainless steel decking screws and sealed with Rubio Monocoat.',
+      clientQuote: '"The craftsmanship is outstanding. The golden garapa deck looks so luxurious, and the hidden joint screws make it barefoot-friendly." - Chloe L.'
     },
     faqs: [
-      { q: 'Can you add roller blinds to the sides?', a: 'Yes, we can build custom timber channels into the columns to house canvas or solar blinds.' }
+      { q: 'How often does a hardwood deck need maintenance?', a: 'Hardwood decking should be oiled twice a year (before summer and winter) to protect it from drying and splitting in the harsh South African sun.' },
+      { q: 'Do you pre-drill hardwood boards?', a: 'Yes. Every hardwood deck requires pre-drilling and countersinking to avoid wood splitting.' },
+      { q: 'Can you leave hardwood to weather naturally?', a: 'Yes. If left unoiled, hardwoods will slowly weather into a silvery-gray color, while maintaining their structural integrity.' }
     ],
-    pricing: 'Starting from R12,000',
-    calcLabel: 'Pergola Footprint Size (m²)',
-    calcRate: 2200
+    pricing: 'Starting from R1,800 per m²',
+    calcLabel: 'Decking Area Size (m²)',
+    calcRate: 1800,
+    ctaText: 'Estimate Hardwood Cost'
   },
-  'building-construction': {
-    title: 'Building Construction & Renovations',
-    subtitle: 'NHBRC Registered General Builders',
+  'engineered-flooring': {
+    title: 'Engineered Wood Flooring',
+    subtitle: 'Luxury Hardwood Flooring for Interiors',
     heroImage: '/images/project_modern_house.png',
     gallery: [
-      { src: '/images/project_modern_house.png', caption: 'Modern double-story residential home construction' },
-      { src: '/images/navigation_layout.png', caption: 'Concrete slab footing and foundation works' }
+      { src: '/images/project_modern_house.png', caption: 'Luxury engineered French Oak floor in modern open-plan home' },
+      { src: '/images/moso_bamboo_colors.jpg', caption: 'Showroom samples of textured wood flooring options' },
+      { src: '/images/hero_sofa_deck.jpg', caption: 'Seamless integration of indoor wood flooring and outdoor decking' }
     ],
-    description: 'top3k Decking is a NHBRC-registered building contractor. We construct new residential developments, complete home extensions, add double-story alterations, and perform commercial office updates with a focus on structural perfection and timely delivery.',
-    specsTitle: 'Residential Building Options',
-    specsHeaders: ['Component', 'Double Brick Cavity', 'Lightweight Steel Frame'],
+    description: 'Engineered wood flooring offers the aesthetic beauty of solid timber with superior structural stability. Each floorboard consists of a genuine hardwood top veneer (e.g. French Oak, Walnut) laminated over a multi-layer cross-grain plywood core. This design minimizes natural timber movement, making it highly resistant to warping, cupping, or gap formation.',
+    specsTitle: 'Wood Flooring Comparison',
+    specsHeaders: ['Features', 'Engineered Oak Flooring', 'Solid Wood Flooring', 'Vinyl Plank Flooring'],
     specsRows: [
-      ['Thermal Insulation', 'Excellent (High thermal mass)', 'Good (Insulation blankets needed)'],
-      ['Construction Speed', 'Standard (Brick drying times)', 'Fast (Drywall panel systems)'],
-      ['Council Approval Ease', 'Very high (Traditional standards)', 'Medium (Special engineer reports needed)']
+      ['Top Wear Layer', '3mm - 6mm Genuine Oak Wood', '18mm Solid Hardwood wood', '0.55mm Printed Vinyl/PVC'],
+      ['Structural Stability', 'High (Cross-laminated ply core)', 'Low-Medium (Expands with weather)', 'High (SPC stone core)'],
+      ['Lifespan / Refinishing', '20+ Years (Sanded 2-3 times)', '50+ Years (Sanded 6+ times)', '15 - 20 Years (Cannot sand)'],
+      ['Underfloor Heating', 'Excellent (Thin, stable boards)', 'Poor (Susceptible to shrinkage)', 'Good (Check temp limits)'],
+      ['Acoustics / Feel', 'Warm, soft natural wood sound', 'Loud wood bounce unless glued', 'Plastic / click sound']
     ],
-    sansTitle: 'NHBRC & SANS 10400 Building Foundation Compliance',
+    sansTitle: 'SANS Guidelines for Interior Engineered Wood Flooring',
     sansRules: [
-      { rule: 'Foundation Footings', desc: 'All foundations must be dug to load-bearing soil, reinforced with structural steel meshes, and signed off by a structural engineer prior to concrete pouring.' },
-      { rule: 'Damp Proofing (DPC)', desc: 'Installing high-thickness plastic damp-proof membranes below the concrete slab and brick courses to prevent rising damp.' }
+      { rule: 'Concrete Levelling', desc: 'Concrete subfloors must be smooth. Deviations exceeding 3mm over a 3m straight edge must be corrected with self-levelling screed.' },
+      { rule: 'Acclimatisation', desc: 'Wood floorboards must be stored inside the installation room for at least 48 hours to adapt to local humidity and temperature levels.' },
+      { rule: 'Glue-Down vs Floating', desc: 'SANS recommends full elastic glue-down methods for areas with wide humidity changes or large open layouts to reduce board noise.' }
     ],
     process: [
-      { step: '01', title: 'Plan Assessment & BOQ', desc: 'Detailed cost breakdown based on approved architectural drawings.' },
-      { step: '02', title: 'Substructure Slabs', desc: 'Excavating foundation trenches, pouring 25MPa concrete, and setting floor slabs.' },
-      { step: '03', title: 'Brickwork & Ring Beams', desc: 'Laying brick masonry, installing lintels, and pouring concrete ring beams for multi-story load distribution.' },
-      { step: '04', title: 'Roofing, Plaster & Handover', desc: 'Erecting roof trusses, waterproofing, skimming walls, and obtaining occupancy certificates.' }
+      { step: '01', title: 'Subfloor Moisture Seal', desc: 'Applying a polyurethane damp-proof primer to seal any moisture coming from the concrete.' },
+      { step: '02', title: 'Adhesive Application', desc: 'Spreading high-quality elastic polymer floor adhesive using a notched trowel.' },
+      { step: '03', title: 'Board Installation', desc: 'Laying the engineered Oak planks, tapping them tightly together, and securing the joints.' },
+      { step: '04', title: 'Trim & Skirting Details', desc: 'Installing wood skirting boards and solid wood transition profiles to cover expansion gaps.' }
     ],
     caseStudy: {
-      title: 'The Kyalami House Extension',
-      location: 'Kyalami Estates, Midrand',
-      scope: '120m² double-story bedroom and lounge extension to an existing residential house',
-      timeline: '8 Weeks',
-      budget: 'R380,000',
-      description: 'We managed the entire build: matching the existing architectural style of the estate, laying new foundations, breaking through the existing double-brick walls safely with structural RSJ steel beams, and tiling/skimming walls to match the house perfectly.',
-      clientQuote: '"Their workers were clean, reliable, and finished the project within the budget. Highly recommended NHBRC builder." - Robert S.'
+      title: 'Sandton Penthouse Oak Flooring',
+      location: 'Morningside, Sandton',
+      scope: 'Installation of 110m² Engineered French Oak plank flooring using full glue-down method.',
+      timeline: '5 Days',
+      budget: 'R155,000',
+      description: 'The client requested premium wood floors compatible with an hydronic underfloor heating system. We applied a concrete moisture barrier, spread elastic glue, and installed 190mm wide brushed Oak planks with a matte lacquer seal.',
+      clientQuote: '"The floors are warm, silent, and incredibly beautiful. The team was extremely tidy and finished right on time." - Andrew V.'
     },
     faqs: [
-      { q: 'Are you registered with the NHBRC?', a: 'Yes. All our building work is fully covered by NHBRC structural warranties.' }
+      { q: 'What is the advantage of engineered wood over solid wood?', a: 'Engineered flooring is significantly more stable. It expands and contracts 70% less than solid wood, making it less likely to warp in changing weather.' },
+      { q: 'Can you install engineered oak in kitchens?', a: 'Yes, if installed using the glue-down method and sealed, but spills must be wiped up immediately to avoid water damage.' },
+      { q: 'How thick is the top wear layer?', a: 'Our engineered flooring boards feature a 4mm genuine French Oak wear layer, allowing them to be sanded and refinished multiple times.' }
     ],
-    pricing: 'Based on construction BOQ',
-    calcLabel: 'Building Area Size (m²)',
-    calcRate: 7500
+    pricing: 'Starting from R1,350 per m²',
+    calcLabel: 'Flooring Area Size (m²)',
+    calcRate: 1350,
+    ctaText: 'Estimate Oak Cost'
   },
-  'architectural-design': {
-    title: 'Architectural Design & Planning',
-    subtitle: 'SANS-Compliant Construction Plans & Drawings',
-    heroImage: '/images/navigation_layout.png',
+  'pergolas-cladding': {
+    title: 'Pergolas & Cladding',
+    subtitle: 'Architectural Timber Shading & Exterior Wall Cladding',
+    heroImage: '/images/project_patio_gazebo.png',
     gallery: [
-      { src: '/images/navigation_layout.png', caption: 'Technical floor plan layout' },
-      { src: '/images/project_modern_house.png', caption: '3D architectural render of modern residence' }
+      { src: '/images/project_patio_gazebo.png', caption: 'Custom timber pergola shade structure over outdoor patio' },
+      { src: '/images/project_modern_house.png', caption: 'Modern villa wall cladding detail' },
+      { src: '/images/tanda_tula_walkway.jpg', caption: 'Bamboo column cladding at safari camp' }
     ],
-    description: 'Every great build starts with a compliant, beautiful design. We provide architectural drafting services to produce detailed construction plans, 3D renderings, and municipal submission drawings. Our designs comply fully with SANS 10400 building regulations.',
-    specsTitle: 'Design Deliverables comparison',
-    specsHeaders: ['Deliverable', 'Conceptual 3D', 'Municipal Submission Package'],
+    description: 'Create architectural highlights and shaded spaces with custom wooden pergolas and sustainable bamboo wall cladding. Pergolas provide structural shade while maintaining an open-air feel. Exterior cladding (using MOSO® Bamboo cladding boards) adds a beautiful natural facade to concrete walls, insulating the building and enhancing modern aesthetics.',
+    specsTitle: 'Structure Materials Spec',
+    specsHeaders: ['Features', 'Moso Bamboo Cladding', 'Treated Pine Framing', 'Garapa Timber Structure'],
     specsRows: [
-      ['Visual Model', 'Yes (3D photorealistic images)', 'Yes (Includes technical 2D elevations)'],
-      ['Council Approval Ready', 'No (Lacks site/drainage layouts)', 'Yes (Includes all drainage and boundary specs)'],
-      ['Engineer Sign-off Include', 'No', 'Yes (Includes structural framing details)']
+      ['Ideal For', 'Exterior wall facades', 'Cost-effective structural posts', 'Premium pergola beams & screens'],
+      ['Durability', 'Class 1 (Thermo-treated)', 'Class 4 (Pressure treated)', 'Class 2 (Natural Hardwood)'],
+      ['Maintenance', 'Unoiled weathers to grey', 'Sealant required yearly', 'Rubio outdoor oil annually'],
+      ['Thermal Insulation', 'R-Value insulating barrier', 'None', 'None'],
+      ['Aesthetics', 'Modern slatted vertical design', 'Traditional timber structure', 'Golden-honey premium finish']
     ],
-    sansTitle: 'SANS 10400 Architectural Compliance Regulations',
+    sansTitle: 'SANS Regulations for Pergolas & Cladding Structures',
     sansRules: [
-      { rule: 'Energy Efficiency (XA)', desc: 'All new plans must include fenestration (window) calculations ensuring compliance with SANS 10400-XA energy standards.' },
-      { rule: 'Boundary Lines & Building Lines', desc: 'Structures must respect municipal building lines. If encroaching, we must file relaxation approvals with the local council.' }
+      { rule: 'Wind Load Engineering', desc: 'Pergolas must be structurally engineered to resist high wind forces. Timber posts must be anchored using heavy steel post brackets.' },
+      { rule: 'Wall Ventilation', desc: 'Exterior cladding must be installed over batten strips to leave a 20mm air gap behind the boards, preventing damp buildup on brickwork.' },
+      { rule: 'Height Limitations', desc: 'SANS regulations specify max structural heights for boundary walls and pergolas without certified architectural plan submittals.' }
     ],
     process: [
-      { step: '01', title: 'Conceptual Briefing', desc: 'Understanding zoning restrictions, property layout, and client budget.' },
-      { step: '02', title: '3D Design Rendering', desc: 'Creating photorealistic exterior concepts so the client can visualize before municipal submissions.' },
-      { step: '03', title: 'Technical Drafting', desc: 'Drafting site plans, elevations, section details, and water drainage layouts.' },
-      { step: '04', title: 'Council Submission', desc: 'Submitting plans via the local municipal portal (like e-Joburg) and tracking progress.' }
+      { step: '01', title: 'Post Foundation Setting', desc: 'Digging foundation holes to 600mm deep and casting galvanized post shoes in concrete.' },
+      { step: '02', title: 'Main Frame Erection', desc: 'Erecting upright timber columns and bolting main support beams with structural bolts.' },
+      { step: '03', title: 'Slatted Roofing / Batten Grid', desc: 'Installing overhead shading slats or wall cladding battens spaced at 400mm centers.' },
+      { step: '04', title: 'Board Mounting & Trim', desc: 'Clamping grooved bamboo cladding boards onto hidden clips, then sanding and sealing beams.' }
     ],
     caseStudy: {
-      title: 'The Glen Austin Rezoning & Plan Approval',
-      location: 'Glen Austin AH, Midrand',
-      scope: 'Complete architectural package and council approval for a new 350m² dwelling and composite deck',
-      timeline: '6 Weeks Drafting, 8 Weeks Municipal Approval',
-      budget: 'R28,000',
-      description: 'The property had historical zoning issues. We drafted compliant site layouts, resolved agricultural relaxation lines, secured engineering sign-offs for structural concrete slabs, and obtained council approvals.',
-      clientQuote: '"Very knowledgeable about Joburg council processes. Saved us months of delays." - Thabo M.'
+      title: 'Steyn City Patio Pergola & Screen',
+      location: 'Steyn City, Johannesburg',
+      scope: 'Construction of 5x3m Garapa timber pergola with integrated slatted privacy screens.',
+      timeline: '8 Days',
+      budget: 'R195,000',
+      description: 'We built a modern pergola over a composite deck. The main posts are 150x150mm Garapa columns. Overhead slatted battens provide 50% solar shading, and matching slatted privacy screens block out neighboring houses.',
+      clientQuote: '"The pergola transformed our patio. We now have the perfect balance of shade and sun, and the structure is extremely sturdy." - Thabo N.'
     },
     faqs: [
-      { q: 'How long does council approval take?', a: 'Generally between 4 to 12 weeks, depending on the municipality and complexity of relaxation permissions.' }
+      { q: 'Do I need council plans for a timber pergola?', a: 'Pergolas with open slatted roofs are classified as minor building work and often do not require plans, but it is best to check estate guidelines.' },
+      { q: 'How long does bamboo wall cladding last?', a: 'MOSO® Bamboo cladding has a 25-year warranty. It is highly stable and does not warp, twist, or rot under sun and rain.' },
+      { q: 'Can you install cladding over brick walls?', a: 'Yes. We mount treated timber battens onto the brickwork using masonry anchors, leaving a ventilation gap, and then clip the cladding boards on.' }
     ],
-    pricing: 'Drawing packages starting from R8,000',
-    calcLabel: 'Planned Property Area (m²)',
-    calcRate: 150
+    pricing: 'Custom Quotes based on size',
+    calcLabel: 'Structure Footprint (m²)',
+    calcRate: 1950,
+    ctaText: 'Estimate Structure Cost'
+  },
+  'restoration-maintenance': {
+    title: 'Restoration & Maintenance',
+    subtitle: 'Deep Cleaning, Sanding & Re-Oiling Services',
+    heroImage: '/images/before_after_deck.png',
+    gallery: [
+      { src: '/images/before_after_deck.png', caption: 'Before and After side-by-side comparison of timber restoration' },
+      { src: '/images/timber_decking.png', caption: 'Newly oiled timber deck with warm glowing finish' },
+      { src: '/images/hero_sofa_deck.jpg', caption: 'Perfectly maintained rooftop deck after UV sealing' }
+    ],
+    description: 'Protect your wood and bamboo investments with our professional maintenance and restoration services. Weather and UV rays degrade timber over time, turning it gray, drying it out, and causing splits. We provide deep cleaning using specialized eco-friendly detergents, dust-free sanding, floor board repairs, and application of premium penetrating oils.',
+    specsTitle: 'Maintenance Options Comparison',
+    specsHeaders: ['Service Level', 'Deep Clean & Oil', 'Full Sand & Seal', 'Structural Restoration'],
+    specsRows: [
+      ['Suitable For', 'Decks in good condition but faded', 'Scratched, grayed, or peeling decks', 'Decks with rotting joists or broken boards'],
+      ['Sanding Required', 'None (Chemical wash & brush clean)', '100% Sanding down to raw timber', 'Replacing broken members before sanding'],
+      ['Time Required', '1 - 2 Days', '2 - 3 Days', '3 - 5 Days'],
+      ['Typical Lifespan', '6 - 12 Months', '12 - 24 Months', 'Multiple years before next sanding'],
+      ['Cost Level', 'Low (Preventative maintenance)', 'Medium (Restoration)', 'High (Structural repair)']
+    ],
+    sansTitle: 'SANS Guidelines for Structural Deck Maintenance',
+    sansRules: [
+      { rule: 'Structural Inspection', desc: 'Before restoration, all framing joists are checked for moisture rot or structural sag. Rotting joists must be replaced.' },
+      { rule: 'Screw Torque Check', desc: 'Loose timber decking screws must be retightened or replaced with stainless steel screws to prevent tripping hazards.' },
+      { rule: 'Slip Resistance', desc: 'Restored timber decks around pools should be finished with textured wood oil or anti-slip additives to ensure SANS safety compliance.' }
+    ],
+    process: [
+      { step: '01', title: 'Inspection & Repair', desc: 'Checking subframe stability, replacing any rotting boards, and tightening loose screws.' },
+      { step: '02', title: 'Eco-Friendly Jet Wash', desc: 'Applying a specialized wood restorer detergent and pressure washing at low pressure to clear gray dirt.' },
+      { step: '03', title: 'Dust-Free Sanding', desc: 'Using professional orbital sanders to sand down the deck, exposing fresh, raw timber grain.' },
+      { step: '04', title: 'Penetrating Oil Sealing', desc: 'Applying two coats of premium UV oil (Woca, Rubio, or Woodoc) to feed and protect the wood.' }
+    ],
+    caseStudy: {
+      title: 'Kyalami Estate Deck Restoration',
+      location: 'Kyalami, Midrand',
+      scope: 'Deep cleaning, sanding, and oiling of a weathered 45m² Balau pool deck.',
+      timeline: '3 Days',
+      budget: 'R15,000',
+      description: 'The deck had been neglected for 3 years, turning gray with peeling varnish. We sanded down to raw wood, replaced 4 broken timber boards, tightened loose screws, and applied two coats of honey-tinted penetrating wood oil.',
+      clientQuote: '"The deck looks brand new! All the grey weathered wood is gone, and the color is gorgeous. Excellent professional service." - Peter W.'
+    },
+    faqs: [
+      { q: 'How often should I oil my wooden deck?', a: 'In Johannesburg, we recommend oiling decks at least once a year. Decks with full sun and pool exposure may require re-oiling every 6 to 9 months.' },
+      { q: 'Can you sand composite decking?', a: 'No, composite decking cannot be sanded. However, we can deep-clean composite decks using professional high-pressure detergents to remove dirt and mold.' },
+      { q: 'What is the difference between varnishing and oiling?', a: 'Varnish forms a hard plastic layer on top of the wood that eventually cracks and peels. Penetrating oils soak into the wood fibers, feeding the wood and letting it breathe.' }
+    ],
+    pricing: 'Starting from R220 per m²',
+    calcLabel: 'Deck / Floor Size (m²)',
+    calcRate: 220,
+    ctaText: 'Estimate Restoration Cost'
   }
 };
 
 export default function ServicePage({ serviceId, setView }) {
-  const detail = serviceDetails[serviceId] || serviceDetails['composite-decking'];
+  const detail = serviceDetails[serviceId] || serviceDetails['bamboo-decking'];
   const [openFaq, setOpenFaq] = useState(null);
   
   // Interactive mini-calculator states
@@ -310,7 +336,7 @@ export default function ServicePage({ serviceId, setView }) {
         </div>
         
         <div className="container" style={{ position: 'relative', zIndex: 2, textAlign: 'left', width: '100%' }}>
-          <span className="badge fade-in-up active" style={{ color: 'var(--accent-secondary)' }}>{detail.subtitle}</span>
+          <span className="badge fade-in-up active" style={{ backgroundColor: 'rgba(60, 168, 70, 0.1)', color: 'var(--accent-eco)', border: '1px solid rgba(60, 168, 70, 0.2)' }}>{detail.subtitle}</span>
           <h1 className="hero-title fade-in-up active" style={{ fontSize: 'clamp(3rem, 6vw, 5.5rem)', textAlign: 'left', margin: '10px 0 30px', background: 'linear-gradient(to bottom, #fff, #999)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', letterSpacing: '-0.04em' }}>{detail.title}</h1>
           <button 
             onClick={() => setView('landing')} 
@@ -332,15 +358,15 @@ export default function ServicePage({ serviceId, setView }) {
                 {detail.description}
               </p>
               <p style={{ color: 'var(--text-muted)', lineHeight: 1.7 }}>
-                All of our outdoor building structures are completely custom-made. By managing everything from site surveys to engineering compliance, our building crews ensure SANS 10400 regulations are followed to the letter, adding long-lasting value to your residential or commercial property.
+                All of our decking and flooring installations are completely custom-made. By managing everything from site surveys to engineering compliance, our building crews ensure SANS regulations are followed to the letter, adding long-lasting value to your residential or commercial property.
               </p>
             </div>
             
             {/* Quick Summary Card */}
             <div style={{ background: 'var(--bg-glass)', border: '1px solid var(--border-glass)', borderRadius: 'var(--radius-lg)', padding: '32px', backdropFilter: 'var(--glass-blur)', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
-              <span style={{ fontSize: '0.8rem', color: 'var(--accent-primary)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Investment Guide</span>
+              <span style={{ fontSize: '0.8rem', color: 'var(--accent-eco)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Investment Guide</span>
               <h3 style={{ fontSize: '2rem', color: '#fff', margin: '8px 0 16px', fontWeight: 800 }}>{detail.pricing}</h3>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '24px' }}>*Approximate build pricing for South African standard residential specifications. Excludes custom structural engineers report if needed.</p>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '24px' }}>*Approximate installation pricing for South African standard residential specifications. Excludes custom structural engineers report if needed.</p>
               <button onClick={() => setView('quote')} className="btn btn-primary" style={{ width: '100%' }}>Book Site Survey</button>
             </div>
           </div>
@@ -374,7 +400,7 @@ export default function ServicePage({ serviceId, setView }) {
                     borderRadius: '16px',
                     overflow: 'hidden',
                     cursor: 'pointer',
-                    border: idx === activeImageIdx ? '3px solid var(--accent-primary)' : '1px solid var(--border-glass)',
+                    border: idx === activeImageIdx ? '3px solid var(--accent-eco)' : '1px solid var(--border-glass)',
                     transition: 'var(--transition)',
                     opacity: idx === activeImageIdx ? 1 : 0.6
                   }}
@@ -423,7 +449,7 @@ export default function ServicePage({ serviceId, setView }) {
       <section className="section-padding" style={{ background: 'rgba(255,255,255,0.01)', borderTop: '1px solid var(--border-glass)', borderBottom: '1px solid var(--border-glass)' }}>
         <div className="container" style={{ maxWidth: '900px' }}>
           <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-            <span className="badge" style={{ color: 'var(--accent-primary)' }}>Live Estimate Widget</span>
+            <span className="badge" style={{ backgroundColor: 'rgba(60, 168, 70, 0.1)', color: 'var(--accent-eco)', border: '1px solid rgba(60, 168, 70, 0.2)' }}>Live Estimate Widget</span>
             <h2 className="section-title" style={{ fontSize: '2.5rem' }}>Quick Estimator</h2>
             <p className="section-desc" style={{ margin: '0 auto' }}>Drag the sliders below to get a rough cost assessment based on size specs.</p>
           </div>
@@ -434,7 +460,7 @@ export default function ServicePage({ serviceId, setView }) {
             <div style={{ marginBottom: '32px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
                 <label style={{ fontSize: '1rem', fontWeight: 600 }}>{detail.calcLabel}</label>
-                <span style={{ fontSize: '1.2rem', color: 'var(--accent-primary)', fontWeight: 700 }}>{calcInput} units</span>
+                <span style={{ fontSize: '1.2rem', color: 'var(--accent-eco)', fontWeight: 700 }}>{calcInput} m²</span>
               </div>
               <input 
                 type="range" 
@@ -443,20 +469,20 @@ export default function ServicePage({ serviceId, setView }) {
                 step="5"
                 value={calcInput} 
                 onChange={(e) => setCalcInput(parseInt(e.target.value))}
-                style={{ width: '100%', accentColor: 'var(--accent-primary)', cursor: 'pointer' }}
+                style={{ width: '100%', accentColor: 'var(--accent-eco)', cursor: 'pointer' }}
               />
             </div>
 
             {/* Selector Options */}
             <div style={{ marginBottom: '40px' }}>
-              <label style={{ fontSize: '1rem', fontWeight: 600, display: 'block', marginBottom: '12px' }}>Subframe / Foundation Spec</label>
+              <label style={{ fontSize: '1rem', fontWeight: 600, display: 'block', marginBottom: '12px' }}>Subframe / Installation Spec</label>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <button 
                   onClick={() => setCalcSubframe('standard')}
                   style={{
                     padding: '16px',
-                    background: calcSubframe === 'standard' ? 'rgba(0, 82, 255, 0.1)' : 'rgba(0,0,0,0.3)',
-                    border: calcSubframe === 'standard' ? '2px solid var(--accent-primary)' : '1px solid var(--border-glass)',
+                    background: calcSubframe === 'standard' ? 'rgba(60, 168, 70, 0.1)' : 'rgba(0,0,0,0.3)',
+                    border: calcSubframe === 'standard' ? '2px solid var(--accent-eco)' : '1px solid var(--border-glass)',
                     borderRadius: '12px',
                     cursor: 'pointer',
                     color: '#fff',
@@ -464,14 +490,14 @@ export default function ServicePage({ serviceId, setView }) {
                     transition: 'var(--transition)'
                   }}
                 >
-                  <strong style={{ display: 'block', fontSize: '1rem', marginBottom: '4px' }}>Standard</strong>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>H3 Treated Structural Pine base framework</span>
+                  <strong style={{ display: 'block', fontSize: '1rem', marginBottom: '4px' }}>Standard Base</strong>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>H3 Treated structural framework or floor barrier</span>
                 </button>
                 <button 
                   onClick={() => setCalcSubframe('premium')}
                   style={{
                     padding: '16px',
-                    background: calcSubframe === 'premium' ? 'rgba(0, 229, 255, 0.1)' : 'rgba(0,0,0,0.3)',
+                    background: calcSubframe === 'premium' ? 'rgba(229, 169, 59, 0.1)' : 'rgba(0,0,0,0.3)',
                     border: calcSubframe === 'premium' ? '2px solid var(--accent-secondary)' : '1px solid var(--border-glass)',
                     borderRadius: '12px',
                     cursor: 'pointer',
@@ -480,8 +506,8 @@ export default function ServicePage({ serviceId, setView }) {
                     transition: 'var(--transition)'
                   }}
                 >
-                  <strong style={{ display: 'block', fontSize: '1rem', marginBottom: '4px', color: 'var(--accent-secondary)' }}>Galvanised Steel (+R350/unit)</strong>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Heavy-duty structural rustproof steel framing</span>
+                  <strong style={{ display: 'block', fontSize: '1rem', marginBottom: '4px', color: 'var(--accent-secondary)' }}>Premium Support (+R350/m²)</strong>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Galvanised steel joists or full sound dampening</span>
                 </button>
               </div>
             </div>
@@ -490,7 +516,7 @@ export default function ServicePage({ serviceId, setView }) {
             <div style={{ borderTop: '1px solid var(--border-glass)', paddingTop: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
               <div>
                 <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Budgetary Cost Projection:</span>
-                <h3 style={{ fontSize: '2.2rem', color: 'var(--accent-primary)', fontWeight: 800, marginTop: '4px' }}>R {totalCalcEstimate.toLocaleString()}*</h3>
+                <h3 style={{ fontSize: '2.2rem', color: 'var(--accent-eco)', fontWeight: 800, marginTop: '4px' }}>R {totalCalcEstimate.toLocaleString()}*</h3>
               </div>
               <button 
                 onClick={() => {
@@ -502,24 +528,24 @@ export default function ServicePage({ serviceId, setView }) {
                 Refine Estimate →
               </button>
             </div>
-            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '16px', textAlign: 'right' }}>*Estimate excludes VAT & site earthmoving variables. Valid for Gauteng region.</p>
+            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '16px', textAlign: 'right' }}>*Estimate excludes VAT & site earthmoving variables. Valid for South Africa.</p>
 
           </div>
         </div>
       </section>
 
-      {/* 6. SANS 10400 Building Compliance Section */}
-      <section className="section-padding" style={{ background: 'rgba(0, 82, 255, 0.02)' }}>
+      {/* 6. SANS Building Compliance Section */}
+      <section className="section-padding" style={{ background: 'rgba(60, 168, 70, 0.02)' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '0.8fr 1.2fr', gap: '50px', alignItems: 'center' }}>
             <div>
-              <span className="badge" style={{ color: 'var(--accent-secondary)' }}>National Building Regulations</span>
+              <span className="badge" style={{ backgroundColor: 'rgba(60, 168, 70, 0.1)', color: 'var(--accent-eco)', border: '1px solid rgba(60, 168, 70, 0.2)' }}>National Building Regulations</span>
               <h2 style={{ fontSize: '2.5rem', fontFamily: 'var(--font-heading)', marginBottom: '20px' }}>SANS Compliance</h2>
               <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '24px' }}>
-                All decking and pool engineering in South Africa must strictly adhere to the National Building Regulations. Constructing non-compliant outdoor structures can result in council fines, estate removal notices, and severe safety liabilities.
+                All decking and flooring structures in South Africa must strictly adhere to the National Building Regulations. Constructing non-compliant outdoor structures can result in council fines, estate removal notices, and severe safety liabilities.
               </p>
-              <div style={{ padding: '16px', background: 'rgba(0, 229, 255, 0.05)', borderLeft: '4px solid var(--accent-secondary)', borderRadius: '0 8px 8px 0', fontSize: '0.9rem', color: '#fff' }}>
-                🛡️ <strong>NHBRC Registered Builder:</strong> Our registration guarantees structural elements are built to SANS specifications.
+              <div style={{ padding: '16px', background: 'rgba(60, 168, 70, 0.05)', borderLeft: '4px solid var(--accent-eco)', borderRadius: '0 8px 8px 0', fontSize: '0.9rem', color: '#fff' }}>
+                🌿 <strong>Eco-Friendly & Safe:</strong> Our team guarantees all structural columns, load spacing, and slip ratings satisfy SANS requirements.
               </div>
             </div>
             
@@ -527,7 +553,7 @@ export default function ServicePage({ serviceId, setView }) {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               {detail.sansRules.map((rule, idx) => (
                 <div key={idx} style={{ background: 'var(--bg-glass)', border: '1px solid var(--border-glass)', borderRadius: '16px', padding: '24px', backdropFilter: 'var(--glass-blur)' }}>
-                  <h4 style={{ color: 'var(--accent-primary)', fontSize: '1.15rem', marginBottom: '8px', fontWeight: 600 }}>{rule.rule}</h4>
+                  <h4 style={{ color: 'var(--accent-eco)', fontSize: '1.15rem', marginBottom: '8px', fontWeight: 600 }}>{rule.rule}</h4>
                   <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.6 }}>{rule.desc}</p>
                 </div>
               ))}
@@ -564,13 +590,13 @@ export default function ServicePage({ serviceId, setView }) {
                 <p style={{ fontStyle: 'italic', color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '16px' }}>
                   {detail.caseStudy.clientQuote}
                 </p>
-                <span style={{ fontSize: '0.85rem', color: 'var(--accent-primary)', fontWeight: 700 }}>Verified Customer Review</span>
+                <span style={{ fontSize: '0.85rem', color: 'var(--accent-eco)', fontWeight: 700 }}>Verified Customer Review</span>
               </div>
             </div>
 
             <div style={{ display: 'flex', gap: '16px', background: 'rgba(255, 255, 255, 0.02)', padding: '16px 24px', borderRadius: '12px', border: '1px solid var(--border-glass)', fontSize: '0.9rem' }}>
               <div>💰 <strong>Project Budget:</strong> {detail.caseStudy.budget}</div>
-              <div>🏗️ <strong>Contractor:</strong> top3k Decking (Turnkey)</div>
+              <div>🏗️ <strong>Contractor:</strong> SWDF SA (Turnkey)</div>
             </div>
           </div>
         </div>
@@ -579,13 +605,13 @@ export default function ServicePage({ serviceId, setView }) {
       {/* 8. Our Construction Process Timeline */}
       <section className="section-padding" style={{ background: 'rgba(255,255,255,0.01)', borderTop: '1px solid var(--border-glass)', borderBottom: '1px solid var(--border-glass)' }}>
         <div className="container">
-          <h2 className="section-title text-center" style={{ fontSize: '2.5rem', marginBottom: '16px' }}>Our Construction Process</h2>
-          <p className="section-desc text-center" style={{ marginBottom: '60px' }}>Step-by-step layout of how we execute from blueprint to handover.</p>
+          <h2 className="section-title text-center" style={{ fontSize: '2.5rem', marginBottom: '16px' }}>Our Installation Process</h2>
+          <p className="section-desc text-center" style={{ marginBottom: '60px' }}>Step-by-step layout of how we execute from material delivery to hand over.</p>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '30px' }}>
             {detail.process.map((p, i) => (
               <div key={i} style={{ position: 'relative', padding: '32px 24px', background: 'var(--bg-glass)', border: '1px solid var(--border-glass)', borderRadius: 'var(--radius-md)', backdropFilter: 'var(--glass-blur)' }}>
-                <span style={{ position: 'absolute', top: '-20px', left: '24px', fontSize: '2.5rem', fontWeight: 900, color: 'var(--accent-primary)', opacity: 0.7 }}>{p.step}</span>
+                <span style={{ position: 'absolute', top: '-20px', left: '24px', fontSize: '2.5rem', fontWeight: 900, color: 'var(--accent-eco)', opacity: 0.7 }}>{p.step}</span>
                 <h4 style={{ fontSize: '1.2rem', marginTop: '16px', marginBottom: '12px', borderBottom: '1px solid var(--border-glass)', paddingBottom: '12px', color: '#fff' }}>{p.title}</h4>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.6 }}>{p.desc}</p>
               </div>
@@ -608,7 +634,7 @@ export default function ServicePage({ serviceId, setView }) {
                   style={{ width: '100%', padding: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', textAlign: 'left', fontWeight: 600, fontSize: '1.1rem', color: '#fff' }}
                 >
                   {faq.q}
-                  <span style={{ color: 'var(--accent-primary)', transform: openFaq === i ? 'rotate(45deg)' : 'rotate(0)', transition: 'var(--transition)', fontSize: '1.5rem', fontWeight: 300 }}>+</span>
+                  <span style={{ color: 'var(--accent-eco)', transform: openFaq === i ? 'rotate(45deg)' : 'rotate(0)', transition: 'var(--transition)', fontSize: '1.5rem', fontWeight: 300 }}>+</span>
                 </button>
                 {openFaq === i && (
                   <div style={{ padding: '0 24px 24px', color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6 }}>
@@ -624,17 +650,16 @@ export default function ServicePage({ serviceId, setView }) {
       {/* 10. Final Call to Action Section */}
       <section className="section-padding" style={{ borderTop: '1px solid var(--border-glass)' }}>
         <div className="container text-center">
-          <div style={{ background: 'linear-gradient(135deg, var(--bg-glass), rgba(0,102,255,0.15))', border: '1px solid var(--accent-primary)', padding: '80px 20px', borderRadius: 'var(--radius-lg)', boxShadow: '0 30px 60px rgba(0,102,255,0.2)', backdropFilter: 'var(--glass-blur)' }}>
-            <h2 style={{ fontSize: '2.5rem', marginBottom: '20px', fontWeight: 800, fontFamily: 'var(--font-heading)' }}>Ready to Build Your Outdoor Oasis?</h2>
-            <p style={{ color: 'var(--text-secondary)', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px', fontSize: '1.1rem', lineHeight: 1.7 }}>Contact our Midrand estimation office today. We will set up a site inspection and provide a fully engineered architectural proposal.</p>
+          <div style={{ background: 'linear-gradient(135deg, var(--bg-glass), rgba(60,168,70,0.1))', border: '1px solid var(--accent-eco)', padding: '80px 20px', borderRadius: 'var(--radius-lg)', boxShadow: '0 30px 60px rgba(60,168,70,0.15)', backdropFilter: 'var(--glass-blur)' }}>
+            <h2 style={{ fontSize: '2.5rem', marginBottom: '20px', fontWeight: 800, fontFamily: 'var(--font-heading)' }}>Ready to Build Your Sustainable Deck or Floor?</h2>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px', fontSize: '1.1rem', lineHeight: 1.7 }}>Contact our Johannesburg wood specialists today. We will set up a site inspection and provide a fully engineered custom layout proposal.</p>
             <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <button 
                 onClick={() => {
-                  if (serviceId === 'composite-decking') setView('calculator');
-                  else setView('quote');
+                  setView('calculator');
                 }} 
                 className="btn btn-primary"
-                style={{ padding: '18px 40px', fontSize: '1.1rem' }}
+                style={{ padding: '18px 40px', fontSize: '1.1rem', backgroundColor: 'var(--accent-eco)', borderColor: 'var(--accent-eco)' }}
               >
                 {detail.ctaText}
               </button>

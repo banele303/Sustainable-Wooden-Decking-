@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
 import BeforeAfter from './components/BeforeAfter';
+import Gallery from './components/Gallery';
 import Calculator from './components/Calculator';
 import Portfolio from './components/Portfolio';
 import ServicePage from './components/ServicePage';
@@ -72,6 +73,7 @@ function App() {
             <About setView={setView} />
             <Services setView={setView} setServiceId={setServiceId} />
             <BeforeAfter />
+            <Gallery />
             <Portfolio />
             <Blog />
             <Testimonials />

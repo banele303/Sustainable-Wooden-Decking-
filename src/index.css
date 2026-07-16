@@ -14,6 +14,8 @@
   --accent-primary-glow: rgba(197, 126, 59, 0.4);
   --accent-secondary: #E5A93B; /* Golden Honey Accents */
   --accent-secondary-glow: rgba(229, 169, 59, 0.15);
+  --accent-eco: #3CA846; /* Sustainable Leaf Green */
+  --accent-eco-glow: rgba(60, 168, 70, 0.3);
   
   /* Text */
   --text-primary: #FFFFFF;
@@ -1095,3 +1097,33 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; colo
   }
 }
 
+/* ============================================
+   GALLERY LIGHTBOX ANIMATION
+   ============================================ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Gallery grid mobile */
+@media (max-width: 768px) {
+  .gallery-grid { columns: 2 !important; }
+}
+@media (max-width: 480px) {
+  .gallery-grid { columns: 1 !important; }
+}
+
+/* ============================================
+   MOBILE FIXES
+   ============================================ */
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .tool-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
