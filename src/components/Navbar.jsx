@@ -27,7 +27,7 @@ export default function Navbar({ setView, currentView, setServiceId }) {
         
         {/* Logo */}
         <button className="logo" onClick={() => handleLinkClick('landing')} style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
-          <img src="/images/logo.png" alt="SWDF SA" style={{ height: '68px', borderRadius: '6px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)', objectFit: 'contain' }} />
+          <img src="/images/logo.png" alt="SWDF SA" className="navbar-logo" />
         </button>
         
         {/* Nav Menu */}
@@ -35,7 +35,7 @@ export default function Navbar({ setView, currentView, setServiceId }) {
           
           {/* Mobile Menu Header */}
           <div className="mobile-menu-header" style={{ display: 'none' }}>
-            <img src="/images/logo.png" alt="SWDF SA" style={{ height: '58px', borderRadius: '4px', objectFit: 'contain' }} />
+            <img src="/images/logo.png" alt="SWDF SA" className="navbar-logo" style={{ height: '44px' }} />
             <button className="mobile-menu-close" onClick={() => setIsMobileOpen(false)} aria-label="Close menu">✕</button>
           </div>
 
