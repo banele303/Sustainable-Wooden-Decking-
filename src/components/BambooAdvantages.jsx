@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const ADVANTAGES = [
   {
@@ -43,7 +43,46 @@ const ADVANTAGES = [
   }
 ];
 
+const CONSIDERATIONS = [
+  {
+    id: 'investment',
+    badge: 'Investment',
+    title: 'Premium Hardwood Pricing',
+    desc: 'Often priced similarly to premium hardwoods. It is an investment backed by a 25-year warranty, international certifications, and professional service.',
+    image: '/images/bamboo_consider_investment.jpg',
+    color: 'var(--accent-primary)',
+  },
+  {
+    id: 'weight',
+    badge: 'Weight',
+    title: 'High-Density Material',
+    desc: 'Engineered bamboo is a dense, solid material, and can be heavy. A solid substructure is recommended, especially for roof terraces and balconies.',
+    image: '/images/bamboo_consider_weight.jpg',
+    color: 'var(--accent-secondary)',
+  },
+  {
+    id: 'origin',
+    badge: 'Origin',
+    title: 'Moso Bamboo Species',
+    desc: 'Moso bamboo grows and is processed in China. Every decking board we supply carries full European quality certifications and structural warranties.',
+    image: '/images/bamboo_consider_origin.jpg',
+    color: 'var(--accent-eco)',
+  },
+  {
+    id: 'colour',
+    badge: 'Colour Aging',
+    title: 'Natural Weathering',
+    desc: 'Left untreated, bamboo decking weathers naturally to a silver-grey color. Choose between dark brown, warm caramel, or a lighter Savanna option.',
+    image: '/images/bamboo_consider_colour.jpg',
+    color: '#00E5FF',
+  }
+];
+
 export default function BambooAdvantages() {
+  const [activeTab, setActiveTab] = useState('advantages'); // 'advantages' or 'considerations'
+  
+  const currentItems = activeTab === 'advantages' ? ADVANTAGES : CONSIDERATIONS;
+
   return (
     <section style={{
       padding: '100px 0',
@@ -75,20 +114,77 @@ export default function BambooAdvantages() {
             color: 'var(--accent-eco)',
             border: '1px solid rgba(60,168,70,0.25)'
           }}>
-            Premium Material
+            Technical Guide
           </span>
-          <h2 className="section-title">The Moso Bamboo Advantage</h2>
-          <p className="section-desc">Why architect-specified thermal-treated bamboo is replacing traditional timber and composite decking across South Africa.</p>
+          <h2 className="section-title">Moso Bamboo Decoded</h2>
+          <p className="section-desc">Make an informed decision. Explore the premium advantages of engineered bamboo alongside key factors to consider for your installation.</p>
         </div>
 
-        {/* Dynamic Cards Grid */}
+        {/* Modern Tab Bar */}
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '30px',
-          marginTop: '50px'
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '16px',
+          marginBottom: '50px',
+          marginTop: '20px'
         }}>
-          {ADVANTAGES.map((adv, idx) => (
+          <button
+            onClick={() => setActiveTab('advantages')}
+            style={{
+              padding: '12px 28px',
+              borderRadius: '100px',
+              border: '1px solid',
+              borderColor: activeTab === 'advantages' ? 'var(--accent-eco)' : 'rgba(255,255,255,0.08)',
+              background: activeTab === 'advantages' ? 'rgba(60,168,70,0.12)' : 'rgba(255,255,255,0.02)',
+              color: activeTab === 'advantages' ? '#fff' : 'var(--text-secondary)',
+              fontSize: '0.9rem',
+              fontWeight: 700,
+              cursor: 'pointer',
+              transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+              letterSpacing: '0.04em',
+              boxShadow: activeTab === 'advantages' ? '0 8px 24px rgba(60,168,70,0.2)' : 'none',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px'
+            }}
+          >
+            <span>🌿</span> Key Advantages
+          </button>
+          <button
+            onClick={() => setActiveTab('considerations')}
+            style={{
+              padding: '12px 28px',
+              borderRadius: '100px',
+              border: '1px solid',
+              borderColor: activeTab === 'considerations' ? 'var(--accent-secondary)' : 'rgba(255,255,255,0.08)',
+              background: activeTab === 'considerations' ? 'rgba(229,169,59,0.12)' : 'rgba(255,255,255,0.02)',
+              color: activeTab === 'considerations' ? '#fff' : 'var(--text-secondary)',
+              fontSize: '0.9rem',
+              fontWeight: 700,
+              cursor: 'pointer',
+              transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+              letterSpacing: '0.04em',
+              boxShadow: activeTab === 'considerations' ? '0 8px 24px rgba(229,169,59,0.2)' : 'none',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px'
+            }}
+          >
+            <span>🔍</span> What to Consider
+          </button>
+        </div>
+
+        {/* Dynamic Cards Grid with fade animation wrapper */}
+        <div 
+          key={activeTab}
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '30px',
+            animation: 'fadeIn 0.5s ease-out'
+          }}
+        >
+          {currentItems.map((adv, idx) => (
             <div
               key={adv.id}
               style={{
@@ -153,7 +249,7 @@ export default function BambooAdvantages() {
                   alignSelf: 'flex-start',
                   padding: '4px 12px',
                   borderRadius: '100px',
-                  background: `rgba(${adv.id === 'sustainability' ? '60,168,70' : adv.id === 'lifespan' ? '197,126,59' : '229,169,59'}, 0.15)`,
+                  background: `rgba(255, 255, 255, 0.05)`,
                   color: adv.color,
                   border: `1px solid ${adv.color}40`,
                   fontSize: '0.72rem',
