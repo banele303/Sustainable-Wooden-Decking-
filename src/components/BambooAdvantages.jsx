@@ -3,41 +3,31 @@ import React, { useState } from 'react';
 const ADVANTAGES = [
   {
     id: 'sustainability',
-    badge: 'Sustainability',
-    title: 'Rapidly Renewable',
-    desc: 'Bamboo stores CO₂ as it grows and matures in just 4 to 5 years. Harvesting preserves the root system, preventing deforestation.',
+    title: 'Sustainability',
     image: '/images/bamboo_advantage_sustainability.jpg',
     color: 'var(--accent-eco)',
   },
   {
     id: 'lifespan',
-    badge: 'Long Lifespan',
-    title: '25-Year Warranty',
-    desc: 'Moso Bamboo decking has an exceptionally long lifespan comparable to premium hardwoods like Ipe, backed by a 25-year warranty.',
+    title: 'Long Lifespan',
     image: '/images/bamboo_advantage_lifespan.jpg',
     color: 'var(--accent-primary)',
   },
   {
     id: 'durability',
-    badge: 'Durability Class 1',
-    title: 'Maximum Stability',
-    desc: 'Achieves the highest durability class 1 (EN350). No warping, cupping, or bowing from coastal humidity to winter frost.',
+    title: 'Durability Class 1',
     image: '/images/bamboo_advantage_durability.jpg',
     color: 'var(--accent-secondary)',
   },
   {
     id: 'natural-look',
-    badge: 'Natural Look',
-    title: 'Organic Warmth',
-    desc: 'Brings a warm, premium atmosphere to terraces, roof decks, and walkways. A natural aesthetic opposite to plastic composites.',
+    title: 'Natural Look',
     image: '/images/bamboo_advantage_natural.jpg',
     color: '#a78bfa',
   },
   {
     id: 'pros-cons',
-    badge: 'Honest Take',
     title: 'Pros & Cons',
-    desc: 'We provide clear, honest expectations. Extremely dense and scratch-resistant, but requires annual UV oiling to maintain color.',
     image: '/images/bamboo_advantage_proscons.jpg',
     color: '#f97316',
   }
@@ -46,33 +36,25 @@ const ADVANTAGES = [
 const CONSIDERATIONS = [
   {
     id: 'investment',
-    badge: 'Investment',
-    title: 'Premium Hardwood Pricing',
-    desc: 'Often priced similarly to premium hardwoods. It is an investment backed by a 25-year warranty, international certifications, and professional service.',
+    title: 'Investment',
     image: '/images/bamboo_consider_investment.jpg',
     color: 'var(--accent-primary)',
   },
   {
     id: 'weight',
-    badge: 'Weight',
-    title: 'High-Density Material',
-    desc: 'Engineered bamboo is a dense, solid material, and can be heavy. A solid substructure is recommended, especially for roof terraces and balconies.',
+    title: 'Weight',
     image: '/images/bamboo_consider_weight.jpg',
     color: 'var(--accent-secondary)',
   },
   {
     id: 'origin',
-    badge: 'Origin',
-    title: 'Moso Bamboo Species',
-    desc: 'Moso bamboo grows and is processed in China. Every decking board we supply carries full European quality certifications and structural warranties.',
+    title: 'Origin',
     image: '/images/bamboo_consider_origin.jpg',
     color: 'var(--accent-eco)',
   },
   {
     id: 'colour',
-    badge: 'Colour Aging',
-    title: 'Natural Weathering',
-    desc: 'Left untreated, bamboo decking weathers naturally to a silver-grey color. Choose between dark brown, warm caramel, or a lighter Savanna option.',
+    title: 'Colour',
     image: '/images/bamboo_consider_colour.jpg',
     color: '#00E5FF',
   }
@@ -117,10 +99,10 @@ export default function BambooAdvantages() {
             Technical Guide
           </span>
           <h2 className="section-title">Moso Bamboo Decoded</h2>
-          <p className="section-desc">Make an informed decision. Explore the premium advantages of engineered bamboo alongside key factors to consider for your installation.</p>
+          <p className="section-desc">Make an informed decision. Explore the key advantages of engineered bamboo alongside factors to consider for your build.</p>
         </div>
 
-        {/* Modern Tab Bar */}
+        {/* Tab Toggle Buttons */}
         <div style={{
           display: 'flex',
           justifyContent: 'center',
@@ -174,113 +156,51 @@ export default function BambooAdvantages() {
           </button>
         </div>
 
-        {/* Dynamic Cards Grid with fade animation wrapper */}
+        {/* Clean cards grid */}
         <div 
           key={activeTab}
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '30px',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+            gap: '24px',
             animation: 'fadeIn 0.5s ease-out'
           }}
         >
-          {currentItems.map((adv, idx) => (
+          {currentItems.map((item) => (
             <div
-              key={adv.id}
+              key={item.id}
               style={{
                 position: 'relative',
-                borderRadius: '24px',
+                borderRadius: '18px',
                 overflow: 'hidden',
-                background: 'rgba(20,20,25,0.6)',
-                border: '1px solid rgba(255,255,255,0.06)',
-                backdropFilter: 'blur(12px)',
-                height: '460px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'flex-end',
+                background: '#fff',
+                border: '1px solid rgba(255,255,255,0.08)',
+                aspectRatio: '4/5',
                 transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-                cursor: 'pointer'
+                cursor: 'default',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.3)'
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-8px)';
-                e.currentTarget.style.borderColor = adv.color;
-                e.currentTarget.style.boxShadow = `0 24px 48px rgba(0,0,0,0.5), 0 0 16px ${adv.color}33`;
-                const img = e.currentTarget.querySelector('img');
-                if (img) img.style.transform = 'scale(1.08)';
+                e.currentTarget.style.borderColor = item.color;
+                e.currentTarget.style.boxShadow = `0 24px 48px rgba(0,0,0,0.5), 0 0 16px ${item.color}33`;
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)';
-                e.currentTarget.style.boxShadow = 'none';
-                const img = e.currentTarget.querySelector('img');
-                if (img) img.style.transform = 'scale(1)';
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
+                e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
               }}
             >
-              {/* Card Image */}
-              <div style={{
-                position: 'absolute', inset: 0,
-                overflow: 'hidden', zIndex: 1
-              }}>
-                <img
-                  src={adv.image}
-                  alt={adv.title}
-                  style={{
-                    width: '100%', height: '100%',
-                    objectFit: 'cover',
-                    transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
-                  }}
-                />
-                {/* Dark Vignette Overlay */}
-                <div style={{
-                  position: 'absolute', inset: 0,
-                  background: 'linear-gradient(to top, rgba(10,10,12,0.95) 0%, rgba(10,10,12,0.4) 60%, rgba(10,10,12,0.15) 100%)'
-                }} />
-              </div>
-
-              {/* Card Content Overlay */}
-              <div style={{
-                position: 'relative', zIndex: 2,
-                padding: '30px',
-                display: 'flex', flexDirection: 'column',
-                gap: '12px'
-              }}>
-                {/* Badge */}
-                <span style={{
-                  alignSelf: 'flex-start',
-                  padding: '4px 12px',
-                  borderRadius: '100px',
-                  background: `rgba(255, 255, 255, 0.05)`,
-                  color: adv.color,
-                  border: `1px solid ${adv.color}40`,
-                  fontSize: '0.72rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase'
-                }}>
-                  {adv.badge}
-                </span>
-
-                {/* Title */}
-                <h3 style={{
-                  fontSize: '1.4rem',
-                  fontWeight: 800,
-                  color: '#fff',
-                  fontFamily: 'var(--font-heading)',
-                  margin: 0
-                }}>
-                  {adv.title}
-                </h3>
-
-                {/* Description */}
-                <p style={{
-                  fontSize: '0.92rem',
-                  color: 'var(--text-secondary)',
-                  lineHeight: 1.6,
-                  margin: 0
-                }}>
-                  {adv.desc}
-                </p>
-              </div>
+              <img
+                src={item.image}
+                alt={item.title}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block'
+                }}
+              />
             </div>
           ))}
         </div>
