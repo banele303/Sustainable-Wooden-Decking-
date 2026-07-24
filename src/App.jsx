@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import BambooAdvantages from './components/BambooAdvantages';
 import Services from './components/Services';
 import BeforeAfter from './components/BeforeAfter';
 import Gallery from './components/Gallery';
@@ -71,6 +72,7 @@ function App() {
           <>
             <Hero setView={setView} />
             <About setView={setView} />
+            <BambooAdvantages />
             <Services setView={setView} setServiceId={setServiceId} />
             <BeforeAfter />
             <Gallery />

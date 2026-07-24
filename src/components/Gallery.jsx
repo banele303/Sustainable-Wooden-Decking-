@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 
 const galleryItems = [
-  { id: 1, src: '/images/tanda_tula_walkway.jpg', title: 'Bamboo Walkway', category: 'Outdoor Decking', accent: 'var(--accent-eco)' },
-  { id: 2, src: '/images/timber_decking.png', title: 'Hardwood Deck', category: 'Outdoor Decking', accent: 'var(--accent-secondary)' },
-  { id: 3, src: '/images/moso_bamboo_colors.jpg', title: 'MOSO® Bamboo Flooring', category: 'Indoor Flooring', accent: 'var(--accent-eco)' },
-  { id: 4, src: '/images/project_modern_house.png', title: 'Modern Engineered Floor', category: 'Indoor Flooring', accent: 'var(--accent-primary)' },
-  { id: 5, src: '/images/project_patio_gazebo.png', title: 'Timber Pergola', category: 'Structures', accent: '#a78bfa' },
-  { id: 6, src: '/images/project_pool_deck.png', title: 'Pool Surround Deck', category: 'Outdoor Decking', accent: 'var(--accent-secondary)' },
-  { id: 7, src: '/images/composite_boards.png', title: 'Composite Boards', category: 'Materials', accent: 'var(--accent-primary)' },
-  { id: 8, src: '/images/before_after_deck.png', title: 'Full Renovation', category: 'Restoration', accent: '#f97316' },
+  { id: 1, src: '/images/tanda_tula_walkway.jpg', title: 'Bamboo Lodge Walkway', category: 'Outdoor Decking', accent: 'var(--accent-eco)' },
+  { id: 2, src: '/images/bamboo_advantage_lifespan.jpg', title: 'Moso Bamboo Grooved Deck', category: 'Outdoor Decking', accent: 'var(--accent-eco)' },
+  { id: 3, src: '/images/bamboo_advantage_durability.jpg', title: 'Chevron Pattern Bamboo Deck', category: 'Outdoor Decking', accent: 'var(--accent-eco)' },
+  { id: 4, src: '/images/bamboo_advantage_natural.jpg', title: 'Terrace Bamboo Decking', category: 'Outdoor Decking', accent: 'var(--accent-eco)' },
+  { id: 5, src: '/images/bamboo_advantage_sustainability.jpg', title: 'Diagonal Bamboo Layout', category: 'Outdoor Decking', accent: 'var(--accent-eco)' },
+  { id: 6, src: '/images/timber_decking.png', title: 'Garapa Hardwood Deck', category: 'Outdoor Decking', accent: 'var(--accent-secondary)' },
+  { id: 7, src: '/images/moso_bamboo_colors.jpg', title: 'MOSO® Bamboo Flooring', category: 'Indoor Flooring', accent: 'var(--accent-eco)' },
+  { id: 8, src: '/images/project_modern_house.png', title: 'Modern Engineered Floor', category: 'Indoor Flooring', accent: 'var(--accent-primary)' },
+  { id: 9, src: '/images/project_patio_gazebo.png', title: 'Timber Pergola', category: 'Structures', accent: '#a78bfa' },
+  { id: 10, src: '/images/project_pool_deck.png', title: 'Pool Surround Deck', category: 'Outdoor Decking', accent: 'var(--accent-secondary)' },
+  { id: 11, src: '/images/bamboo_advantage_proscons.jpg', title: 'Smooth Bamboo Boards', category: 'Materials', accent: 'var(--accent-eco)' },
+  { id: 12, src: '/images/composite_boards.png', title: 'Composite Boards', category: 'Materials', accent: 'var(--accent-primary)' },
+  { id: 13, src: '/images/before_after_deck.png', title: 'Full Deck Restoration', category: 'Restoration', accent: '#f97316' },
 ];
 
 const FILTERS = ['All', 'Outdoor Decking', 'Indoor Flooring', 'Structures', 'Restoration', 'Materials'];

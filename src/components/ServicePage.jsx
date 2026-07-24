@@ -6,9 +6,10 @@ const serviceDetails = {
     subtitle: 'Carbon-Negative Outdoor Decking Solutions',
     heroImage: '/images/tanda_tula_walkway.jpg',
     gallery: [
-      { src: '/images/tanda_tula_walkway.jpg', caption: 'MOSO® Bamboo X-treme® curved elevated walkway at safari camp' },
-      { src: '/images/hero_sofa_deck.jpg', caption: 'Rooftop pool deck installation in Bantry Bay' },
-      { src: '/images/moso_bamboo_colors.jpg', caption: 'Bamboo deck board collection: X-treme and N-durance ranges' }
+      { src: '/images/bamboo_advantage_lifespan.jpg', caption: 'MOSO® Bamboo X-treme® grooved decking with long lifespan' },
+      { src: '/images/bamboo_advantage_durability.jpg', caption: 'MOSO® Bamboo chevron herringbone board layout' },
+      { src: '/images/bamboo_advantage_natural.jpg', caption: 'Moso Bamboo natural warm look terrace decking' },
+      { src: '/images/bamboo_advantage_sustainability.jpg', caption: 'Sustainable diagonal bamboo decking installation' }
     ],
     description: 'MOSO® Bamboo X-treme® and N-durance® decking boards represent the peak of eco-friendly, carbon-negative outdoor living. Made from fast-growing Moso bamboo fibers thermo-treated at 200°C and compressed under high pressure, these boards achieve Class 1 durability (EN 350-1) and Class Bfl-s1 fire safety ratings. They are harder, more stable, and more durable than traditional hardwoods.',
     specsTitle: 'Decking Spec Comparison',
@@ -58,7 +59,7 @@ const serviceDetails = {
     gallery: [
       { src: '/images/moso_bamboo_colors.jpg', caption: 'High-density indoor bamboo flooring range showing rich grain' },
       { src: '/images/project_modern_house.png', caption: 'Modern villa installation of sustainable bamboo flooring' },
-      { src: '/images/hero_sofa_deck.jpg', caption: 'Indoor-to-outdoor seamless threshold transition' }
+      { src: '/images/bamboo_advantage_proscons.jpg', caption: 'Smooth-sanded Moso Bamboo floor and wall panel board close-up' }
     ],
     description: 'Bring the warmth and luxury of natural wood into your home with carbon-negative interior bamboo flooring. Our solid and engineered Moso bamboo floors are crafted from high-density strand-woven fibers. This results in floorboards with a Janka hardness higher than oak or maple, outstanding scratch resistance, and excellent dimensional stability.',
     specsTitle: 'Interior Flooring Comparison',
