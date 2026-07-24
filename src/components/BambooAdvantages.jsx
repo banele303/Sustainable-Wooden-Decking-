@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const ADVANTAGES = [
+const CARDS = [
   {
     id: 'sustainability',
     title: 'Sustainability',
@@ -30,10 +30,7 @@ const ADVANTAGES = [
     title: 'Pros & Cons',
     image: '/images/bamboo_advantage_proscons.jpg',
     color: '#f97316',
-  }
-];
-
-const CONSIDERATIONS = [
+  },
   {
     id: 'investment',
     title: 'Investment',
@@ -61,10 +58,6 @@ const CONSIDERATIONS = [
 ];
 
 export default function BambooAdvantages() {
-  const [activeTab, setActiveTab] = useState('advantages'); // 'advantages' or 'considerations'
-  
-  const currentItems = activeTab === 'advantages' ? ADVANTAGES : CONSIDERATIONS;
-
   return (
     <section style={{
       padding: '100px 0',
@@ -90,7 +83,7 @@ export default function BambooAdvantages() {
       <div className="container" style={{ position: 'relative', zIndex: 5 }}>
         
         {/* Section Header */}
-        <div className="section-header text-center fade-in-up active">
+        <div className="section-header text-center fade-in-up active" style={{ marginBottom: '50px' }}>
           <span className="badge" style={{
             background: 'rgba(60,168,70,0.1)',
             color: 'var(--accent-eco)',
@@ -99,74 +92,16 @@ export default function BambooAdvantages() {
             Technical Guide
           </span>
           <h2 className="section-title">Moso Bamboo Decoded</h2>
-          <p className="section-desc">Make an informed decision. Explore the key advantages of engineered bamboo alongside factors to consider for your build.</p>
+          <p className="section-desc">Make an informed decision. Explore all nine key advantages and design considerations for your build.</p>
         </div>
 
-        {/* Tab Toggle Buttons */}
+        {/* Combined 9-Card Grid */}
         <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '16px',
-          marginBottom: '50px',
-          marginTop: '20px'
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+          gap: '24px'
         }}>
-          <button
-            onClick={() => setActiveTab('advantages')}
-            style={{
-              padding: '12px 28px',
-              borderRadius: '100px',
-              border: '1px solid',
-              borderColor: activeTab === 'advantages' ? 'var(--accent-eco)' : 'rgba(255,255,255,0.08)',
-              background: activeTab === 'advantages' ? 'rgba(60,168,70,0.12)' : 'rgba(255,255,255,0.02)',
-              color: activeTab === 'advantages' ? '#fff' : 'var(--text-secondary)',
-              fontSize: '0.9rem',
-              fontWeight: 700,
-              cursor: 'pointer',
-              transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-              letterSpacing: '0.04em',
-              boxShadow: activeTab === 'advantages' ? '0 8px 24px rgba(60,168,70,0.2)' : 'none',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px'
-            }}
-          >
-            <span>🌿</span> Key Advantages
-          </button>
-          <button
-            onClick={() => setActiveTab('considerations')}
-            style={{
-              padding: '12px 28px',
-              borderRadius: '100px',
-              border: '1px solid',
-              borderColor: activeTab === 'considerations' ? 'var(--accent-secondary)' : 'rgba(255,255,255,0.08)',
-              background: activeTab === 'considerations' ? 'rgba(229,169,59,0.12)' : 'rgba(255,255,255,0.02)',
-              color: activeTab === 'considerations' ? '#fff' : 'var(--text-secondary)',
-              fontSize: '0.9rem',
-              fontWeight: 700,
-              cursor: 'pointer',
-              transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-              letterSpacing: '0.04em',
-              boxShadow: activeTab === 'considerations' ? '0 8px 24px rgba(229,169,59,0.2)' : 'none',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px'
-            }}
-          >
-            <span>🔍</span> What to Consider
-          </button>
-        </div>
-
-        {/* Clean cards grid */}
-        <div 
-          key={activeTab}
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-            gap: '24px',
-            animation: 'fadeIn 0.5s ease-out'
-          }}
-        >
-          {currentItems.map((item) => (
+          {CARDS.map((item) => (
             <div
               key={item.id}
               style={{
