@@ -45,23 +45,23 @@ export default function Footer({ setView, setServiceId }) {
           </button>
           
           <p className="footer-desc" style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
-            Sustainable Wooden Decking and Flooring SA (Pty) Ltd is South Africa's premier supplier and installer of eco-friendly, carbon-negative outdoor decking and indoor flooring, emphasizing Moso Bamboo.
+            Sustainable Wooden Decking and Flooring SA (Pty) Ltd is South Africa's premier supplier and installer of eco-friendly, carbon-negative outdoor decking and indoor flooring, emphasizing [...]
           </p>
           
           <div className="footer-address" style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-eco)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-eco)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><[...]
             <span>36 Sarie Street, Ridgeway, Johannesburg, 2091</span>
           </div>
           
           <div className="social-links" style={{ display: 'flex', gap: '12px' }}>
-            <a href="#" aria-label="Facebook" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', color: 'var(--text-secondary)', transition: 'all 0.3s ease' }}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
+            <a href="#" aria-label="Facebook" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(255,25[...]
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><p[...]
             </a>
-            <a href="#" aria-label="Instagram" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', color: 'var(--text-secondary)', transition: 'all 0.3s ease' }}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
+            <a href="#" aria-label="Instagram" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(255,2[...]
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><r[...]
             </a>
-            <a href="#" aria-label="LinkedIn" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', color: 'var(--text-secondary)', transition: 'all 0.3s ease' }}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/></svg>
+            <a href="#" aria-label="LinkedIn" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(255,25[...]
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><p[...]
             </a>
           </div>
         </div>
@@ -156,6 +156,8 @@ export default function Footer({ setView, setServiceId }) {
             Thank you for subscribing to SWDF SA news!
           </div>
           <div className="footer-contact" style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.9rem' }}>
+            <p style={{ margin: 0 }}>📞 <a href="tel:+27639148319" style={{ color: 'var(--text-primary)', textDecoration: 'none' }}>+27 63 914 8319</a></p>
+            <p style={{ margin: 0 }}>📞 <a href="tel:+27812693682" style={{ color: 'var(--text-primary)', textDecoration: 'none' }}>+27 81 269 3682</a></p>
             <p style={{ margin: 0 }}>✉️ <a href="mailto:swdandflooringsa@gmail.com" style={{ color: 'var(--text-primary)', textDecoration: 'none' }}>swdandflooringsa@gmail.com</a></p>
           </div>
         </div>
@@ -184,11 +186,11 @@ export default function Footer({ setView, setServiceId }) {
         </div>
       </div>
 
-      <div className="container footer-bottom" style={{ borderTop: '1px solid rgba(255,255,255,0.06)', marginTop: '30px', paddingTop: '24px', paddingBottom: '32px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
+      <div className="container footer-bottom" style={{ borderTop: '1px solid rgba(255,255,255,0.06)', marginTop: '30px', paddingTop: '24px', paddingBottom: '32px', display: 'flex', justifyConten[...]
         <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-muted)' }}>&copy; 2026 Sustainable Wooden Decking and Flooring SA (Pty) Ltd. All rights reserved.</p>
         <div className="bottom-links" style={{ display: 'flex', gap: '24px', fontSize: '0.85rem' }}>
-          <a href="#" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 0.2s ease' }} onMouseEnter={(e) => e.target.style.color = '#fff'} onMouseLeave={(e) => e.target.style.color = 'var(--text-muted)'}>Privacy Policy</a>
-          <a href="#" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 0.2s ease' }} onMouseEnter={(e) => e.target.style.color = '#fff'} onMouseLeave={(e) => e.target.style.color = 'var(--text-muted)'}>Terms of Service</a>
+          <a href="#" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 0.2s ease' }} onMouseEnter={(e) => e.target.style.color = '#fff'} onMouseLeave={(e) => e.targ[...]
+          <a href="#" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 0.2s ease' }} onMouseEnter={(e) => e.target.style.color = '#fff'} onMouseLeave={(e) => e.targ[...]
         </div>
       </div>
     </footer>
