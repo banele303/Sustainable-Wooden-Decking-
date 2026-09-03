@@ -105,7 +105,7 @@ export default function QuoteRequest({ quoteData, setQuoteData }) {
           <span className="badge">Get in Touch</span>
           <h2 className="section-title">Request a Consultation</h2>
           <p className="booking-intro">
-            Submit your project specifications or request a site inspection. Our engineering and estimation team based in Midrand services the wider Gauteng region daily, with project managers in Cape Town and Durban.
+            Submit your project specifications or request a site inspection. Our engineering and estimation team based in Ridgeway, Johannesburg services the wider Gauteng region daily, with project managers in Cape Town and Durban.
           </p>
           
           <div className="contact-details" style={{ display: 'flex', flexDirection: 'column', gap: '24px', marginTop: '32px' }}>
@@ -115,7 +115,11 @@ export default function QuoteRequest({ quoteData, setQuoteData }) {
               </div>
               <div>
                 <h5 style={{ margin: 0, color: '#fff', fontSize: '1rem' }}>Call Our Estimators</h5>
-                <p style={{ margin: '4px 0 0 0', color: 'var(--color-text-sec)', fontSize: '0.9rem' }}>+27 87 510 1772</p>
+                <p style={{ margin: '4px 0 0 0', color: 'var(--color-text-sec)', fontSize: '0.9rem' }}>
+                  <a href="tel:+27639148319" style={{ color: 'var(--color-text-sec)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => e.target.style.color='#fff'} onMouseLeave={e => e.target.style.color='var(--color-text-sec)'}>+27 63 914 8319</a>
+                  <span style={{ margin: '0 6px', opacity: 0.5 }}>/</span>
+                  <a href="tel:+27812693682" style={{ color: 'var(--color-text-sec)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => e.target.style.color='#fff'} onMouseLeave={e => e.target.style.color='var(--color-text-sec)'}>+27 81 269 3682</a>
+                </p>
               </div>
             </div>
             
@@ -125,7 +129,33 @@ export default function QuoteRequest({ quoteData, setQuoteData }) {
               </div>
               <div>
                 <h5 style={{ margin: 0, color: '#fff', fontSize: '1rem' }}>Email Project Office</h5>
-                <p style={{ margin: '4px 0 0 0', color: 'var(--color-text-sec)', fontSize: '0.9rem' }}>info@top3kdecking.co.za</p>
+                <p style={{ margin: '4px 0 0 0', color: 'var(--color-text-sec)', fontSize: '0.9rem' }}>
+                  <a href="mailto:swdandflooringsa@gmail.com" style={{ color: 'var(--color-text-sec)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => e.target.style.color='#fff'} onMouseLeave={e => e.target.style.color='var(--color-text-sec)'}>swdandflooringsa@gmail.com</a>
+                </p>
+              </div>
+            </div>
+
+            <div className="contact-item" style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+              <div className="contact-icon" style={{ color: '#25D366', width: '40px', height: '40px', background: 'rgba(37,211,102,0.12)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              </div>
+              <div>
+                <h5 style={{ margin: 0, color: '#fff', fontSize: '1rem' }}>WhatsApp Chat</h5>
+                <p style={{ margin: '4px 0 0 0', fontSize: '0.9rem' }}>
+                  <a href="https://wa.me/27639148319?text=Hello%20SWDF%20SA,%20I'd%20like%20to%20request%20a%20quote" target="_blank" rel="noopener noreferrer" style={{ color: '#25D366', textDecoration: 'none' }}>
+                    Chat +27 63 914 8319
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <div className="contact-item" style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+              <div className="contact-icon" style={{ color: 'var(--color-gold-base)', width: '40px', height: '40px', background: 'rgba(29,83,160,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <h5 style={{ margin: 0, color: '#fff', fontSize: '1rem' }}>Showroom & Office</h5>
+                <p style={{ margin: '4px 0 0 0', color: 'var(--color-text-sec)', fontSize: '0.9rem' }}>36 Sarie Street, Ridgeway, Johannesburg, 2091</p>
               </div>
             </div>
 
@@ -148,7 +178,7 @@ export default function QuoteRequest({ quoteData, setQuoteData }) {
               <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.3)', display: 'flex', alignItems: 'center', justifySelf: 'center', justifyContent: 'center', color: '#22c55e', fontSize: '2rem', marginBottom: '24px' }}>✓</div>
               <h3>Consultation Request Submitted</h3>
               <p style={{ color: 'var(--color-text-sec)', margin: '16px 0 24px 0', lineHeight: 1.6 }}>
-                Thank you for choosing top3k Decking. Your request has been logged. A project manager will contact you at {formData.phone} or {formData.email} to confirm details and coordinate a site inspection.
+                Thank you for choosing Sustainable Wooden Decking and Flooring SA. Your request has been logged. A project manager will contact you at {formData.phone} or {formData.email} to confirm details and coordinate a site inspection.
               </p>
               <button onClick={handleReset} className="btn btn-primary" style={{ cursor: 'pointer' }}>
                 Submit Another Request

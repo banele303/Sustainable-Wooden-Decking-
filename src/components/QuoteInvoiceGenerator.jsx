@@ -27,11 +27,11 @@ export default function QuoteInvoiceGenerator({ setView }) {
   const [docStatus, setDocStatus] = useState('Draft'); // Draft, Sent, Approved, Paid, Overdue
 
   // ── COMPANY PROFILE ────────────────────────────────────────────────────────
-  const [companyName, setCompanyName] = useState('top3k Decking');
-  const [companyAddress, setCompanyAddress] = useState('Block G, Hertford Office Park, Midrand, 1686');
+  const [companyName, setCompanyName] = useState('Sustainable Wooden Decking and Flooring SA');
+  const [companyAddress, setCompanyAddress] = useState('36 Sarie Street, Ridgeway, Johannesburg, 2091');
   const [companyVat, setCompanyVat] = useState('ZA4830291029');
-  const [companyEmail, setCompanyEmail] = useState('info@top3kdecking.co.za');
-  const [companyPhone, setCompanyPhone] = useState('+27 87 510 1772');
+  const [companyEmail, setCompanyEmail] = useState('swdandflooringsa@gmail.com');
+  const [companyPhone, setCompanyPhone] = useState('+27 63 914 8319');
 
   // ── CLIENT PROFILE ─────────────────────────────────────────────────────────
   const [clientName, setClientName] = useState('');
@@ -66,7 +66,7 @@ export default function QuoteInvoiceGenerator({ setView }) {
   const [showTerms, setShowTerms] = useState(true);
 
   // Custom Logo and Mobile responsive states
-  const [logoUrl, setLogoUrl] = useState('/images/top3k_logo.jpg');
+  const [logoUrl, setLogoUrl] = useState('/images/logo.png');
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 992);
   const [activeMobileTab, setActiveMobileTab] = useState('edit');
 
@@ -449,7 +449,7 @@ export default function QuoteInvoiceGenerator({ setView }) {
         doc.addImage(sigImgSrc, 'PNG', 130, currentY + 3, 36, 12);
       }
 
-      doc.save(`top3k_Decking_${docType.replace(' ', '')}_${docNumber}.pdf`);
+      doc.save(`SWDF_SA_${docType.replace(' ', '')}_${docNumber}.pdf`);
       addToast('Invoice PDF downloaded successfully', 'success');
     } catch (e) {
       console.error(e);

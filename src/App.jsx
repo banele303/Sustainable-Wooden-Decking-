@@ -13,6 +13,7 @@ import QuoteInvoiceGenerator from './components/QuoteInvoiceGenerator';
 import Blog from './components/Blog';
 import Testimonials from './components/Testimonials';
 import QuoteRequest from './components/QuoteRequest';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Chat from './components/Chat';
 import ChatWidget from './components/ChatWidget';
@@ -38,6 +39,8 @@ function App() {
       setView('calculator');
     } else if (path.includes('projects') || hash.includes('projects')) {
       setView('projects');
+    } else if (path.includes('contact') || hash.includes('contact')) {
+      setView('contact');
     }
   }, []);
 
@@ -97,6 +100,7 @@ function App() {
       case 'visualizer':
         return <QuoteInvoiceGenerator setView={setView} setQuoteData={setQuoteData} />;
       case 'contact':
+        return <Contact setView={setView} />;
       case 'quote':
         return <QuoteRequest quoteData={quoteData} setQuoteData={setQuoteData} />;
       case 'chat':

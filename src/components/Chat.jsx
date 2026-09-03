@@ -9,7 +9,7 @@ const SYSTEM_PERSONA = `You are SWDF SA AI Assistant, the virtual consultant for
 - Pergolas & Bamboo Cladding - custom quotes
 - Restoration & Maintenance from R220/m²
 - Sustainability, SANS 10400 safety building codes, and eco-friendly products
-Contact: swdandflooringsa@gmail.com | 36 Sarie Street, Ridgeway, Johannesburg 2091.
+Contact: +27 63 914 8319 / +27 81 269 3682 | swdandflooringsa@gmail.com | 36 Sarie Street, Ridgeway, Johannesburg 2091.
 Always keep responses concise, bulleted, and helpful.`;
 
 /* ─── Local fallback matching engine ─────────────────────────────────────── */
@@ -30,8 +30,8 @@ const buildFallbackResponse = (userMessages) => {
     return `**ZAR Installed Price Guide:**\n\n• Moso Bamboo Decking: From R1,850/m²\n• Moso Bamboo Flooring: From R1,200/m²\n• Hardwood Decking: From R1,800/m²\n• Engineered Wood Flooring: From R1,350/m²\n• Restoration Services: From R220/m²\n\nUse our interactive **Cost Estimator** on the page for a comprehensive quote!`;
   } else if (lastMsg.match(/restore|restoration|maintenance|sand|oil/)) {
     return `**Restoration & Maintenance Services:**\n\n• Mechanical sanding, deep chemical cleaning, and UV oil application.\n• Subframe reinforcement and broken board replacement.\n• Rates starting from **R220/m²** to restore decks to original beauty.`;
-  } else if (lastMsg.match(/hour|open|close|location|address|where|johannesburg|ridgeway/)) {
-    return `📍 **Our Showroom / Office:**\n36 Sarie Street, Ridgeway, Johannesburg 2091\n\n✉️ **Email:** swdandflooringsa@gmail.com\n\nWe service the entire Johannesburg and greater Gauteng area.`;
+  } else if (lastMsg.match(/hour|open|close|location|address|where|johannesburg|ridgeway|contact|phone|number|call|whatsapp|email/)) {
+    return `📍 **Our Showroom / Office:**\n36 Sarie Street, Ridgeway, Johannesburg 2091\n\n📞 **Phone / WhatsApp:** +27 63 914 8319 / +27 81 269 3682\n\n✉️ **Email:** swdandflooringsa@gmail.com\n\nWe service the entire Johannesburg and greater Gauteng area.`;
   } else if (lastMsg.match(/hello|hi|hey/)) {
     return `Welcome to **SWDF SA Project Consultant** 🌿\n\nI can assist you with:\n\n• 🎋 Moso Bamboo Decking & Flooring specs\n• 🪵 Garapa & Balau hardwood decking\n• 🏡 Pergolas & Bamboo wall cladding\n• 🔧 Restoration & maintenance quotes\n• 📍 Located in Ridgeway, Johannesburg\n\nHow can I help you today?`;
   }
@@ -58,7 +58,7 @@ const PRESETS = [
   { icon: '🪵', text: 'Compare Garapa and Balau hardwood decks', short: 'Hardwood Decks' },
   { icon: '🏡', text: 'How much do pergolas cost?', short: 'Pergola Pricing' },
   { icon: '🔧', text: 'Tell me about deck restoration services', short: 'Restoration Care' },
-  { icon: '📍', text: 'What is your email and office location?', short: 'Office Details' },
+  { icon: '📍', text: 'What is your contact phone number, email and office location?', short: 'Contact & Office' },
 ];
 
 /* ─── Main Chat Component ─────────────────────────────────────────────────── */

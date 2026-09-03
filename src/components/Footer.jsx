@@ -156,8 +156,11 @@ export default function Footer({ setView, setServiceId }) {
             Thank you for subscribing to SWDF SA news!
           </div>
           <div className="footer-contact" style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.9rem' }}>
-            <p style={{ margin: 0 }}>📞 <a href="tel:+27639148319" style={{ color: 'var(--text-primary)', textDecoration: 'none' }}>+27 63 914 8319</a></p>
-            <p style={{ margin: 0 }}>📞 <a href="tel:+27812693682" style={{ color: 'var(--text-primary)', textDecoration: 'none' }}>+27 81 269 3682</a></p>
+            <p style={{ margin: 0 }}>
+              📞 <a href="tel:+27639148319" style={{ color: 'var(--text-primary)', textDecoration: 'none' }}>+27 63 914 8319</a>
+              <span style={{ margin: '0 6px', opacity: 0.5 }}>/</span>
+              <a href="tel:+27812693682" style={{ color: 'var(--text-primary)', textDecoration: 'none' }}>+27 81 269 3682</a>
+            </p>
             <p style={{ margin: 0 }}>✉️ <a href="mailto:swdandflooringsa@gmail.com" style={{ color: 'var(--text-primary)', textDecoration: 'none' }}>swdandflooringsa@gmail.com</a></p>
           </div>
         </div>

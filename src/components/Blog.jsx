@@ -7,7 +7,7 @@ const articles = [
     excerpt: 'Explore how harsh South African weather affects decking materials. Learn why composite is overtaking traditional hardwoods like Balau and Garapa in modern construction.',
     image: '/images/composite_boards.png',
     date: 'July 8, 2026',
-    author: 'top3k Decking Team',
+    author: 'SWDF SA Team',
     readTime: '6 min read',
     content: (
       <>
@@ -69,7 +69,7 @@ const articles = [
     excerpt: 'Keep your natural hardwood deck looking rich and premium. Learn the correct sanding, oiling, and cleaning techniques.',
     image: '/images/timber_decking.png',
     date: 'June 14, 2026',
-    author: 'top3k Carpentry Workshop',
+    author: 'SWDF SA Carpentry Workshop',
     readTime: '4 min read',
     content: (
       <>

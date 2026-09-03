@@ -8,7 +8,7 @@ const systemPrompt = `You are SWDF SA AI Assistant, an expert project assistant 
 - Pergolas & Bamboo Cladding – custom quotes
 - Restoration & Maintenance from R220/m²
 - Sustainability, SANS compliance, and eco-friendly products
-Contact: swdandflooringsa@gmail.com | 36 Sarie Street, Ridgeway, Johannesburg 2091
+Contact: +27 63 914 8319 / +27 81 269 3682 | swdandflooringsa@gmail.com | 36 Sarie Street, Ridgeway, Johannesburg 2091
 Keep answers concise, helpful, and use bullet points where needed. Never mention you are an AI.`;
 
 const buildFallbackResponse = (userMessages) => {
@@ -25,8 +25,8 @@ const buildFallbackResponse = (userMessages) => {
     return `**Restoration & Maintenance Services:**\n\n• Professional deck sanding, cleaning & UV oil application.\n• Subframe structural repairs and board replacement.\n• From **R220/m²** — restore your deck to showroom condition.`;
   } else if (lastMsg.match(/price|cost|rate|estimate|how much/)) {
     return `**Quick Price Guide (ZAR, installed):**\n\n• Moso Bamboo Decking: From R1,850/m²\n• Moso Bamboo Flooring: From R1,200/m²\n• Hardwood Decking: From R1,800/m²\n• Engineered Wood Flooring: From R1,350/m²\n• Restoration: From R220/m²\n\nUse the **Cost Estimator** on our site for a detailed quote!`;
-  } else if (lastMsg.match(/address|location|office|johannesburg|ridgeway|where/)) {
-    return `📍 **Our Office:**\n36 Sarie Street, Ridgeway, Johannesburg 2091\n\n✉️ **Email:** swdandflooringsa@gmail.com\n\nWe serve the greater Johannesburg and Gauteng area for supply and installation.`;
+  } else if (lastMsg.match(/address|location|office|johannesburg|ridgeway|where|contact|phone|number|call|whatsapp|email/)) {
+    return `📍 **Our Office:**\n36 Sarie Street, Ridgeway, Johannesburg 2091\n\n📞 **Phone / WhatsApp:** +27 63 914 8319 / +27 81 269 3682\n\n✉️ **Email:** swdandflooringsa@gmail.com\n\nWe serve the greater Johannesburg and Gauteng area for supply and installation.`;
   } else if (lastMsg.match(/hello|hi|hey|good morning|good day/)) {
     return `Welcome to **SWDF SA AI Assistant** 🌿\n\nI'm here to help you with:\n\n• 🎋 Moso Bamboo Decking & Flooring\n• 🪵 Hardwood & Engineered Wood Flooring\n• 🏡 Pergolas & Bamboo Cladding\n• 🔧 Restoration & Maintenance\n• 📍 Located in Ridgeway, Johannesburg\n\nHow can I assist you today?`;
   }
