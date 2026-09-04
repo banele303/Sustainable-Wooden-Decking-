@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { sendEmailForm } from '../services/emailService';
 
 export default function Contact({ setView }) {
   const [formData, setFormData] = useState({
@@ -9,12 +10,29 @@ export default function Contact({ setView }) {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.phone) {
       alert('Please fill in your name, email and phone number.');
       return;
+    }
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    const res = await sendEmailForm({
+      'Full Name': formData.name,
+      'Email Address': formData.email,
+      'Phone Number': formData.phone,
+      'Service Requested': formData.service,
+      'Message / Dimensions': formData.message || 'No additional message provided'
+    }, `New Contact Inquiry: ${formData.name} (${formData.service})`);
+
+    setIsSubmitting(false);
+    if (!res.success) {
+      setSubmitError(res.error || 'Notice: Email relay delayed.');
     }
     setIsSubmitted(true);
   };
@@ -27,6 +45,7 @@ export default function Contact({ setView }) {
       service: 'Moso Bamboo Decking',
       message: ''
     });
+    setSubmitError('');
     setIsSubmitted(false);
   };
 
@@ -326,10 +345,21 @@ export default function Contact({ setView }) {
                 }}>
                   ✓
                 </div>
-                <h3 style={{ fontSize: '1.6rem', color: '#fff', marginBottom: '12px' }}>Message Received</h3>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '24px' }}>
-                  Thank you, <strong>{formData.name}</strong>. Our project estimator will contact you shortly at <strong>{formData.phone}</strong> or <strong>{formData.email}</strong>.
+                <h3 style={{ fontSize: '1.6rem', color: '#fff', marginBottom: '12px' }}>Inquiry Sent Successfully</h3>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '20px' }}>
+                  Thank you, <strong>{formData.name}</strong>. Your message and project details have been sent to our estimation office at <strong style={{ color: '#fff' }}>swdandflooringsa@gmail.com</strong>.
                 </p>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: '24px' }}>
+                  A project manager will review your request and contact you shortly at <strong>{formData.phone}</strong> or <strong>{formData.email}</strong>.
+                </p>
+                {submitError && (
+                  <div style={{ background: 'rgba(234,179,8,0.1)', border: '1px solid rgba(234,179,8,0.3)', borderRadius: '8px', padding: '12px 16px', marginBottom: '20px', fontSize: '0.85rem', color: '#fde047' }}>
+                    💡 Direct connection tip: You can also chat with us immediately on WhatsApp:{' '}
+                    <a href={`https://wa.me/27639148319?text=Hi%20SWDF%20SA,%20I'm%20${encodeURIComponent(formData.name)}.%20Inquiry%20for%20${encodeURIComponent(formData.service)}`} target="_blank" rel="noopener noreferrer" style={{ color: '#22c55e', fontWeight: 600, textDecoration: 'underline' }}>
+                      +27 63 914 8319
+                    </a>
+                  </div>
+                )}
                 <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
                   <button onClick={handleReset} className="btn btn-secondary" style={{ padding: '10px 20px', fontSize: '0.9rem' }}>
                     Send Another Message
@@ -471,10 +501,11 @@ export default function Contact({ setView }) {
 
                   <button 
                     type="submit" 
+                    disabled={isSubmitting}
                     className="btn btn-primary"
-                    style={{ width: '100%', padding: '16px', fontSize: '1rem', fontWeight: 700, marginTop: '8px' }}
+                    style={{ width: '100%', padding: '16px', fontSize: '1rem', fontWeight: 700, marginTop: '8px', opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? 'not-allowed' : 'pointer' }}
                   >
-                    Send Inquiry →
+                    {isSubmitting ? 'Sending to swdandflooringsa@gmail.com...' : 'Send Inquiry →'}
                   </button>
 
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.78rem', textAlign: 'center', margin: 0 }}>

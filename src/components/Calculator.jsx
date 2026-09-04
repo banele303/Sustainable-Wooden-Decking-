@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { sendEmailForm } from '../services/emailService';
 
 const MATERIAL_PRICES = {
   'moso-xtreme': { name: 'MOSO® Bamboo X-treme® Decking (Class 1)', rate: 1850, desc: 'Carbon-negative, extremely dense, high-durability exterior boards.' },
@@ -31,6 +32,8 @@ export default function Calculator({ setView, setQuoteData }) {
   const [balustradeLength, setBalustradeLength] = useState(0);
   const [hasPergola, setHasPergola] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   // Client Details Form
   const [name, setName] = useState('');
@@ -56,15 +59,39 @@ export default function Calculator({ setView, setQuoteData }) {
   const laborCost = Math.round((baseMaterialCost + subframeCost + elevationCost) * laborPercent);
   const totalCost = baseMaterialCost + subframeCost + elevationCost + balustradeCost + pergolaCost + laborCost;
 
-  const handleSubmitQuote = (e) => {
+  const handleSubmitQuote = async (e) => {
     e.preventDefault();
     if (name && email && phone) {
+      setIsSubmitting(true);
+      setSubmitError('');
+
+      const configDetails = `${length}m x ${width}m (${area}m²) ${MATERIAL_PRICES[material].name}, ${SUBFRAME_PRICES[subframe].name}, ${ELEVATION_PRICES[elevation].name}. Extras: Balustrades: ${hasBalustrades ? balustradeLength + 'm' : 'No'}, Pergola: ${hasPergola ? 'Yes' : 'No'}.`;
+
       if (setQuoteData) {
         setQuoteData({
           name, email, phone, city,
-          details: `${length}m x ${width}m (${area}m²) ${MATERIAL_PRICES[material].name} deck, ${SUBFRAME_PRICES[subframe].name} subframe, ${ELEVATION_PRICES[elevation].name}. Extras: Balustrades: ${hasBalustrades ? balustradeLength + 'm' : 'No'}, Pergola: ${hasPergola ? 'Yes' : 'No'}.`,
+          details: configDetails,
           estimatedCost: totalCost
         });
+      }
+
+      const res = await sendEmailForm({
+        'Client Name': name,
+        'Email Address': email,
+        'Phone Number': phone,
+        'City / Location': city,
+        'Estimated Cost Total': `R ${totalCost.toLocaleString()}`,
+        'Area Dimensions': `${length}m x ${width}m (${area} m²)`,
+        'Material Chosen': MATERIAL_PRICES[material].name,
+        'Subframe Chosen': SUBFRAME_PRICES[subframe].name,
+        'Elevation': ELEVATION_PRICES[elevation].name,
+        'Balustrades': hasBalustrades ? `${balustradeLength} meters` : 'None',
+        'Pergola Included': hasPergola ? 'Yes' : 'No'
+      }, `New Calculator Cost Estimate: ${name} (R ${totalCost.toLocaleString()})`);
+
+      setIsSubmitting(false);
+      if (!res.success) {
+        setSubmitError(res.error || 'Notice: Email relay delayed.');
       }
       setSubmitted(true);
     }
@@ -217,8 +244,21 @@ export default function Calculator({ setView, setQuoteData }) {
               {submitted ? (
                 <div style={{ textAlign: 'center', padding: '24px 0' }}>
                   <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.3)', display: 'flex', alignItems: 'center', margin: '0 auto 16px', justifyContent: 'center', color: '#22c55e', fontSize: '2rem' }}>✓</div>
-                  <h4 style={{ fontSize: '1.5rem', color: '#fff', marginBottom: '10px' }}>Request Received!</h4>
-                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.5 }}>Thank you, {name}. Our Johannesburg wood installation team will review your {area}m² {MATERIAL_PRICES[material].name} project configuration and email you a formal proposal to swdandflooringsa@gmail.com or call you within 24 hours.</p>
+                  <h4 style={{ fontSize: '1.5rem', color: '#fff', marginBottom: '10px' }}>Quote Request Emailed!</h4>
+                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6 }}>
+                    Thank you, <strong>{name}</strong>. Your {area}m² {MATERIAL_PRICES[material].name} configuration (est. R {totalCost.toLocaleString()}) has been sent directly to our estimation team at <strong style={{ color: '#fff' }}>swdandflooringsa@gmail.com</strong>.
+                  </p>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', marginTop: '8px' }}>
+                    We will review your specifications and contact you at <strong>{phone}</strong> or <strong>{email}</strong> within 24 hours.
+                  </p>
+                  {submitError && (
+                    <div style={{ background: 'rgba(234,179,8,0.1)', border: '1px solid rgba(234,179,8,0.3)', borderRadius: '8px', padding: '10px 14px', marginTop: '14px', fontSize: '0.82rem', color: '#fde047', textAlign: 'left' }}>
+                      💡 Quick tip: You can also chat directly on WhatsApp:{' '}
+                      <a href={`https://wa.me/27639148319?text=Hi%20SWDF%20SA,%20I%20used%20the%20cost%20calculator%20for%20a%20${area}m2%20deck`} target="_blank" rel="noopener noreferrer" style={{ color: '#22c55e', fontWeight: 600, textDecoration: 'underline' }}>
+                        +27 63 914 8319
+                      </a>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <form onSubmit={handleSubmitQuote}>
@@ -233,8 +273,13 @@ export default function Calculator({ setView, setQuoteData }) {
                       <option value="Cape Town">Cape Town / Winelands</option>
                       <option value="Durban">Durban / Umhlanga</option>
                     </select>
-                    <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '8px' }}>
-                      Submit Configurations for Quote
+                    <button 
+                      type="submit" 
+                      disabled={isSubmitting}
+                      className="btn btn-primary" 
+                      style={{ width: '100%', marginTop: '8px', opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? 'not-allowed' : 'pointer' }}
+                    >
+                      {isSubmitting ? 'Sending to swdandflooringsa@gmail.com...' : 'Submit Configurations for Quote'}
                     </button>
                   </div>
                 </form>

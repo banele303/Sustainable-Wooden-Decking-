@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
+import { sendEmailForm } from '../services/emailService';
 
 export default function Footer({ setView, setServiceId }) {
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = async (e) => {
     e.preventDefault();
     if (email) {
+      const subscriberEmail = email;
       setIsSubscribed(true);
       setEmail('');
+      await sendEmailForm({
+        'Subscriber Email': subscriberEmail,
+        'Type': 'Newsletter & Seasonal Journal Subscription'
+      }, `New Newsletter Subscription: ${subscriberEmail}`);
     }
   };
 

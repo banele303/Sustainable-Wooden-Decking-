@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { sendEmailForm } from '../services/emailService';
 
 const SERVICES_LIST = [
   { id: 'swimming-pool', name: 'Swimming Pool Construction' },
@@ -25,6 +26,8 @@ export default function QuoteRequest({ quoteData, setQuoteData }) {
     agree: false
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   // Sync calculator data if passed
   useEffect(() => {
@@ -67,13 +70,32 @@ export default function QuoteRequest({ quoteData, setQuoteData }) {
     if (step > 1) setStep(step - 1);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.fullname || !formData.email || !formData.phone || !formData.agree) {
       alert('Please fill in all contact details and agree to terms.');
       return;
     }
-    console.log('Quote requested:', formData);
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    const res = await sendEmailForm({
+      'Client Full Name': formData.fullname,
+      'Email Address': formData.email,
+      'Phone Number': formData.phone,
+      'City / Region': formData.city,
+      'Service Required': formData.service,
+      'Approx Dimensions': formData.dimensions || 'Not specified',
+      'Material Selected': formData.materialPreference,
+      'Site Access Level': formData.siteAccess,
+      'Preferred Inspection Date': formData.siteVisitDate || 'Flexible / To coordinate',
+      'Additional Project Scope': formData.additionalDetails || 'None'
+    }, `New Consultation & Quote Request: ${formData.fullname} (${formData.city})`);
+
+    setIsSubmitting(false);
+    if (!res.success) {
+      setSubmitError(res.error || 'Notice: Email relay delayed.');
+    }
     setIsSubmitted(true);
   };
 
@@ -93,6 +115,7 @@ export default function QuoteRequest({ quoteData, setQuoteData }) {
       agree: false
     });
     if (setQuoteData) setQuoteData(null);
+    setSubmitError('');
     setIsSubmitted(false);
   };
 
@@ -176,10 +199,21 @@ export default function QuoteRequest({ quoteData, setQuoteData }) {
           {isSubmitted ? (
             <div className="booking-success active" style={{ display: 'block', padding: '40px', textAlign: 'center' }}>
               <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.3)', display: 'flex', alignItems: 'center', justifySelf: 'center', justifyContent: 'center', color: '#22c55e', fontSize: '2rem', marginBottom: '24px' }}>✓</div>
-              <h3>Consultation Request Submitted</h3>
-              <p style={{ color: 'var(--color-text-sec)', margin: '16px 0 24px 0', lineHeight: 1.6 }}>
-                Thank you for choosing Sustainable Wooden Decking and Flooring SA. Your request has been logged. A project manager will contact you at {formData.phone} or {formData.email} to confirm details and coordinate a site inspection.
+              <h3>Consultation Request Sent Successfully</h3>
+              <p style={{ color: 'var(--text-secondary)', margin: '16px 0 12px 0', lineHeight: 1.6 }}>
+                Thank you for choosing Sustainable Wooden Decking and Flooring SA. Your specifications have been emailed directly to our project office at <strong style={{ color: '#fff' }}>swdandflooringsa@gmail.com</strong>.
               </p>
+              <p style={{ color: 'var(--text-muted)', margin: '0 0 20px 0', lineHeight: 1.6 }}>
+                A project manager will review your submission and contact you at <strong>{formData.phone}</strong> or <strong>{formData.email}</strong> to coordinate your site inspection.
+              </p>
+              {submitError && (
+                <div style={{ background: 'rgba(234,179,8,0.1)', border: '1px solid rgba(234,179,8,0.3)', borderRadius: '8px', padding: '12px 16px', marginBottom: '20px', fontSize: '0.85rem', color: '#fde047', textAlign: 'left' }}>
+                  💡 Direct connection tip: You can also message us directly on WhatsApp:{' '}
+                  <a href={`https://wa.me/27639148319?text=Hi%20SWDF%20SA,%20I%20requested%20a%20quote%20for%20${encodeURIComponent(formData.service)}`} target="_blank" rel="noopener noreferrer" style={{ color: '#22c55e', fontWeight: 600, textDecoration: 'underline' }}>
+                    +27 63 914 8319
+                  </a>
+                </div>
+              )}
               <button onClick={handleReset} className="btn btn-primary" style={{ cursor: 'pointer' }}>
                 Submit Another Request
               </button>
@@ -389,10 +423,11 @@ export default function QuoteRequest({ quoteData, setQuoteData }) {
                   ) : (
                     <button 
                       type="submit" 
+                      disabled={isSubmitting}
                       className="btn btn-primary"
-                      style={{ cursor: 'pointer', padding: '10px 28px', fontSize: '0.9rem' }}
+                      style={{ cursor: isSubmitting ? 'not-allowed' : 'pointer', padding: '10px 28px', fontSize: '0.9rem', opacity: isSubmitting ? 0.7 : 1 }}
                     >
-                      Submit Consultation Request
+                      {isSubmitting ? 'Sending to swdandflooringsa@gmail.com...' : 'Submit Consultation Request'}
                     </button>
                   )}
                 </div>
