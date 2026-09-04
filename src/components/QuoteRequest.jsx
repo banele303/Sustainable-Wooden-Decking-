@@ -28,6 +28,7 @@ export default function QuoteRequest({ quoteData, setQuoteData }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [needsActivation, setNeedsActivation] = useState(false);
 
   // Sync calculator data if passed
   useEffect(() => {
@@ -96,6 +97,9 @@ export default function QuoteRequest({ quoteData, setQuoteData }) {
     if (!res.success) {
       setSubmitError(res.error || 'Notice: Email relay delayed.');
     }
+    if (res.needsActivation) {
+      setNeedsActivation(true);
+    }
     setIsSubmitted(true);
   };
 
@@ -116,6 +120,7 @@ export default function QuoteRequest({ quoteData, setQuoteData }) {
     });
     if (setQuoteData) setQuoteData(null);
     setSubmitError('');
+    setNeedsActivation(false);
     setIsSubmitted(false);
   };
 
@@ -206,6 +211,11 @@ export default function QuoteRequest({ quoteData, setQuoteData }) {
               <p style={{ color: 'var(--text-muted)', margin: '0 0 20px 0', lineHeight: 1.6 }}>
                 A project manager will review your submission and contact you at <strong>{formData.phone}</strong> or <strong>{formData.email}</strong> to coordinate your site inspection.
               </p>
+              {needsActivation && (
+                <div style={{ background: 'rgba(59,130,246,0.1)', border: '1px solid rgba(59,130,246,0.3)', borderRadius: '8px', padding: '12px 16px', marginBottom: '20px', fontSize: '0.85rem', color: '#93c5fd', textAlign: 'left' }}>
+                  ℹ️ <strong>First-Time Activation Notice:</strong> FormSubmit has sent a confirmation email to <strong>swdandflooringsa@gmail.com</strong>. Please check your inbox and click <em>"Activate Form"</em> once to enable instant delivery.
+                </div>
+              )}
               {submitError && (
                 <div style={{ background: 'rgba(234,179,8,0.1)', border: '1px solid rgba(234,179,8,0.3)', borderRadius: '8px', padding: '12px 16px', marginBottom: '20px', fontSize: '0.85rem', color: '#fde047', textAlign: 'left' }}>
                   💡 Direct connection tip: You can also message us directly on WhatsApp:{' '}

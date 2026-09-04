@@ -34,6 +34,7 @@ export default function Calculator({ setView, setQuoteData }) {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [needsActivation, setNeedsActivation] = useState(false);
 
   // Client Details Form
   const [name, setName] = useState('');
@@ -92,6 +93,9 @@ export default function Calculator({ setView, setQuoteData }) {
       setIsSubmitting(false);
       if (!res.success) {
         setSubmitError(res.error || 'Notice: Email relay delayed.');
+      }
+      if (res.needsActivation) {
+        setNeedsActivation(true);
       }
       setSubmitted(true);
     }
@@ -251,6 +255,11 @@ export default function Calculator({ setView, setQuoteData }) {
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', marginTop: '8px' }}>
                     We will review your specifications and contact you at <strong>{phone}</strong> or <strong>{email}</strong> within 24 hours.
                   </p>
+                  {needsActivation && (
+                    <div style={{ background: 'rgba(59,130,246,0.1)', border: '1px solid rgba(59,130,246,0.3)', borderRadius: '8px', padding: '10px 14px', marginTop: '14px', fontSize: '0.82rem', color: '#93c5fd', textAlign: 'left' }}>
+                      ℹ️ <strong>First-Time Activation Notice:</strong> FormSubmit has sent a confirmation email to <strong>swdandflooringsa@gmail.com</strong>. Please check your inbox and click <em>"Activate Form"</em> once to enable instant delivery.
+                    </div>
+                  )}
                   {submitError && (
                     <div style={{ background: 'rgba(234,179,8,0.1)', border: '1px solid rgba(234,179,8,0.3)', borderRadius: '8px', padding: '10px 14px', marginTop: '14px', fontSize: '0.82rem', color: '#fde047', textAlign: 'left' }}>
                       💡 Quick tip: You can also chat directly on WhatsApp:{' '}

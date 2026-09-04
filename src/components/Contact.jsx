@@ -12,6 +12,7 @@ export default function Contact({ setView }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [needsActivation, setNeedsActivation] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,6 +35,9 @@ export default function Contact({ setView }) {
     if (!res.success) {
       setSubmitError(res.error || 'Notice: Email relay delayed.');
     }
+    if (res.needsActivation) {
+      setNeedsActivation(true);
+    }
     setIsSubmitted(true);
   };
 
@@ -46,6 +50,7 @@ export default function Contact({ setView }) {
       message: ''
     });
     setSubmitError('');
+    setNeedsActivation(false);
     setIsSubmitted(false);
   };
 
@@ -352,6 +357,11 @@ export default function Contact({ setView }) {
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: '24px' }}>
                   A project manager will review your request and contact you shortly at <strong>{formData.phone}</strong> or <strong>{formData.email}</strong>.
                 </p>
+                {needsActivation && (
+                  <div style={{ background: 'rgba(59,130,246,0.1)', border: '1px solid rgba(59,130,246,0.3)', borderRadius: '8px', padding: '12px 16px', marginBottom: '20px', fontSize: '0.85rem', color: '#93c5fd', textAlign: 'left' }}>
+                    ℹ️ <strong>First-Time Activation Notice:</strong> FormSubmit has sent a confirmation email to <strong>swdandflooringsa@gmail.com</strong>. Please check your inbox and click <em>"Activate Form"</em> once to enable instant delivery.
+                  </div>
+                )}
                 {submitError && (
                   <div style={{ background: 'rgba(234,179,8,0.1)', border: '1px solid rgba(234,179,8,0.3)', borderRadius: '8px', padding: '12px 16px', marginBottom: '20px', fontSize: '0.85rem', color: '#fde047' }}>
                     💡 Direct connection tip: You can also chat with us immediately on WhatsApp:{' '}
